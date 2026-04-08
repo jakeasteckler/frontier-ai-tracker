@@ -1058,8 +1058,26 @@ function showPopup(tag, countryData) {
   document.body.appendChild(popup);
 
   popup.style.position = 'fixed';
-  popup.style.left = (rect.left + window.scrollX) + 'px';
-  popup.style.top = (rect.bottom + window.scrollY + 5) + 'px';
+  // getBoundingClientRect returns viewport-relative coords; fixed positioning is also viewport-relative
+  let left = rect.left;
+  let top = rect.bottom + 5;
+
+  // Keep popup on-screen horizontally
+  const popupWidth = popup.offsetWidth || 320;
+  if (left + popupWidth > window.innerWidth - 10) {
+    left = window.innerWidth - popupWidth - 10;
+  }
+  if (left < 10) left = 10;
+
+  // If popup would go below viewport, show it above the tag instead
+  const popupHeight = popup.offsetHeight || 100;
+  if (top + popupHeight > window.innerHeight - 10) {
+    top = rect.top - popupHeight - 5;
+  }
+  if (top < 10) top = 10;
+
+  popup.style.left = left + 'px';
+  popup.style.top = top + 'px';
 
   activePopup = popup;
 }
