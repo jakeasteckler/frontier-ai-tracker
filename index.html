@@ -170,6 +170,7 @@
   .us-col { border-left: 2px solid rgba(0,0,0,0.08); }
   .cn-col { border-left: 2px solid rgba(0,0,0,0.08); }
   .def-col { border-left: 2px solid rgba(0,0,0,0.08); }
+  .dom-col { border-left: 2px solid rgba(0,0,0,0.08); }
 
   .deal-popup {
     position: absolute;
@@ -221,7 +222,7 @@
     <p class="subtitle">Mapping publicly documented partnerships between AI firms and countries outside the U.S. and China.</p>
     <div class="header-meta">
       <span class="header-meta-item"><span class="dot" style="background:var(--yes)"></span> Last updated April 2026</span>
-      <span class="header-meta-item"><span class="dot" style="background:#333"></span> 7 US/Western frontier labs tracked</span>
+      <span class="header-meta-item"><span class="dot" style="background:#333"></span> 5 US/Western frontier labs tracked</span>
       <span class="header-meta-item"><span class="dot" style="background:var(--tag-huawei)"></span> 9 Chinese frontier labs tracked</span>
       <span class="header-meta-item"><span class="dot" style="background:var(--tag-defense)"></span> 13 Defense AI companies + domestic programs tracked</span>
       <span class="header-meta-item"><span class="dot" style="background:var(--text-muted)"></span> Sources: SIPRI, IISS, CSIS, official announcements</span>
@@ -236,7 +237,7 @@
   <div class="stat"><span class="stat-num" id="statUS">0</span><span class="stat-label">Countries with US Frontier Lab Deals</span></div>
   <div class="stat"><span class="stat-num" id="statCN">0</span><span class="stat-label">Countries with Chinese Frontier Lab Deals</span></div>
   <div class="stat-divider"></div>
-  <div class="stat"><span class="stat-num" id="statDefAI">0</span><span class="stat-label">Defense Tech AI Deals with Foreign Governments</span></div>
+  <div class="stat"><span class="stat-num" id="statDefAI">0</span><span class="stat-label">Countries Investing in Military AI</span></div>
   <div class="stat-divider"></div>
   <div class="stat"><span class="stat-num" id="statNone">0</span><span class="stat-label">No Known Deals</span></div>
 </div>
@@ -246,7 +247,7 @@
   <p><strong>"Government Deal" (Frontier Lab)</strong> = a formally announced MOU, contract, investment partnership, or technology deployment between a frontier AI lab and a national government entity. Commercial availability alone does NOT count.</p>
   <p><strong>"Military Deal" (Frontier Lab)</strong> = a frontier AI lab's technology is explicitly deployed to, contracted by, or formally partnered with a nation's military, defense ministry, or intelligence services.</p>
   <p><strong>"Defense AI Deal"</strong> = a confirmed contract between a defense technology company and a foreign military for AI-specific capabilities &mdash; autonomous systems, AI-powered targeting, AI-enabled electronic warfare, AI surveillance, etc. General defense contracts without an explicit AI component are excluded.</p>
-  <p><strong>US/Western frontier AI labs:</strong> OpenAI, Anthropic, Google DeepMind, Microsoft AI, Mistral, xAI, Amazon.</p>
+  <p><strong>US/Western frontier AI labs:</strong> OpenAI, Anthropic, Google DeepMind, Mistral, xAI.</p>
   <p><strong>Chinese frontier AI labs:</strong> Huawei (Pangu/Safe City AI), SenseTime, Alibaba (Qwen), Zhipu AI, Baidu (ERNIE), DeepSeek, ByteDance (Doubao), Tencent (Hunyuan), iFlytek.</p>
   <p><strong>Defense AI companies:</strong> Palantir, Helsing, Anduril, Shield AI, Baykar, Thales (AI-specific), Leonardo (AI-specific), EDGE Group, Elbit Systems, Rafael, Saab (AI-specific), Northrop Grumman (AI-specific), BAE Systems (AI-specific).</p>
   <p><strong>"Domestic"</strong> = the country has a publicly documented indigenous military AI program, research center, or domestically developed autonomous weapons system. These are tagged separately from external defense AI partnerships.</p>
@@ -265,26 +266,15 @@
     <option value="def-ai">Has Defense AI Deal</option>
     <option value="no-deal">No Known Deals</option>
   </select>
-  <select id="govFilter">
-    <option value="all">All Gov't Deals</option>
-    <option value="yes">Has Gov't Deal</option>
-    <option value="no">No Gov't Deal</option>
-  </select>
-  <select id="milFilter">
-    <option value="all">All Military Deals</option>
-    <option value="yes">Has Frontier Lab Military Deal</option>
-    <option value="def">Has Defense AI Deal</option>
-  </select>
+
   <select id="labFilter">
     <option value="all">All AI Labs</option>
     <optgroup label="US / Western Frontier">
       <option value="openai">OpenAI</option>
       <option value="anthropic">Anthropic</option>
       <option value="deepmind">Google DeepMind</option>
-      <option value="microsoft">Microsoft</option>
       <option value="mistral">Mistral</option>
       <option value="xai">xAI</option>
-      <option value="amazon">Amazon</option>
     </optgroup>
     <optgroup label="Chinese Frontier">
       <option value="huawei">Huawei</option>
@@ -325,8 +315,6 @@
 </div>
 
 <div class="legend">
-  <div class="legend-item"><span class="legend-dot" style="background:var(--yes)"></span> Confirmed Gov't Deal</div>
-  <div class="legend-item"><span class="legend-dot" style="background:var(--mil-yes)"></span> Confirmed Frontier Lab Military Deal</div>
   <div class="legend-item"><span class="legend-dot" style="background:#333"></span> US/Western Frontier Lab</div>
   <div class="legend-item"><span class="legend-dot" style="background:var(--tag-huawei)"></span> Chinese Frontier Lab</div>
   <div class="legend-item"><span class="legend-dot" style="background:var(--tag-defense)"></span> Defense AI Company</div>
@@ -341,14 +329,12 @@
 <thead>
 <tr>
   <th data-sort="country">Country <span class="sort-arrow">&#9660;</span></th>
-  <th data-sort="region">Region</th>
   <th data-sort="budget">Def. Budget</th>
   <th data-sort="troops">Active Troops</th>
-  <th data-sort="gov">Gov't Deal</th>
-  <th data-sort="mil">Military Deal</th>
   <th class="us-col">US/Western Frontier Lab Partners</th>
   <th class="cn-col">Chinese Frontier Lab Partners</th>
-  <th class="def-col">Defense AI Partners</th>
+  <th class="def-col">Foreign Military AI Partners</th>
+  <th class="dom-col">Domestic Military AI</th>
 </tr>
 </thead>
 <tbody id="tableBody">
@@ -369,6 +355,7 @@ const DATA = [
     gov: true, mil: false,
     usLabs: ["openai","anthropic","deepmind"], cnLabs: [],
     defAI: ["helsing","anduril","palantir","thales","domestic"],
+    domesticAI: "ASGARD",
     companyDetails: {
       openai: "Strategic partnership (MOU); 2,500 civil servants on ChatGPT Enterprise; \"Stargate UK\" — up to 50,000 GPUs. <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-and-uk-government-partnership/\" target=\"_blank\">OpenAI</a>] [<a href=\"https://www.gov.uk/government/news/openai-to-expand-uk-office-and-work-with-government-departments-to-turbocharge-the-uks-ai-infrastructure-and-transform-public-services\" target=\"_blank\">GOV.UK</a>]</span>",
       anthropic: "MOU (Feb 2025) for AI-powered GOV.UK assistant. <span class=\"sources\">[<a href=\"https://www.anthropic.com/news/gov-UK-partnership\" target=\"_blank\">Anthropic</a>]</span>",
@@ -398,6 +385,7 @@ const DATA = [
     gov: true, mil: false,
     usLabs: ["openai","anthropic","deepmind"], cnLabs: [],
     defAI: ["edge","domestic"],
+    domesticAI: "DAIPA",
     companyDetails: {
       openai: "\"OpenAI for India\" initiative; Tata Group partnership for AI data centers; ~500K education licenses. <span class=\"sources\">[<a href=\"https://openai.com/index/openai-for-india/\" target=\"_blank\">OpenAI</a>]</span>",
       anthropic: "Bengaluru office; Ministry of Statistics partnership. <span class=\"sources\">[<a href=\"https://www.anthropic.com/news/bengaluru-office-partnerships-across-india\" target=\"_blank\">Anthropic</a>]</span>",
@@ -412,6 +400,7 @@ const DATA = [
     gov: true, mil: false,
     usLabs: ["openai","anthropic"], cnLabs: [],
     defAI: ["anduril","domestic"],
+    domesticAI: "DISTI",
     companyDetails: {
       openai: "Collaboration with Japan Digital Agency (Oct 2025); \"Gennai\" AI tool for gov't employees. <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/strategic-collaboration-with-japan-digital-agency/\" target=\"_blank\">OpenAI</a>]</span>",
       anthropic: "MOU with Japan AI Safety Institute; Tokyo office. <span class=\"sources\">[<a href=\"https://www.anthropic.com/news/opening-our-tokyo-office\" target=\"_blank\">Anthropic</a>]</span>",
@@ -424,10 +413,14 @@ const DATA = [
     budget: "$48B", budgetNum: 48, troops: "500,000", troopsNum: 500000,
     gov: true, mil: false,
     usLabs: ["openai","anthropic"], cnLabs: [],
-    defAI: ["domestic"],
+    defAI: ["anduril","shieldai","palantir","domestic"],
+    domesticAI: "Defense AX",
     companyDetails: {
       openai: "MOU with Ministry of Science & ICT; \"Stargate Korea\" with Samsung & SK. <span class=\"sources\">[<a href=\"https://openai.com/index/south-korea-economic-blueprint/\" target=\"_blank\">OpenAI</a>]</span>",
       anthropic: "SK Telecom invested $100M; joint multilingual LLM development. <span class=\"sources\">[<a href=\"https://www.anthropic.com/news/skt-partnership-announcement\" target=\"_blank\">Anthropic</a>]</span>",
+      anduril: "Technical agreement with Korean Air for co-developed UAVs; licensed production and Asia-Pacific export rights; Arsenal South Korea production hub planned. <span class=\"sources\">[<a href=\"https://breakingdefense.com/2025/08/anduril-increases-indo-pacific-footprint-with-taiwan-south-korea-partnerships\" target=\"_blank\">Breaking Defense</a>]</span>",
+      shieldai: "Korea Aerospace Industries using Hivemind Enterprise for aircraft autonomy (March 2025). <span class=\"sources\">[<a href=\"https://shield.ai/\" target=\"_blank\">Shield AI</a>]</span>",
+      palantir: "Strategic partnership with LG CNS (March 2026) for AI transformation across LG Group industries. <span class=\"sources\">[<a href=\"https://www.palantir.com/newsroom/\" target=\"_blank\">Palantir</a>]</span>",
       domestic: "Samsung SGR-A1 autonomous sentry robots deployed along DMZ with AI pattern recognition; National Defense AI Center established under Defense AX initiative for autonomous systems. <span class=\"sources\">[<a href=\"https://militaryai.ai/south-korea-defense-ax/\" target=\"_blank\">MilitaryAI</a>]</span>"
     }
   },
@@ -435,11 +428,11 @@ const DATA = [
     country: "Germany", flag: "🇩🇪", region: "europe",
     budget: "$88B", budgetNum: 88, troops: "183,000", troopsNum: 183000,
     gov: true, mil: false,
-    usLabs: ["openai","microsoft"], cnLabs: [],
+    usLabs: ["openai"], cnLabs: [],
     defAI: ["helsing","anduril","domestic"],
+    domesticAI: "URANOS KI",
     companyDetails: {
       openai: "\"Sovereign OpenAI for Germany\" on SAP's Delos Cloud (Microsoft Azure); for gov't administrations. Data stays in Germany. <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-for-germany/\" target=\"_blank\">OpenAI</a>]</span>",
-      microsoft: "Government partnership for AI services. <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-for-germany/\" target=\"_blank\">OpenAI</a>]</span>",
       helsing: "€258M Eurofighter EW upgrade with Saab; AI \"Cirra\" software for electronic warfare on Typhoon EK variant. <span class=\"sources\">[<a href=\"https://helsing.ai/newsroom/\" target=\"_blank\">Helsing</a>]</span>",
       anduril: "Strategic partnership with Rheinmetall (June 2025) for Barracuda/Fury autonomous drones for European market. <span class=\"sources\">[<a href=\"https://www.anduril.com/news/\" target=\"_blank\">Anduril</a>]</span>",
       domestic: "URANOS KI classified program providing real-time 'Glass Battlefield' AI reconnaissance; integrates drone, radar, satellite data; deploying to Panzerbrigade 45 in Lithuania by mid-2027. <span class=\"sources\">[<a href=\"https://xpert.digital/en/artificial-intelligence-in-military/\" target=\"_blank\">Xpert</a>]</span>"
@@ -449,14 +442,15 @@ const DATA = [
     country: "Saudi Arabia", flag: "🇸🇦", region: "mena",
     budget: "$76B", budgetNum: 76, troops: "227,000", troopsNum: 227000,
     gov: true, mil: false,
-    usLabs: ["openai","deepmind","microsoft"], cnLabs: ["sensetime","huawei"],
+    usLabs: ["openai","deepmind"], cnLabs: ["sensetime","huawei","tencent","zhipu"],
     defAI: ["baykar"],
     companyDetails: {
       openai: "GPT models on sovereign Saudi data centers via HUMAIN-Groq. <span class=\"sources\">[<a href=\"https://www.arabnews.com/node/2610991/business-economy\" target=\"_blank\">Arab News</a>]</span>",
       deepmind: "$10B joint AI hub investment near Dammam. <span class=\"sources\">[<a href=\"https://www.googlecloudpresscorner.com/2025-05-13-Google-Cloud-and-PIF-Advance-AI-Hub-in-Saudi-Arabia\" target=\"_blank\">Google Cloud</a>]</span>",
-      microsoft: "Joint investment through PIF partnerships. <span class=\"sources\">[<a href=\"https://www.arabnews.com/node/2610991/business-economy\" target=\"_blank\">Arab News</a>]</span>",
       sensetime: "$207M JV with Saudi Company for AI (SCAI); NEOM AI integration. <span class=\"sources\">[<a href=\"https://www.biometricupdate.com/202402/\" target=\"_blank\">Biometric Update</a>]</span>",
       huawei: "$400M investment; AI cloud infrastructure serving gov't ministries. <span class=\"sources\">[<a href=\"https://www.huaweicloud.com/intl/en-us/\" target=\"_blank\">Huawei Cloud</a>]</span>",
+      tencent: "$150M+ investment (Feb 2025); availability zone with 1,000+ customers including Saudi government agencies and financial institutions. <span class=\"sources\">[<a href=\"https://www.prnewswire.com/apac/news-releases/tencent-cloud-enhances-local-presence-in-southeast-asia-302616501.html\" target=\"_blank\">PRNewswire</a>]</span>",
+      zhipu: "Sovereign AI infrastructure and LLM deployment for government organizations. <span class=\"sources\">[<a href=\"https://rockrose.xyz/the-rise-of-zhipu-ai/\" target=\"_blank\">Rockrose</a>]</span>",
       baykar: "$3B contract with Royal Saudi Air Force & Naval Forces for Akinci AI drones; joint production and tech transfer. <span class=\"sources\">[<a href=\"https://www.airforce-technology.com/news/baykar-secures-record-breaking-deal-with-saudi-arabia/\" target=\"_blank\">AFT</a>]</span>"
     }
   },
@@ -464,12 +458,11 @@ const DATA = [
     country: "Israel", flag: "🇮🇱", region: "mena",
     budget: "$28B", budgetNum: 28, troops: "170,000", troopsNum: 170000,
     gov: true, mil: true,
-    usLabs: ["deepmind","amazon","microsoft"], cnLabs: [],
+    usLabs: ["deepmind"], cnLabs: [],
     defAI: ["palantir","elbit","rafael","domestic"],
+    domesticAI: "Unit 8200",
     companyDetails: {
-      deepmind: "$1.2B \"Project Nimbus\" contract providing cloud + AI/ML tools — facial detection, object tracking — directly to Israeli gov't and military. <span class=\"sources\">[<a href=\"https://theintercept.com/2025/05/12/google-nimbus-israel-military-ai-human-rights/\" target=\"_blank\">The Intercept</a>] [<a href=\"https://www.aljazeera.com/news/2024/4/23/what-is-project-nimbus-and-why-are-google-workers-protesting-israel-deal\" target=\"_blank\">Al Jazeera</a>]</span>",
-      amazon: "$1.2B \"Project Nimbus\" contract providing cloud + AI/ML tools — facial detection, object tracking — directly to Israeli gov't and military. <span class=\"sources\">[<a href=\"https://theintercept.com/2025/05/12/google-nimbus-israel-military-ai-human-rights/\" target=\"_blank\">The Intercept</a>] [<a href=\"https://www.aljazeera.com/news/2024/4/23/what-is-project-nimbus-and-why-are-google-workers-protesting-israel-deal\" target=\"_blank\">Al Jazeera</a>]</span>",
-      microsoft: "Israeli military accesses OpenAI models via Azure. <span class=\"sources\">[<a href=\"https://fortune.com/2025/02/19/israel-microsoft-openai-raises-questions-powerful-tech/\" target=\"_blank\">Fortune</a>]</span>",
+      deepmind: "$1.2B \"Project Nimbus\" contract (Google + Amazon Web Services) providing cloud + AI/ML tools — facial detection, object tracking — directly to Israeli gov't and military. <span class=\"sources\">[<a href=\"https://theintercept.com/2025/05/12/google-nimbus-israel-military-ai-human-rights/\" target=\"_blank\">The Intercept</a>] [<a href=\"https://www.aljazeera.com/news/2024/4/23/what-is-project-nimbus-and-why-are-google-workers-protesting-israel-deal\" target=\"_blank\">Al Jazeera</a>]</span>",
       palantir: "IDF uses Palantir's AI-powered targeting and intelligence platforms; deployed for battlefield data integration in Gaza operations. <span class=\"sources\">[<a href=\"https://theintercept.com/2024/12/20/palantir-israel-idf-military-ai/\" target=\"_blank\">The Intercept</a>]</span>",
       elbit: "AI-enhanced electro-optical sights, digital warfare systems with AI decision-making tools. Largest Israeli defense AI exporter. <span class=\"sources\">[<a href=\"https://www.elbitsystems.com/\" target=\"_blank\">Elbit</a>]</span>",
       rafael: "AI-powered SPICE 2000 with Automatic Target Acquisition; \"Rocks\" missile with AI targeting algorithm. <span class=\"sources\">[<a href=\"https://militaryembedded.com/ai/\" target=\"_blank\">MilEmbed</a>]</span>",
@@ -482,6 +475,7 @@ const DATA = [
     gov: true, mil: false,
     usLabs: ["openai","anthropic"], cnLabs: [],
     defAI: ["anduril","domestic"],
+    domesticAI: "Ghost Bat",
     companyDetails: {
       openai: "\"OpenAI for Australia\"; $7B data center deal with NEXTDC. <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-for-australia/\" target=\"_blank\">OpenAI</a>]</span>",
       anthropic: "Sydney office; sovereign data residency; gov't enterprise customers. <span class=\"sources\">[<a href=\"https://www.anthropic.com/news/sydney-fourth-office-asia-pacific\" target=\"_blank\">Anthropic</a>]</span>",
@@ -493,12 +487,12 @@ const DATA = [
     country: "UAE", flag: "🇦🇪", region: "mena",
     budget: "$20B", budgetNum: 20, troops: "63,000", troopsNum: 63000,
     gov: true, mil: false,
-    usLabs: ["openai","microsoft"], cnLabs: ["huawei"],
+    usLabs: ["openai"], cnLabs: ["huawei","zhipu"],
     defAI: ["anduril","elbit","edge","thales"],
     companyDetails: {
       openai: "\"Stargate UAE\": 1GW AI computing cluster in Abu Dhabi; G42, Oracle, NVIDIA. <span class=\"sources\">[<a href=\"https://openai.com/index/introducing-stargate-uae/\" target=\"_blank\">OpenAI</a>]</span>",
-      microsoft: "$15.2B investment (2023–2029). <span class=\"sources\">[<a href=\"https://blogs.microsoft.com/on-the-issues/\" target=\"_blank\">Microsoft</a>]</span>",
       huawei: "Historic ties; G42 divested Chinese holdings under US pressure (2024) but legacy Huawei AI infrastructure remains. <span class=\"sources\">[<a href=\"https://www.fdd.org/\" target=\"_blank\">FDD</a>]</span>",
+      zhipu: "Sovereign AI infrastructure solutions for government entities. <span class=\"sources\">[<a href=\"https://rockrose.xyz/the-rise-of-zhipu-ai/\" target=\"_blank\">Rockrose</a>]</span>",
       anduril: "$200M EDGE-Anduril JV; 50 Omen autonomous air vehicles ordered. <span class=\"sources\">[<a href=\"https://www.anduril.com/news/\" target=\"_blank\">Anduril</a>]</span>",
       elbit: "$2.3B contract (Dec 2025) for AI-enabled long-range precision strike and uncrewed combat systems. <span class=\"sources\">[<a href=\"https://www.globaldefensecorp.com/\" target=\"_blank\">GDC</a>]</span>",
       edge: "Strategic defense AI partnerships. <span class=\"sources\">[<a href=\"https://edgegroup.ae/\" target=\"_blank\">EDGE</a>]</span>",
@@ -509,11 +503,10 @@ const DATA = [
     country: "Ukraine", flag: "🇺🇦", region: "europe",
     budget: "$65B", budgetNum: 65, troops: "900,000", troopsNum: 900000,
     gov: true, mil: true,
-    usLabs: ["microsoft"], cnLabs: [],
+    usLabs: [], cnLabs: [],
     defAI: ["palantir","helsing","shieldai"],
     companyDetails: {
       palantir: "AI for battlefield targeting, ISR, logistics. First frontier AI in active combat. <span class=\"sources\">[<a href=\"https://time.com/6691662/ai-ukraine-war-palantir/\" target=\"_blank\">TIME</a>]</span>",
-      microsoft: "Cybersecurity and threat intelligence since 2022. <span class=\"sources\">[<a href=\"https://blogs.microsoft.com/on-the-issues/\" target=\"_blank\">Microsoft</a>]</span>",
       helsing: "6,000+ HX-2 AI strike drones ordered; 1,950+ HF-1 drones delivered; Resilience Factory producing 1,000+/month. <span class=\"sources\">[<a href=\"https://helsing.ai/newsroom/\" target=\"_blank\">Helsing</a>]</span>",
       shieldai: "V-BAT autonomous drones deployed with 130+ combat sorties; verified partner of Ukraine MOD. <span class=\"sources\">[<a href=\"https://fortune.com/2025/12/21/shield-ai-ukraine-defense-tech-gary-steele/\" target=\"_blank\">Fortune</a>]</span>"
     }
@@ -522,10 +515,10 @@ const DATA = [
     country: "Brazil", flag: "🇧🇷", region: "americas",
     budget: "$22B", budgetNum: 22, troops: "367,000", troopsNum: 367000,
     gov: true, mil: false,
-    usLabs: ["microsoft","openai"], cnLabs: ["alibaba"],
+    usLabs: ["openai"], cnLabs: ["alibaba"],
     defAI: ["edge","domestic"],
+    domesticAI: "Cyber Defense AI",
     companyDetails: {
-      microsoft: "$2.7B cloud/AI investment (Sept 2024). <span class=\"sources\">[<a href=\"https://www.datacenterdynamics.com/\" target=\"_blank\">DCD</a>]</span>",
       openai: "State energy company deployed \"ChatPetrobras\" on GPT + Azure. <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/brazil-ai-moment-is-here/\" target=\"_blank\">OpenAI</a>]</span>",
       alibaba: "First data center in Brazil; expanding AI infrastructure across Latin America. <span class=\"sources\">[<a href=\"https://www.bnamericas.com/\" target=\"_blank\">BNamericas</a>]</span>",
       edge: "Navy cooperation agreement; 50% acquisition of SIATT for anti-ship missile AI systems. <span class=\"sources\">[<a href=\"https://edgegroup.ae/\" target=\"_blank\">EDGE</a>]</span>",
@@ -536,11 +529,13 @@ const DATA = [
     country: "Singapore", flag: "🇸🇬", region: "asia",
     budget: "$12B", budgetNum: 12, troops: "51,000", troopsNum: 51000,
     gov: true, mil: false,
-    usLabs: ["deepmind"], cnLabs: ["alibaba"],
+    usLabs: ["deepmind"], cnLabs: ["alibaba","zhipu"],
     defAI: ["thales","domestic"],
+    domesticAI: "Gaia / DSTA",
     companyDetails: {
       deepmind: "GovTech Singapore deployed Google agentic AI on air-gapped gov't cloud — first in Asia. <span class=\"sources\">[<a href=\"https://govinsider.asia/\" target=\"_blank\">GovInsider</a>]</span>",
-      alibaba: "AI Singapore adopted Qwen for national Sea-Lion LLM program. <span class=\"sources\">[<a href=\"https://www.scmp.com/\" target=\"_blank\">SCMP</a>]</span>",
+      alibaba: "AI Singapore adopted Qwen for national Sea-Lion LLM program (SGD 70M national AI investment). <span class=\"sources\">[<a href=\"https://www.computerweekly.com/news/366634858/AI-Singapore-taps-Alibaba-Cloud-to-power-Sea-Lion-model\" target=\"_blank\">Computer Weekly</a>]</span>",
+      zhipu: "Sovereign AI infrastructure provision to government organizations via Digital Silk Road initiative. <span class=\"sources\">[<a href=\"https://rockrose.xyz/the-rise-of-zhipu-ai/\" target=\"_blank\">Rockrose</a>]</span>",
       thales: "AI mine countermeasures for Republic of Singapore Navy; DSTA AI Co-Lab (April 2025) for C-UAS and combat systems. <span class=\"sources\">[<a href=\"https://www.asianmilitaryreview.com/\" target=\"_blank\">AMR</a>]</span>",
       domestic: "Gaia Generative AI Assistant (Sept 2024) for defense operations and mission planning; partnership with Mistral AI for sovereign military AI models on national infrastructure. <span class=\"sources\">[<a href=\"https://www.malaymail.com/news/singapore/2025/09/20/singapores-dsta-unveils-gaia-a-generative-ai-tool-to-revolutionise-defence-capabilities/191766\" target=\"_blank\">Malay Mail</a>]</span>"
     }
@@ -560,6 +555,7 @@ const DATA = [
     budget: "$11B", budgetNum: 11, troops: "25,000", troopsNum: 25000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["helsing","saab-def","domestic"],
+    domesticAI: "FMV AI",
     companyDetails: {
       helsing: "AI \"Centaur\" agent integrated into Saab Gripen E; completed first 3 AI-piloted test flights (May 2025). Sponsored by Swedish FMV. <span class=\"sources\">[<a href=\"https://www.saab.com/newsroom/\" target=\"_blank\">Saab</a>]</span>",
       "saab-def": "€274M contract for AI-integrated counter-UAS systems for Swedish Armed Forces. <span class=\"sources\">[<a href=\"https://www.defensenews.com/\" target=\"_blank\">Defense News</a>]</span>",
@@ -580,6 +576,7 @@ const DATA = [
     budget: "$37B", budgetNum: 37, troops: "165,000", troopsNum: 165000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["leonardo","aerovironment","domestic"],
+    domesticAI: "LIAD",
     companyDetails: {
       leonardo: "NATO Mode 5 AI identification systems for Italian Armed Forces (~€75M, 6-year contract). <span class=\"sources\">[<a href=\"https://leonardocompany.com/\" target=\"_blank\">Leonardo</a>]</span>",
       aerovironment: "€46.6M contract with Italian MOD for JUMP 20 VTOL combat aircraft with AI/ML capabilities (April 2025). <span class=\"sources\">[<a href=\"https://www.avinc.com/\" target=\"_blank\">AeroVironment</a>]</span>",
@@ -591,6 +588,7 @@ const DATA = [
     budget: "$35B", budgetNum: 35, troops: "188,000", troopsNum: 188000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["northrop","domestic"],
+    domesticAI: "OSA",
     companyDetails: {
       northrop: "$347.6M for Integrated Battle Command System (IBCS) with advanced AI; integrates Polish sensors with UK CAMM systems. <span class=\"sources\">[<a href=\"https://news.northropgrumman.com/\" target=\"_blank\">Northrop Grumman</a>]</span>",
       domestic: "OSA Center for Autonomous Systems (March 2024); Military AI Strategy 2024-2039; autonomous systems spending grew from PLN 100M (2023) to PLN 700M (2025); Pelargonia loitering munitions program. <span class=\"sources\">[<a href=\"https://decentcybersecurity.eu/polands-military-ai-strategy-2024-2039-transforming-defensethrough-digital-innovation/\" target=\"_blank\">DCS</a>]</span>"
@@ -618,9 +616,10 @@ const DATA = [
     country: "Morocco", flag: "🇲🇦", region: "mena",
     budget: "$6B", budgetNum: 6, troops: "196,000", troopsNum: 196000,
     gov: true, mil: false,
-    usLabs: [], cnLabs: ["huawei"],
+    usLabs: ["mistral"], cnLabs: ["huawei"],
     defAI: ["baykar"],
     companyDetails: {
+      mistral: "Joint R&D lab (Jan 2026) for culturally-tailored AI models; co-building local AI capabilities. <span class=\"sources\">[<a href=\"https://mistral.ai/news/\" target=\"_blank\">Mistral</a>]</span>",
       huawei: "$250M+ in surveillance spending; AI-powered CCTV and facial recognition. <span class=\"sources\">[<a href=\"https://www.csis.org/analysis/watching-huaweis-safe-cities\" target=\"_blank\">CSIS</a>]</span>",
       baykar: "Bayraktar TB2 and Akinci AI drone deliveries; maintenance/manufacturing hub established Dec 2024. <span class=\"sources\">[<a href=\"https://www.armyrecognition.com/\" target=\"_blank\">Army Recognition</a>]</span>"
     }
@@ -630,6 +629,7 @@ const DATA = [
     budget: "$21B", budgetNum: 21, troops: "461,000", troopsNum: 461000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["baykar","domestic"],
+    domesticAI: "ASELSAN",
     companyDetails: {
       baykar: "Develops Bayraktar TB2, Akinci, and Kızılelma AI combat drones. K2 kamikaze UAV features AI autonomy algorithms. Major exporter ($1.8B+ annually). <span class=\"sources\">[<a href=\"https://baykartech.com/\" target=\"_blank\">Baykar</a>]</span>",
       domestic: "ASELSAN Steel Dome AI-assisted layered air defense (unveiled Aug 2024); HAKİM AI command-and-control linking radars, launchers, and EW systems; $1.9B ASELSAN air defense deal (Sept 2025). <span class=\"sources\">[<a href=\"https://defencesecurityasia.com/en/turkey-steel-dome-ai-air-defense-system-rival-iron-dome/\" target=\"_blank\">DSA</a>]</span>"
@@ -641,6 +641,7 @@ const DATA = [
     gov: true, mil: false,
     usLabs: [], cnLabs: ["huawei"],
     defAI: ["domestic"],
+    domesticAI: "Svod",
     companyDetails: {
       huawei: "Pre-2022, Huawei held ~30% of Russia's telecom market with AI research partnerships. Post-invasion scaled back, but legacy infrastructure remains. <span class=\"sources\">[<a href=\"https://fortune.com/2022/04/01/huawei-early-winner-russia-war-ukraine-ericsson-nokia/\" target=\"_blank\">Fortune</a>]</span>",
       domestic: "Svod AI-driven tactical C2 system (announced Aug 2025, deploying April 2026); aggregates satellite, aerial, and intelligence data for real-time battlefield awareness; Platform-GNS neural network training at ERA technopolis. <span class=\"sources\">[<a href=\"https://united24media.com/latest-news/russia-is-rolling-out-an-ai-command-system-called-svod-heres-what-we-know-15363\" target=\"_blank\">United24</a>]</span>"
@@ -652,6 +653,7 @@ const DATA = [
     gov: true, mil: false,
     usLabs: [], cnLabs: ["huawei"],
     defAI: ["domestic"],
+    domesticAI: "CENTAIC",
     companyDetails: {
       huawei: "AI surveillance in Islamabad and Lahore; facial recognition, video analytics. Part of CPEC digital corridor. MOU (Dec 2024) for AI, 5G, cybersecurity. <span class=\"sources\">[<a href=\"https://www.csis.org/analysis/watching-huaweis-safe-cities\" target=\"_blank\">CSIS</a>] [<a href=\"https://www.pta.gov.pk/\" target=\"_blank\">PTA</a>]</span>",
       domestic: "PAF Centre for Artificial Intelligence and Computing (CENTAIC) established Aug 2020; ML, deep learning, big data, and predictive analytics research; moved under dedicated Tech Division (2021). <span class=\"sources\">[<a href=\"https://secondtonone.com.pk/2024/05/10/centaics-transformation-under-paf-nastp/\" target=\"_blank\">SecondToNone</a>]</span>"
@@ -663,6 +665,7 @@ const DATA = [
     gov: true, mil: false,
     usLabs: [], cnLabs: ["huawei"],
     defAI: ["domestic"],
+    domesticAI: "Hamza-3",
     companyDetails: {
       huawei: "AI surveillance for New Administrative Capital and security infrastructure. <span class=\"sources\">[<a href=\"https://www.csis.org/analysis/watching-huaweis-safe-cities\" target=\"_blank\">CSIS</a>]</span>",
       domestic: "Hamza-3 AI-powered suicide drone (unveiled Feb 2026): 1,800km range, 8hr endurance, AI homing head with image recognition and swarming capabilities; 50kg warhead; export orders underway. <span class=\"sources\">[<a href=\"https://dronexl.co/2026/02/10/egypt-hamza-3-kamikaze-drone/\" target=\"_blank\">DroneXL</a>]</span>"
@@ -682,9 +685,11 @@ const DATA = [
     country: "Indonesia", flag: "🇮🇩", region: "asia",
     budget: "$9B", budgetNum: 9, troops: "400,000", troopsNum: 400000,
     gov: true, mil: false,
-    usLabs: [], cnLabs: ["huawei"],
+    usLabs: ["openai"], cnLabs: ["huawei","deepseek"],
     defAI: [],
     companyDetails: {
+      openai: "Pilot agreement through \'OpenAI for Countries\' initiative (2025); AI infrastructure partnership. <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-for-countries/\" target=\"_blank\">OpenAI</a>]</span>",
+      deepseek: "AIonOS partnered with Indosat Ooredoo Hutchison for DeepSeek-powered solutions for tourism, agriculture, and knowledge economy. <span class=\"sources\">[<a href=\"https://cset.georgetown.edu/publication/chinese-ai-investment-and-commercial-activity-in-southeast-asia/\" target=\"_blank\">CSET Georgetown</a>]</span>",
       huawei: "AI surveillance solutions deployed to Indonesian cities. <span class=\"sources\">[<a href=\"https://www.csis.org/analysis/watching-huaweis-safe-cities\" target=\"_blank\">CSIS</a>]</span>"
     }
   },
@@ -703,9 +708,10 @@ const DATA = [
     country: "Malaysia", flag: "🇲🇾", region: "asia",
     budget: "$5B", budgetNum: 5, troops: "135,000", troopsNum: 135000,
     gov: true, mil: false,
-    usLabs: [], cnLabs: ["zhipu","huawei"],
+    usLabs: [], cnLabs: ["deepseek","zhipu","huawei"],
     defAI: [],
     companyDetails: {
+      deepseek: "First national-scale sovereign AI deployment outside China (2025); full-stack infrastructure with Huawei GPUs for Prime Minister's Office and Ministry of Communications; 3,000 GPU roadmap by 2026. <span class=\"sources\">[<a href=\"https://developingtelecoms.com/telecom-technology/data-centres-networks/18504-malaysia-launches-region-first-sovereign-full-stack-ai-infrastructure.html\" target=\"_blank\">Developing Telecoms</a>]</span>",
       zhipu: "Government contracts for sovereign LLM development on Huawei infrastructure. <span class=\"sources\">[<a href=\"https://profit.pakistantoday.com.pk/\" target=\"_blank\">Pakistan Today</a>]</span>",
       huawei: "Three-way AI partnership for government digital services; 30,000 AI talent target. <span class=\"sources\">[<a href=\"https://technode.global/\" target=\"_blank\">TechNode</a>]</span>"
     }
@@ -734,9 +740,10 @@ const DATA = [
     country: "Nigeria", flag: "🇳🇬", region: "africa",
     budget: "$4B", budgetNum: 4, troops: "143,000", troopsNum: 143000,
     gov: true, mil: false,
-    usLabs: [], cnLabs: ["huawei"],
+    usLabs: ["openai"], cnLabs: ["huawei"],
     defAI: [],
     companyDetails: {
+      openai: "Signed pilot agreement (2025); $180M Stargate site outside Lagos expected early 2026. <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-for-countries/\" target=\"_blank\">OpenAI</a>]</span>",
       huawei: "$470M in AI surveillance spending (highest in Africa). <span class=\"sources\">[<a href=\"https://nairametrics.com/\" target=\"_blank\">Nairametrics</a>]</span>"
     }
   },
@@ -755,6 +762,7 @@ const DATA = [
     budget: "$27B", budgetNum: 27, troops: "68,000", troopsNum: 68000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["saab-def","thales","domestic"],
+    domesticAI: "DND AI Strategy",
     companyDetails: {
       "saab-def": "Agreement with Cohere for AI-driven mission support on GlobalEye surveillance aircraft. <span class=\"sources\">[<a href=\"https://www.ctvnews.ca/\" target=\"_blank\">CTV</a>]</span>",
       thales: "cortAIx AI hub for defense AI specialists in Canada. <span class=\"sources\">[<a href=\"https://www.thalesgroup.com/\" target=\"_blank\">Thales</a>]</span>",
@@ -792,24 +800,31 @@ const DATA = [
     country: "Taiwan", flag: "🇹🇼", region: "east-asia",
     budget: "$19B", budgetNum: 19, troops: "170,000", troopsNum: 170000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: ["domestic"],
+    defAI: ["anduril","shieldai","domestic"],
+    domesticAI: "DIO",
     companyDetails: {
+      anduril: "MOU with NCSIST for AI-enabled command and control and unmanned systems; Altius loitering munitions delivered. <span class=\"sources\">[<a href=\"https://breakingdefense.com/2025/08/anduril-increases-indo-pacific-footprint-with-taiwan-south-korea-partnerships\" target=\"_blank\">Breaking Defense</a>]</span>",
+      shieldai: "Teaming agreement with Aerospace Industrial Development Corporation (AIDC) for AI defense capabilities (Sept 2025). <span class=\"sources\">[<a href=\"https://shield.ai/\" target=\"_blank\">Shield AI</a>]</span>",
       domestic: "Defense Innovation Office (DIO) formed Feb 2024; 50,898 drones procurement program (2025-2030); AI Image Chip Modules for autonomous targeting; $210M initial drone tender. <span class=\"sources\">[<a href=\"https://thedefensepost.com/2025/10/16/ai-drones-taiwan-upgrade/\" target=\"_blank\">Defense Post</a>]</span>"
     }
   },
   {
     country: "Greece", flag: "🇬🇷", region: "europe",
     budget: "$13B", budgetNum: 13, troops: "107,000", troopsNum: 107000,
-    gov: false, mil: false, usLabs: [], cnLabs: [],
+    gov: true, mil: false, usLabs: ["openai"], cnLabs: [],
     defAI: [],
-    companyDetails: {}
+    companyDetails: {
+      openai: "Partnership announced through 'OpenAI for Countries' initiative (2025). <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-for-countries/\" target=\"_blank\">OpenAI</a>]</span>"
+    }
   },
   {
     country: "Norway", flag: "🇳🇴", region: "europe",
     budget: "$11B", budgetNum: 11, troops: "26,000", troopsNum: 26000,
-    gov: false, mil: false, usLabs: [], cnLabs: [],
+    gov: true, mil: false, usLabs: ["openai"], cnLabs: [],
     defAI: ["domestic"],
+    domesticAI: "Forsvaret AI",
     companyDetails: {
+      openai: "Partnership announced through 'OpenAI for Countries' initiative (2025). <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-for-countries/\" target=\"_blank\">OpenAI</a>]</span>",
       domestic: "First Scandinavian Military AI Strategy (Oct 2023); focus on situational awareness, intelligence, and weapons systems; AI tested in military planning during NATO Comprehensive Shield 2025. <span class=\"sources\">[<a href=\"https://militaryai.ai/ai-military-strategy-sweden-norway/\" target=\"_blank\">MilitaryAI</a>]</span>"
     }
   },
@@ -818,6 +833,7 @@ const DATA = [
     budget: "$22B", budgetNum: 22, troops: "121,000", troopsNum: 121000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
+    domesticAI: "GMV / INDRA",
     companyDetails: {
       domestic: "GMV selected for six European Defence Fund projects including PRECISE and MYRIAD (satellite imagery AI); INDRA leads EU-GUARDIAN (€13.5M) for AI-based cyber incident management. <span class=\"sources\">[<a href=\"https://thedefensepost.com/2025/05/28/spain-projects-european-defence-fund/\" target=\"_blank\">Defense Post</a>]</span>"
     }
@@ -846,9 +862,11 @@ const DATA = [
   {
     country: "Chile", flag: "🇨🇱", region: "americas",
     budget: "$7B", budgetNum: 7, troops: "80,000", troopsNum: 80000,
-    gov: false, mil: false, usLabs: [], cnLabs: [],
+    gov: true, mil: false, usLabs: ["openai"], cnLabs: [],
     defAI: [],
-    companyDetails: {}
+    companyDetails: {
+      openai: "Signed pilot agreement through 'OpenAI for Countries' initiative (2025). <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-for-countries/\" target=\"_blank\">OpenAI</a>]</span>"
+    }
   },
   {
     country: "Denmark", flag: "🇩🇰", region: "europe",
@@ -876,6 +894,7 @@ const DATA = [
     budget: "$6B", budgetNum: 6, troops: "73,000", troopsNum: 73000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
+    domesticAI: "NATO DIANA",
     companyDetails: {
       domestic: "AI priority research area across all defense domains; €350M (35% increase) for AI-based cybersecurity (2024); hosting NATO DIANA research center in Espoo and accelerator in Oulu. <span class=\"sources\">[<a href=\"https://www.c4isrnet.com/cyber/2024/03/26/finland-to-host-nato-tech-centers-revamp-cybersecurity-strategy/\" target=\"_blank\">C4ISRNet</a>]</span>"
     }
@@ -911,9 +930,11 @@ const DATA = [
   {
     country: "Argentina", flag: "🇦🇷", region: "americas",
     budget: "$4B", budgetNum: 4, troops: "75,000", troopsNum: 75000,
-    gov: false, mil: false, usLabs: [], cnLabs: [],
+    gov: true, mil: false, usLabs: ["openai"], cnLabs: [],
     defAI: [],
-    companyDetails: {}
+    companyDetails: {
+      openai: "Partnership announced through 'OpenAI for Countries' initiative (2025). <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-for-countries/\" target=\"_blank\">OpenAI</a>]</span>"
+    }
   },
   {
     country: "New Zealand", flag: "🇳🇿", region: "asia",
@@ -927,6 +948,7 @@ const DATA = [
     budget: "$4B", budgetNum: 4, troops: "1,280,000", troopsNum: 1280000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
+    domesticAI: "Saebyeol",
     companyDetails: {
       domestic: "Kim Jong Un declared AI military drones 'top priority' (Sept 2025); Saebyeol-4 (surveillance) and Saebyeol-9 (attack) drones in development; ordered full-scale mass production of suicide attack drones (Nov 2024). <span class=\"sources\">[<a href=\"https://www.aljazeera.com/news/2025/9/19/kim-jong-un-declares-ai-military-drone-development-a-top-priority\" target=\"_blank\">Al Jazeera</a>]</span>"
     }
@@ -999,6 +1021,7 @@ const DATA = [
     budget: "$3B", budgetNum: 3, troops: "73,000", troopsNum: 73000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
+    domesticAI: "DAIRU",
     companyDetails: {
       domestic: "Defence AI Research Unit (DAIRU) launched May 2024 at Military Academy (Saldanha Bay) — first military-focused AI hub in Africa; focus on cyber resilience, maritime/border security, drones, and targeting. <span class=\"sources\">[<a href=\"https://www.military.africa/2024/05/south-african-military-academy-launches-ai-research-unit/\" target=\"_blank\">Military Africa</a>]</span>"
     }
@@ -1008,15 +1031,14 @@ const DATA = [
 const tbody = document.getElementById('tableBody');
 const searchBox = document.getElementById('searchBox');
 const dealFilter = document.getElementById('dealFilter');
-const govFilter = document.getElementById('govFilter');
-const milFilter = document.getElementById('milFilter');
+
 const labFilter = document.getElementById('labFilter');
 const regionFilter = document.getElementById('regionFilter');
 
 let activePopup = null;
 
 function usTag(lab) {
-  const names = {openai:'OpenAI',anthropic:'Anthropic',deepmind:'DeepMind',microsoft:'Microsoft',mistral:'Mistral',xai:'xAI',amazon:'Amazon'};
+  const names = {openai:'OpenAI',anthropic:'Anthropic',deepmind:'DeepMind',mistral:'Mistral',xai:'xAI'};
   return '<span class="lab-tag lab-'+lab+'" data-lab="'+lab+'">'+(names[lab]||lab)+'</span>';
 }
 function cnTag(lab) {
@@ -1054,6 +1076,7 @@ function showPopup(tag, countryData) {
   popup.innerHTML = `
     <button class="deal-popup-close" onclick="this.parentElement.remove(); activePopup=null;">✕</button>
     <div class="deal-popup-content">${detail}</div>
+    <div style="margin-top:6px;padding-top:4px;border-top:1px solid var(--border);font-size:0.6rem;color:#999;">Last verified: April 2026</div>
   `;
   document.body.appendChild(popup);
 
@@ -1088,8 +1111,6 @@ let sortDir = -1;
 function render() {
   const q = searchBox.value.toLowerCase();
   const df = dealFilter.value;
-  const gf = govFilter.value;
-  const mf = milFilter.value;
   const lf = labFilter.value;
   const rf = regionFilter.value;
 
@@ -1106,10 +1127,6 @@ function render() {
     if (df === 'both' && !(hasUS(d) && hasCN(d))) return false;
     if (df === 'def-ai' && !hasDef(d)) return false;
     if (df === 'no-deal' && hasAny(d)) return false;
-    if (gf === 'yes' && !d.gov) return false;
-    if (gf === 'no' && d.gov) return false;
-    if (mf === 'yes' && !d.mil) return false;
-    if (mf === 'def' && !hasDef(d)) return false;
     if (lf !== 'all' && !allLabs(d).includes(lf)) return false;
     if (rf !== 'all' && d.region !== rf) return false;
     if (q) {
@@ -1122,11 +1139,8 @@ function render() {
   filtered.sort((a, b) => {
     let va, vb;
     if (sortCol === 'country') { va = a.country; vb = b.country; }
-    else if (sortCol === 'region') { va = a.region; vb = b.region; }
     else if (sortCol === 'budget' || sortCol === 'budgetNum') { va = a.budgetNum; vb = b.budgetNum; }
     else if (sortCol === 'troops' || sortCol === 'troopsNum') { va = a.troopsNum; vb = b.troopsNum; }
-    else if (sortCol === 'gov') { va = a.gov?1:0; vb = b.gov?1:0; }
-    else if (sortCol === 'mil') { va = a.mil?1:0; vb = b.mil?1:0; }
     else { va = a.country; vb = b.country; }
     if (typeof va === 'string') return sortDir * va.localeCompare(vb);
     return sortDir * (va - vb);
@@ -1146,14 +1160,12 @@ function render() {
   tbody.innerHTML = filtered.map(d => `
     <tr>
       <td class="country-cell"><span class="flag">${d.flag}</span> ${d.country}</td>
-      <td>${regionMap[d.region]||d.region}</td>
       <td class="num-cell budget">${d.budget}</td>
       <td class="num-cell">${d.troopsNum > 0 ? fmtNum(d.troopsNum) : '—'}</td>
-      <td>${d.gov ? '<span class="badge badge-yes">YES</span>' : '<span class="badge badge-no">NO</span>'}</td>
-      <td>${d.mil ? '<span class="badge badge-mil">YES</span>' : '<span class="badge badge-no">NO</span>'}</td>
       <td class="us-col">${d.usLabs.length ? d.usLabs.map(usTag).join(' ') : '<span style="color:#bbb">—</span>'}</td>
       <td class="cn-col">${d.cnLabs.length ? d.cnLabs.map(cnTag).join(' ') : '<span style="color:#bbb">—</span>'}</td>
-      <td class="def-col">${d.defAI.length ? d.defAI.map(defTag).join(' ') : '<span style="color:#bbb">—</span>'}</td>
+      <td class="def-col">${d.defAI.filter(x=>x!=='domestic').length ? d.defAI.filter(x=>x!=='domestic').map(defTag).join(' ') : '<span style="color:#bbb">—</span>'}</td>
+      <td class="dom-col">${d.domesticAI ? '<span class="lab-tag lab-domestic" data-lab="domestic">'+d.domesticAI+'</span>' : '<span style="color:#bbb">—</span>'}</td>
     </tr>
   `).join('');
 
@@ -1184,8 +1196,6 @@ document.querySelectorAll('th[data-sort]').forEach(th => {
 
 searchBox.addEventListener('input', render);
 dealFilter.addEventListener('change', render);
-govFilter.addEventListener('change', render);
-milFilter.addEventListener('change', render);
 labFilter.addEventListener('change', render);
 regionFilter.addEventListener('change', render);
 
