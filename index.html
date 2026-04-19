@@ -252,12 +252,10 @@
   <div class="stat"><span class="stat-num" id="statTotal">0</span><span class="stat-label">Countries Tracked</span></div>
   <div class="stat-divider"></div>
   <div class="stat"><span class="stat-num" id="statMil">0</span><span class="stat-label">Deals Between Frontier Labs &amp; Foreign Militaries Explicitly</span></div>
-  <div class="stat"><span class="stat-num" id="statUS">0</span><span class="stat-label">Countries with US Frontier Lab Deals</span></div>
-  <div class="stat"><span class="stat-num" id="statCN">0</span><span class="stat-label">Countries with Chinese Frontier Lab Deals</span></div>
+  <div class="stat"><span class="stat-num" id="statUS">0</span><span class="stat-label">Countries with US Frontier Lab Deals (non-military)</span></div>
+  <div class="stat"><span class="stat-num" id="statCN">0</span><span class="stat-label">Countries with Chinese Frontier Lab Deals (non-military)</span></div>
   <div class="stat-divider"></div>
   <div class="stat"><span class="stat-num" id="statDefAI">0</span><span class="stat-label">Countries Investing in Military AI</span></div>
-  <div class="stat-divider"></div>
-  <div class="stat"><span class="stat-num" id="statNone">0</span><span class="stat-label">No Known Deals</span></div>
 </div>
 
 <details class="methodology">
@@ -1244,7 +1242,6 @@ function render() {
   document.getElementById('statUS').textContent = DATA.filter(hasUS).length;
   document.getElementById('statCN').textContent = DATA.filter(hasCN).length;
   document.getElementById('statDefAI').textContent = DATA.filter(hasDef).length;
-  document.getElementById('statNone').textContent = DATA.filter(d=>!d.gov&&!d.mil&&!hasDef(d)).length;
 
   const regionMap = {'south-asia':'South Asia','asia':'Asia-Pacific','europe':'Europe','mena':'MENA','americas':'Americas','africa':'Sub-Saharan Africa','east-asia':'East Asia'};
 
