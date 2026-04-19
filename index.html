@@ -61,6 +61,8 @@
     --tag-norinco: #8b4513;
     --tag-casic: #2b3e50;
     --tag-space42: #1e4a4a;
+    --tag-cetc: #8b2252;
+    --tag-casc: #4a3b2e;
     --tag-domestic: #5a6e50;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -167,6 +169,8 @@
   .lab-norinco { background: var(--tag-norinco); }
   .lab-casic { background: var(--tag-casic); }
   .lab-space42 { background: var(--tag-space42); }
+  .lab-cetc { background: var(--tag-cetc); }
+  .lab-casc { background: var(--tag-casc); }
 
   .badge { display: inline-block; padding: 2px 10px; border-radius: 3px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
   .badge-yes { background: rgba(46,125,50,0.12); color: var(--yes); border: 1px solid rgba(46,125,50,0.3); }
@@ -238,7 +242,7 @@
       <span class="header-meta-item"><span class="dot" style="background:var(--yes)"></span> Last updated April 2026</span>
       <span class="header-meta-item"><span class="dot" style="background:#333"></span> 5 US/Western frontier labs tracked</span>
       <span class="header-meta-item"><span class="dot" style="background:var(--tag-huawei)"></span> 9 Chinese frontier labs tracked</span>
-      <span class="header-meta-item"><span class="dot" style="background:var(--tag-defense)"></span> 20 Defense AI companies + domestic programs tracked</span>
+      <span class="header-meta-item"><span class="dot" style="background:var(--tag-defense)"></span> 22 Defense AI companies + domestic programs tracked</span>
       <span class="header-meta-item"><span class="dot" style="background:var(--text-muted)"></span> Sources: SIPRI, IISS, CSIS, official announcements</span>
     </div>
   </div>
@@ -263,7 +267,7 @@
   <p><strong>"Defense AI Deal"</strong> = a confirmed contract between a defense technology company and a foreign military for AI-specific capabilities &mdash; autonomous systems, AI-powered targeting, AI-enabled electronic warfare, AI surveillance, etc. General defense contracts without an explicit AI component are excluded.</p>
   <p><strong>US/Western frontier AI labs:</strong> OpenAI, Anthropic, Google DeepMind, Mistral, xAI.</p>
   <p><strong>Chinese frontier AI labs:</strong> Huawei (Pangu/Safe City AI), SenseTime, Alibaba (Qwen), Zhipu AI, Baidu (ERNIE), DeepSeek, ByteDance (Doubao), Tencent (Hunyuan), iFlytek.</p>
-  <p><strong>Defense AI companies:</strong> Palantir, Helsing, Anduril, Shield AI, Baykar, Thales (AI-specific), Leonardo (AI-specific), EDGE Group, Elbit Systems, Rafael, Saab (AI-specific), Northrop Grumman (AI-specific), BAE Systems (AI-specific), IAI, Havelsan, Roketsan, MARSS Group, NORINCO, CASIC, Space42.</p>
+  <p><strong>Defense AI companies:</strong> Palantir, Helsing, Anduril, Shield AI, Baykar, Thales (AI-specific), Leonardo (AI-specific), EDGE Group, Elbit Systems, Rafael, Saab (AI-specific), Northrop Grumman (AI-specific), BAE Systems (AI-specific), IAI, Havelsan, Roketsan, MARSS Group, NORINCO, CASIC, Space42, CETC, CASC.</p>
   <p><strong>"Domestic"</strong> = the country has a publicly documented indigenous military AI program, research center, or domestically developed autonomous weapons system. These are tagged separately from external defense AI partnerships.</p>
   <p><strong>Inclusion criteria:</strong> Any country in the top 50 by military budget (SIPRI 2024) OR top 50 by active troop size, excluding the US and China.</p>
   <p>Military budget data: SIPRI 2024. Active troop data: IISS Military Balance &amp; Global Firepower Index (2024&ndash;2025). Sources: official press releases, company announcements, defense journalism, CSIS, SIPRI (2024&ndash;2026).</p>
@@ -320,6 +324,8 @@
       <option value="norinco">NORINCO</option>
       <option value="casic">CASIC</option>
       <option value="space42">Space42</option>
+      <option value="cetc">CETC</option>
+      <option value="casc">CASC</option>
       <option value="domestic">Domestic Programs</option>
     </optgroup>
   </select>
@@ -907,8 +913,11 @@ const DATA = [
     country: "Mexico", flag: "🇲🇽", region: "americas",
     budget: "$8B", budgetNum: 8, troops: "277,000", troopsNum: 277000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["domestic"],
+    domesticAI: "SEDENA UAV",
+    companyDetails: {
+      domestic: "SEDENA partnered with Universidad Aeron\u00e1utica en Quer\u00e9taro (UNAQ) for 100% domestically produced military drone (MX$100M, March 2023); prototype flight targeted late 2025, serial production 2026. Seguritech SAIMON AI platform for C5 command centers across 26 states. <span class=\"sources\">[<a href=\"https://mexicobusiness.news/aerospace/news/mexicos-armed-forces-push-domestic-drone-development\" target=\"_blank\">Mexico Business</a>]</span>"
+    }
   },
   {
     country: "Chile", flag: "🇨🇱", region: "americas",
@@ -932,8 +941,10 @@ const DATA = [
     country: "Iraq", flag: "🇮🇶", region: "mena",
     budget: "$7B", budgetNum: 7, troops: "193,000", troopsNum: 193000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["casc"],
+    companyDetails: {
+      casc: "CH-5 (Caihong-5) MALE armed reconnaissance drone acquired from China Aerospace Science and Technology Corporation (CASC); displayed April 2024. Iraq also operates CH-3 and CH-4 series Chinese drones. <span class=\"sources\">[<a href=\"https://www.armyrecognition.com/\" target=\"_blank\">Army Recognition</a>]</span>"
+    }
   },
   {
     country: "Vietnam", flag: "🇻🇳", region: "asia",
@@ -969,15 +980,23 @@ const DATA = [
     country: "Philippines", flag: "🇵🇭", region: "asia",
     budget: "$5B", budgetNum: 5, troops: "143,000", troopsNum: 143000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["elbit","domestic"],
+    domesticAI: "SRDP",
+    companyDetails: {
+      elbit: "~$109M contract for two ATR-72-600 Long Range Patrol Aircraft with Elbit AI mission systems (radar, SIGINT, cyber) for Philippine Navy. <span class=\"sources\">[<a href=\"https://www.armyrecognition.com/\" target=\"_blank\">Army Recognition</a>]</span>",
+      domestic: "Self-Reliant Defense Posture (SRDP) program: Philippine Air Force developed domestically armed drones; COBRA remote weapon system (DOST, Dec 2025); SAFEGUARD autonomous ground surveillance robot (UST / Philippine Army). <span class=\"sources\">[<a href=\"https://defence-blog.com/philippines-develops-armed-combat-drones/\" target=\"_blank\">Defence Blog</a>]</span>"
+    }
   },
   {
     country: "Portugal", flag: "🇵🇹", region: "europe",
     budget: "$5B", budgetNum: 5, troops: "28,000", troopsNum: 28000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["thales","domestic"],
+    domesticAI: "UAVision / REPMUS",
+    companyDetails: {
+      thales: "ForceShield VSHORAD system (Nov 2024) with Ground Master 200 radar and ControlView AI-assisted C2; first EU country to acquire the system. <span class=\"sources\">[<a href=\"https://www.thalesgroup.com/en/worldwide/defence-and-security/press_release/thales-strengthens-portugals-very-short-range-air\" target=\"_blank\">Thales</a>]</span>",
+      domestic: "UAVision loitering munitions tested in NATO exercises (March 2026); NRP D. Jo\u00e3o II — EU\u2019s first drone-dedicated carrier (\u20ac132M, delivery 2026); hosts NATO REPMUS autonomous systems exercises annually. <span class=\"sources\">[<a href=\"https://www.euronews.com/next/2026/03/25/portuguese-army-tests-attack-drones-in-exercise-with-nato-countries\" target=\"_blank\">Euronews</a>]</span>"
+    }
   },
   {
     country: "Austria", flag: "🇦🇹", region: "europe",
@@ -999,8 +1018,12 @@ const DATA = [
     country: "New Zealand", flag: "🇳🇿", region: "asia",
     budget: "$4B", budgetNum: 4, troops: "15,000", troopsNum: 15000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["palantir","domestic"],
+    domesticAI: "SYOS / DST",
+    companyDetails: {
+      palantir: "Active contracts since 2012 with NZDF, Security Intelligence Service (SIS), and Government Communications Security Bureau (GCSB) for analytics and intelligence platforms. <span class=\"sources\">[<a href=\"https://www.rnz.co.nz/news/top/591822/no-plans-to-use-palantir-in-emerging-defence-tech-space-government-says\" target=\"_blank\">RNZ</a>]</span>",
+      domestic: "SYOS Aerospace awarded NZDF contract (Feb 2026) for multi-domain autonomous platforms: SA2 ISR drone, SA7 kamikaze drone, SG400 UGV, SM300 USV. Defence Science & Technology (DST) unit of 68 scientists researching autonomous systems. NZ$100\u2013300M committed in Defence Capability Plan 2025 for uncrewed systems. <span class=\"sources\">[<a href=\"https://defsec.net.nz/2026/03/06/syos-aerospace-awarded-nzdf-autonomous-contract/\" target=\"_blank\">Defsec NZ</a>]</span>"
+    }
   },
   {
     country: "North Korea", flag: "🇰🇵", region: "east-asia",
@@ -1016,8 +1039,11 @@ const DATA = [
     country: "Bangladesh", flag: "🇧🇩", region: "south-asia",
     budget: "$4B", budgetNum: 4, troops: "163,000", troopsNum: 163000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["baykar","cetc"],
+    companyDetails: {
+      baykar: "Six Bayraktar TB2 UCAVs acquired (2023) for ISR and counterinsurgency; discussions for joint venture on component manufacturing. <span class=\"sources\">[<a href=\"https://theasialive.com/\" target=\"_blank\">The Asia Live</a>]</span>",
+      cetc: "$55M deal with China Electronics Technology Group Corp. (CETC) for drone manufacturing facility in Bangladesh; includes technology transfer for Wing Loong-class UAVs. <span class=\"sources\">[<a href=\"https://defencesecurityasia.com/en/china-drone-factory-bangladesh-wing-loong-india-bay-of-bengal/\" target=\"_blank\">DSA</a>]</span>"
+    }
   },
   {
     country: "Sri Lanka", flag: "🇱🇰", region: "south-asia",
@@ -1030,15 +1056,21 @@ const DATA = [
     country: "Peru", flag: "🇵🇪", region: "americas",
     budget: "$3B", budgetNum: 3, troops: "95,000", troopsNum: 95000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["elbit","norinco"],
+    companyDetails: {
+      elbit: "~$60M contract for PULS multi-caliber rocket launcher with AI-assisted targeting; includes technology transfer and joint production with FAME SAC (July 2025). <span class=\"sources\">[<a href=\"https://www.armyrecognition.com/news/army-news/2025/peru-selects-israeli-puls-rocket-launcher-to-modernize-artillery-with-tech-transfer-and-joint-production\" target=\"_blank\">Army Recognition</a>]</span>",
+      norinco: "$28M offset agreement for JOUAV CW-15 VTOL reconnaissance UAVs with AI-powered ISR, Beidou+GPS integration, and 3D cartographic mapping (July 2024). <span class=\"sources\">[<a href=\"https://latinamericanpost.com/science-technology/peru-acquires-advanced-drones-for-enhanced-military-intelligence/\" target=\"_blank\">Latin American Post</a>]</span>"
+    }
   },
   {
     country: "Jordan", flag: "🇯🇴", region: "mena",
     budget: "$3B", budgetNum: 3, troops: "100,000", troopsNum: 100000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["domestic"],
+    domesticAI: "JODDB",
+    companyDetails: {
+      domestic: "Jordan Design & Development Bureau (JODDB) established Middle East\u2019s first UAS, counter-UAS, and EW test range (2024); AI Strategy 2023\u20132027 covering defense; hosts AIDTSEC defense AI conference; Armython international cyber competition for armed forces. <span class=\"sources\">[<a href=\"https://www.shephardmedia.com/news/digital-battlespace/jordan-establishes-middle-easts-first-drone-and-electronic-warfare-test-range/\" target=\"_blank\">Shephard</a>]</span>"
+    }
   },
   {
     country: "Cuba", flag: "🇨🇺", region: "americas",
@@ -1105,7 +1137,7 @@ function cnTag(lab) {
   return '<span class="lab-tag lab-'+lab+'" data-lab="'+lab+'">'+(names[lab]||lab)+'</span>';
 }
 function defTag(co) {
-  const names = {palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',domestic:'Domestic'};
+  const names = {palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
   return '<span class="lab-tag lab-'+co+'" data-lab="'+co+'">'+(names[co]||co)+'</span>';
 }
 
