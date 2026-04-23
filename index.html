@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Global Military AI Tracker</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <style>
   :root {
     --bg: #f5f0e8;
@@ -223,6 +225,245 @@
   .deal-popup-content a { color: var(--link); font-size: 0.7rem; }
 
   .lab-domestic { background: var(--tag-domestic) !important; border: 1px dashed rgba(255,255,255,0.3) !important; }
+
+  /* Map Section */
+  .map-section {
+    padding: 1.5rem 2rem 1rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .map-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .map-header h2 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+  }
+  .map-search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .map-search {
+    padding: 0.4rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--text);
+    font-size: 0.8rem;
+    width: 240px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .map-search:focus { outline: none; border-color: var(--accent); }
+  .map-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 240px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    z-index: 50;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .map-autocomplete-item {
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text);
+  }
+  .map-autocomplete-item:hover, .map-autocomplete-item.active {
+    background: var(--surface2);
+  }
+  .map-container {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .map-container svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .map-container path.country {
+    stroke: var(--border);
+    stroke-width: 0.5px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .map-container path.country:hover {
+    opacity: 0.8;
+    stroke: var(--accent);
+    stroke-width: 1.2px;
+  }
+  .map-container path.country.highlighted {
+    stroke: var(--accent);
+    stroke-width: 2px;
+    filter: brightness(1.1);
+  }
+  .map-container path.country.dimmed {
+    opacity: 0.3;
+  }
+  .map-legend-bar {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+    background: rgba(255,255,255,0.5);
+    border-top: 1px solid var(--border);
+  }
+  .map-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .map-legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,0.15);
+  }
+
+  /* Map Detail Panel */
+  .map-detail-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 360px;
+    max-width: 45%;
+    height: 100%;
+    background: rgba(245,240,232,0.97);
+    border-left: 2px solid var(--accent);
+    overflow-y: auto;
+    z-index: 20;
+    display: none;
+    font-size: 0.8rem;
+  }
+  .map-detail-header {
+    position: sticky;
+    top: 0;
+    background: var(--surface2);
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+  }
+  .map-detail-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'Georgia', serif;
+  }
+  .map-detail-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 0 4px;
+    line-height: 1;
+  }
+  .map-detail-close:hover { color: var(--text); }
+  .map-detail-body {
+    padding: 0.75rem 1rem;
+  }
+  .map-detail-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .map-detail-meta strong { color: var(--text); }
+  .map-detail-section {
+    margin-bottom: 0.75rem;
+  }
+  .map-detail-section-title {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .map-detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-bottom: 0.5rem;
+  }
+  .map-detail-deal {
+    padding: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+  .map-detail-deal strong {
+    color: var(--text);
+  }
+  .map-detail-deal .sources a {
+    color: var(--text-muted);
+    font-size: 0.65rem;
+  }
+  .map-detail-nodeal {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.75rem;
+  }
+  .map-zoom-controls {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 10;
+  }
+  .map-zoom-btn {
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .map-zoom-btn:hover { background: #fff; border-color: var(--accent); }
+
   footer { padding: 1.5rem 2rem; border-top: 2px solid var(--accent); font-size: 0.75rem; color: var(--text-muted); background: var(--surface); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 
   @media (max-width: 900px) {
@@ -256,6 +497,38 @@
   <div class="stat"><span class="stat-num" id="statCN">0</span><span class="stat-label">Countries with Chinese Frontier Lab Deals (Non-Military)</span></div>
   <div class="stat-divider"></div>
   <div class="stat"><span class="stat-num" id="statDefAI">0</span><span class="stat-label">Countries Investing in Military AI</span></div>
+</div>
+
+<div class="map-section">
+  <div class="map-header">
+    <h2>Interactive Map</h2>
+    <div class="map-search-wrap">
+      <input type="text" class="map-search" id="mapSearch" placeholder="Search for a country..." autocomplete="off">
+      <div class="map-autocomplete" id="mapAutocomplete"></div>
+    </div>
+  </div>
+  <div class="map-container" id="mapContainer">
+    <svg id="mapSvg" viewBox="0 0 960 500"></svg>
+    <div class="map-zoom-controls">
+      <button class="map-zoom-btn" id="mapZoomIn">+</button>
+      <button class="map-zoom-btn" id="mapZoomOut">&minus;</button>
+      <button class="map-zoom-btn" id="mapZoomReset" style="font-size:0.65rem;">&#8634;</button>
+    </div>
+    <div class="map-detail-panel" id="mapDetailPanel">
+      <div class="map-detail-header">
+        <h3 id="mapDetailTitle"></h3>
+        <button class="map-detail-close" id="mapDetailClose">&times;</button>
+      </div>
+      <div class="map-detail-body" id="mapDetailBody"></div>
+    </div>
+    <div class="map-legend-bar">
+      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#8b2c2c"></span> Military AI + Frontier Lab</div>
+      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#c46a32"></span> Military AI Only</div>
+      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#4a7a5a"></span> Frontier Lab Only (Non-Military)</div>
+      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#c8c0b4"></span> Tracked, No Known Deals</div>
+      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#e8e4dc"></span> Not Tracked</div>
+    </div>
+  </div>
 </div>
 
 <details class="methodology">
@@ -1288,6 +1561,313 @@ labFilter.addEventListener('change', render);
 regionFilter.addEventListener('change', render);
 
 render();
+
+// ============================================================
+// INTERACTIVE MAP
+// ============================================================
+(function() {
+  const TOPO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
+
+  // Map our country names to TopoJSON/Natural Earth country names
+  const NAME_MAP = {
+    'United Kingdom': 'United Kingdom',
+    'South Korea': 'South Korea',
+    'North Korea': 'North Korea',
+    'UAE': 'United Arab Emirates',
+    'Czech Republic': 'Czech Rep.',
+    'El Salvador': 'El Salvador',
+    'New Zealand': 'New Zealand',
+    'South Africa': 'South Africa',
+    'South Sudan': 'S. Sudan',
+    'Sri Lanka': 'Sri Lanka',
+    'Saudi Arabia': 'Saudi Arabia',
+    'Dominican Republic': 'Dominican Rep.',
+    'Bosnia and Herzegovina': 'Bosnia and Herz.',
+    'North Macedonia': 'Macedonia',
+    'Taiwan': 'Taiwan'
+  };
+
+  // Reverse map: TopoJSON name -> our name
+  const REVERSE_MAP = {};
+  DATA.forEach(d => {
+    const topoName = NAME_MAP[d.country] || d.country;
+    REVERSE_MAP[topoName] = d.country;
+  });
+
+  // Color scheme
+  function getCountryColor(d) {
+    if (!d) return '#e8e4dc'; // not tracked
+    const hasDef = d.defAI && d.defAI.length > 0;
+    const hasLab = (d.usLabs && d.usLabs.length > 0) || (d.cnLabs && d.cnLabs.length > 0) || d.gov || d.mil;
+    if (hasDef && hasLab) return '#8b2c2c';
+    if (hasDef) return '#c46a32';
+    if (hasLab) return '#4a7a5a';
+    return '#c8c0b4';
+  }
+
+  function findData(topoName) {
+    const ourName = REVERSE_MAP[topoName];
+    if (ourName) return DATA.find(d => d.country === ourName);
+    // Fuzzy fallback
+    return DATA.find(d => topoName.toLowerCase().includes(d.country.toLowerCase()) ||
+                          d.country.toLowerCase().includes(topoName.toLowerCase()));
+  }
+
+  const svg = d3.select('#mapSvg');
+  const width = 960, height = 500;
+  const g = svg.append('g');
+
+  const projection = d3.geoNaturalEarth1()
+    .scale(155)
+    .translate([width / 2, height / 2 + 20]);
+  const path = d3.geoPath().projection(projection);
+
+  // Zoom
+  const zoom = d3.zoom()
+    .scaleExtent([1, 8])
+    .on('zoom', (event) => {
+      g.attr('transform', event.transform);
+    });
+  svg.call(zoom);
+
+  d3.select('#mapZoomIn').on('click', () => svg.transition().duration(300).call(zoom.scaleBy, 1.5));
+  d3.select('#mapZoomOut').on('click', () => svg.transition().duration(300).call(zoom.scaleBy, 0.67));
+  d3.select('#mapZoomReset').on('click', () => svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity));
+
+  // Load and render
+  d3.json(TOPO_URL).then(world => {
+    const countries = topojson.feature(world, world.objects.countries);
+
+    g.selectAll('path.country')
+      .data(countries.features)
+      .enter()
+      .append('path')
+      .attr('class', 'country')
+      .attr('d', path)
+      .attr('fill', feat => {
+        const name = feat.properties.name;
+        const d = findData(name);
+        return getCountryColor(d);
+      })
+      .on('click', (event, feat) => {
+        event.stopPropagation();
+        const name = feat.properties.name;
+        const d = findData(name);
+        if (d) {
+          showDetailPanel(d);
+          highlightCountry(feat.properties.name);
+        }
+      })
+      .append('title')
+      .text(feat => {
+        const name = feat.properties.name;
+        const d = findData(name);
+        if (!d) return name;
+        return d.flag + ' ' + d.country;
+      });
+
+    // Borders
+    g.append('path')
+      .datum(topojson.mesh(world, world.objects.countries, (a, b) => a !== b))
+      .attr('fill', 'none')
+      .attr('stroke', 'rgba(0,0,0,0.12)')
+      .attr('stroke-width', 0.5)
+      .attr('d', path)
+      .style('pointer-events', 'none');
+  });
+
+  function highlightCountry(topoName) {
+    g.selectAll('path.country')
+      .classed('highlighted', false)
+      .classed('dimmed', false);
+    g.selectAll('path.country')
+      .classed('dimmed', true);
+    g.selectAll('path.country')
+      .filter(feat => feat.properties.name === topoName)
+      .classed('highlighted', true)
+      .classed('dimmed', false)
+      .raise();
+  }
+
+  function clearHighlight() {
+    g.selectAll('path.country')
+      .classed('highlighted', false)
+      .classed('dimmed', false);
+  }
+
+  function zoomToCountry(topoName) {
+    const feat = g.selectAll('path.country')
+      .filter(f => f.properties.name === topoName)
+      .datum();
+    if (!feat) return;
+    const [[x0, y0], [x1, y1]] = path.bounds(feat);
+    const dx = x1 - x0, dy = y1 - y0;
+    const x = (x0 + x1) / 2, y = (y0 + y1) / 2;
+    const scale = Math.max(1, Math.min(6, 0.7 / Math.max(dx / width, dy / height)));
+    svg.transition().duration(600).call(
+      zoom.transform,
+      d3.zoomIdentity.translate(width / 2, height / 2).scale(scale).translate(-x, -y)
+    );
+  }
+
+  // Detail panel
+  const panel = document.getElementById('mapDetailPanel');
+  const panelTitle = document.getElementById('mapDetailTitle');
+  const panelBody = document.getElementById('mapDetailBody');
+
+  document.getElementById('mapDetailClose').addEventListener('click', () => {
+    panel.style.display = 'none';
+    clearHighlight();
+  });
+
+  svg.on('click', () => {
+    panel.style.display = 'none';
+    clearHighlight();
+  });
+
+  const usNames = {openai:'OpenAI',anthropic:'Anthropic',deepmind:'DeepMind',mistral:'Mistral',xai:'xAI'};
+  const cnNames = {huawei:'Huawei',sensetime:'SenseTime',alibaba:'Alibaba',zhipu:'Zhipu AI',baidu:'Baidu',deepseek:'DeepSeek',bytedance:'ByteDance',tencent:'Tencent',iflytek:'iFlytek'};
+  const defNames = {palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
+
+  function tagHTML(lab, nameMap, cssPrefix) {
+    const name = nameMap[lab] || lab;
+    return '<span class="lab-tag lab-' + lab + '" style="font-size:0.65rem;cursor:default;">' + name + '</span>';
+  }
+
+  function showDetailPanel(d) {
+    panelTitle.textContent = d.flag + ' ' + d.country;
+
+    let html = '<div class="map-detail-meta">';
+    html += '<span><strong>Budget:</strong> ' + d.budget + '</span>';
+    html += '<span><strong>Troops:</strong> ' + (d.troopsNum > 0 ? fmtNum(d.troopsNum) : '—') + '</span>';
+    html += '</div>';
+
+    // US/Western Labs
+    html += '<div class="map-detail-section">';
+    html += '<div class="map-detail-section-title">US/Western Frontier Lab Partners</div>';
+    if (d.usLabs.length) {
+      html += '<div class="map-detail-tags">' + d.usLabs.map(l => tagHTML(l, usNames)).join('') + '</div>';
+      d.usLabs.forEach(lab => {
+        if (d.companyDetails[lab]) {
+          html += '<div class="map-detail-deal"><strong>' + (usNames[lab]||lab) + ':</strong> ' + d.companyDetails[lab] + '</div>';
+        }
+      });
+    } else {
+      html += '<div class="map-detail-nodeal">No confirmed deals</div>';
+    }
+    html += '</div>';
+
+    // Chinese Labs
+    html += '<div class="map-detail-section">';
+    html += '<div class="map-detail-section-title">Chinese Frontier Lab Partners</div>';
+    if (d.cnLabs.length) {
+      html += '<div class="map-detail-tags">' + d.cnLabs.map(l => tagHTML(l, cnNames)).join('') + '</div>';
+      d.cnLabs.forEach(lab => {
+        if (d.companyDetails[lab]) {
+          html += '<div class="map-detail-deal"><strong>' + (cnNames[lab]||lab) + ':</strong> ' + d.companyDetails[lab] + '</div>';
+        }
+      });
+    } else {
+      html += '<div class="map-detail-nodeal">No confirmed deals</div>';
+    }
+    html += '</div>';
+
+    // Foreign Military AI Partners
+    const foreignDef = d.defAI.filter(x => x !== 'domestic');
+    html += '<div class="map-detail-section">';
+    html += '<div class="map-detail-section-title">Foreign Military AI Partners</div>';
+    if (foreignDef.length) {
+      html += '<div class="map-detail-tags">' + foreignDef.map(l => tagHTML(l, defNames)).join('') + '</div>';
+      foreignDef.forEach(co => {
+        if (d.companyDetails[co]) {
+          html += '<div class="map-detail-deal"><strong>' + (defNames[co]||co) + ':</strong> ' + d.companyDetails[co] + '</div>';
+        }
+      });
+    } else {
+      html += '<div class="map-detail-nodeal">No confirmed deals</div>';
+    }
+    html += '</div>';
+
+    // Domestic Military AI
+    html += '<div class="map-detail-section">';
+    html += '<div class="map-detail-section-title">Domestic Military AI</div>';
+    if (d.domesticAI) {
+      html += '<div class="map-detail-tags"><span class="lab-tag lab-domestic" style="font-size:0.65rem;cursor:default;">' + d.domesticAI + '</span></div>';
+      if (d.companyDetails.domestic) {
+        html += '<div class="map-detail-deal">' + d.companyDetails.domestic + '</div>';
+      }
+    } else {
+      html += '<div class="map-detail-nodeal">No confirmed program</div>';
+    }
+    html += '</div>';
+
+    html += '<div style="margin-top:0.5rem;padding-top:0.4rem;border-top:1px solid var(--border);font-size:0.6rem;color:#999;">Last verified: April 2026</div>';
+
+    panelBody.innerHTML = html;
+    panel.style.display = 'block';
+    panel.scrollTop = 0;
+  }
+
+  // Search / autocomplete
+  const mapSearchInput = document.getElementById('mapSearch');
+  const autocompleteDiv = document.getElementById('mapAutocomplete');
+  let acIndex = -1;
+
+  mapSearchInput.addEventListener('input', () => {
+    const q = mapSearchInput.value.toLowerCase().trim();
+    autocompleteDiv.innerHTML = '';
+    acIndex = -1;
+    if (!q) { autocompleteDiv.style.display = 'none'; return; }
+    const matches = DATA.filter(d => d.country.toLowerCase().includes(q)).slice(0, 8);
+    if (!matches.length) { autocompleteDiv.style.display = 'none'; return; }
+    matches.forEach((d, i) => {
+      const item = document.createElement('div');
+      item.className = 'map-autocomplete-item';
+      item.textContent = d.flag + ' ' + d.country;
+      item.addEventListener('click', () => selectMapCountry(d));
+      autocompleteDiv.appendChild(item);
+    });
+    autocompleteDiv.style.display = 'block';
+  });
+
+  mapSearchInput.addEventListener('keydown', (e) => {
+    const items = autocompleteDiv.querySelectorAll('.map-autocomplete-item');
+    if (!items.length) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      acIndex = Math.min(acIndex + 1, items.length - 1);
+      items.forEach((it, i) => it.classList.toggle('active', i === acIndex));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      acIndex = Math.max(acIndex - 1, 0);
+      items.forEach((it, i) => it.classList.toggle('active', i === acIndex));
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (acIndex >= 0 && items[acIndex]) {
+        const name = items[acIndex].textContent;
+        const d = DATA.find(x => name.includes(x.country));
+        if (d) selectMapCountry(d);
+      }
+    } else if (e.key === 'Escape') {
+      autocompleteDiv.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.map-search-wrap')) {
+      autocompleteDiv.style.display = 'none';
+    }
+  });
+
+  function selectMapCountry(d) {
+    autocompleteDiv.style.display = 'none';
+    mapSearchInput.value = d.country;
+    const topoName = NAME_MAP[d.country] || d.country;
+    highlightCountry(topoName);
+    zoomToCountry(topoName);
+    showDetailPanel(d);
+  }
+})();
 </script>
 </body>
 </html>
