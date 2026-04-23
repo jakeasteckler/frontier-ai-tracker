@@ -438,6 +438,28 @@
     font-style: italic;
     font-size: 0.75rem;
   }
+  .map-tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: rgba(26,26,26,0.9);
+    color: #f5f0e8;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.4;
+    z-index: 200;
+    display: none;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  .map-tooltip-name {
+    font-weight: 700;
+  }
+  .map-tooltip-status {
+    color: rgba(245,240,232,0.7);
+    font-size: 0.65rem;
+  }
   .map-zoom-controls {
     position: absolute;
     bottom: 40px;
@@ -521,6 +543,7 @@
       </div>
       <div class="map-detail-body" id="mapDetailBody"></div>
     </div>
+    <div class="map-tooltip" id="mapTooltip"></div>
     <div class="map-legend-bar">
       <div class="map-legend-item"><span class="map-legend-swatch" style="background:#8b2c2c"></span> Military AI + Frontier Lab</div>
       <div class="map-legend-item"><span class="map-legend-swatch" style="background:#c46a32"></span> Military AI Only</div>
@@ -1628,7 +1651,7 @@ render();
     .on('zoom', (event) => {
       g.attr('transform', event.transform);
     });
-  svg.call(zoom);
+  svg.call(zoom).on('wheel.zoom', null); // disable scroll zoom, keep double-click + drag + buttons
 
   d3.select('#mapZoomIn').on('click', () => svg.transition().duration(300).call(zoom.scaleBy, 1.5));
   d3.select('#mapZoomOut').on('click', () => svg.transition().duration(300).call(zoom.scaleBy, 0.67));
@@ -1658,12 +1681,33 @@ render();
           highlightCountry(feat.properties.name);
         }
       })
-      .append('title')
-      .text(feat => {
+      .on('mouseover', (event, feat) => {
         const name = feat.properties.name;
         const d = findData(name);
-        if (!d) return name;
-        return d.flag + ' ' + d.country;
+        const tooltip = document.getElementById('mapTooltip');
+        let label = '<span class="map-tooltip-name">' + (d ? d.flag + ' ' + d.country : name) + '</span>';
+        if (d) {
+          const hasDef = d.defAI && d.defAI.length > 0;
+          const hasUS = d.usLabs && d.usLabs.length > 0;
+          const hasCN = d.cnLabs && d.cnLabs.length > 0;
+          const parts = [];
+          if (hasDef) parts.push(d.defAI.filter(x=>x!=='domestic').length + ' Defense AI Partner' + (d.defAI.filter(x=>x!=='domestic').length !== 1 ? 's' : ''));
+          if (d.domesticAI) parts.push('Domestic Program');
+          if (hasUS) parts.push(d.usLabs.length + ' US Lab' + (d.usLabs.length !== 1 ? 's' : ''));
+          if (hasCN) parts.push(d.cnLabs.length + ' Chinese Lab' + (d.cnLabs.length !== 1 ? 's' : ''));
+          if (!parts.length) parts.push('No Confirmed Deals');
+          label += '<br><span class="map-tooltip-status">' + parts.join(' · ') + '</span>';
+        }
+        tooltip.innerHTML = label;
+        tooltip.style.display = 'block';
+      })
+      .on('mousemove', (event) => {
+        const tooltip = document.getElementById('mapTooltip');
+        tooltip.style.left = (event.clientX + 12) + 'px';
+        tooltip.style.top = (event.clientY - 10) + 'px';
+      })
+      .on('mouseout', () => {
+        document.getElementById('mapTooltip').style.display = 'none';
       });
 
     // Borders
