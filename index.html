@@ -64,6 +64,7 @@
     --tag-norinco: #8b4513;
     --tag-casic: #2b3e50;
     --tag-space42: #1e4a4a;
+    --tag-rheinmetall: #3a5a3a;
     --tag-cetc: #8b2252;
     --tag-casc: #4a3b2e;
     --tag-domestic: #5a6e50;
@@ -173,6 +174,7 @@
   .lab-norinco { background: var(--tag-norinco); }
   .lab-casic { background: var(--tag-casic); }
   .lab-space42 { background: var(--tag-space42); }
+  .lab-rheinmetall { background: var(--tag-rheinmetall); }
   .lab-cetc { background: var(--tag-cetc); }
   .lab-casc { background: var(--tag-casc); }
 
@@ -559,7 +561,7 @@
   <p><strong>"Domestic Military AI"</strong> = the country has a publicly documented indigenous military AI program, research center, or domestically developed autonomous weapons system. These are tagged separately from external defense AI partnerships.</p>
   <p><strong>"AI Strategy / Policy"</strong> = an officially published government or military document, directive, or formal statement outlining plans to develop or adopt AI for defense purposes. Includes national defense AI strategies, white papers mentioning military AI, and formal directives from heads of state or defense ministers.</p>
   <p><strong>Frontier AI labs tracked:</strong> OpenAI, Anthropic, Google DeepMind (Gemini), Meta (Llama), Mistral, xAI, Huawei. Note: OpenAI and Anthropic are tracked but have no confirmed direct contracts with foreign militaries as of May 2026.</p>
-  <p><strong>Defense AI companies tracked:</strong> Palantir, Helsing, Anduril, Shield AI, Baykar, Thales, Leonardo, EDGE Group, Elbit Systems, Rafael, Saab, Northrop Grumman, BAE Systems, IAI, Havelsan, Roketsan, AeroVironment, MARSS Group, NORINCO, CASIC, CETC, CASC, Space42.</p>
+  <p><strong>Defense AI companies tracked:</strong> Palantir, Helsing, Anduril, Shield AI, Baykar, Thales, Leonardo, EDGE Group, Elbit Systems, Rafael, Saab, Northrop Grumman, BAE Systems, IAI, Havelsan, Roketsan, Rheinmetall, AeroVironment, MARSS Group, NORINCO, CASIC, CETC, CASC, Space42.</p>
   <p><strong>Inclusion criteria:</strong> Any country in the top 50 by military budget (SIPRI 2024) OR top 50 by active troop size, excluding the US and China.</p>
   <p><strong>Data sources:</strong> Military budget data from SIPRI 2024. Active troop data from IISS Military Balance &amp; Global Firepower Index (2024&ndash;2025). Deal information from official press releases, company announcements, defense journalism, CSIS, and SIPRI (2024&ndash;2026).</p>
 </details>
@@ -1367,8 +1369,12 @@ const DATA = [
     country: "Austria", flag: "🇦🇹", region: "europe",
     budget: "$4B", budgetNum: 4, troops: "57,000", troopsNum: 57000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {},
+    defAI: ["rheinmetall","domestic"],
+    domesticAI: "Schiebel",
+    companyDetails: {
+      rheinmetall: "€532M Skynex air defense contract (Dec 2023) with AI-assisted targeting; Skyranger 30 counter-drone systems ordered (operational 2027); C-sUAS counter-small-drone system evaluated and lease extended after successful tests. <span class=\"sources\">[<a href=\"https://thedefensepost.com/2023/12/13/austria-air-defense-rheinmetall/\" target=\"_blank\">Defense Post</a>] [<a href=\"https://www.edrmagazine.eu/drone-defence-austrian-armed-forces-and-rheinmetall-successfully-test-anti-small-drone-system-c-suas-lease-contract-extended\" target=\"_blank\">EDR</a>]</span>",
+      domestic: "Schiebel (Vienna) manufactures Camcopter S-100 VTOL drone used by 45+ militaries worldwide; unveiled armed S-101 and S-301 variants at UMEX 2026 with Thales laser-guided rockets. AARONIA ELDRO electronic warfare drone defense system deployed at Airpower22. Bundesheer 2032+ modernization plan includes counter-drone capabilities. <span class=\"sources\">[<a href=\"https://militaeraktuell.at/en/armed-schiebel-presents-new-camcopter-s-101-and-s-301/\" target=\"_blank\">Militär Aktuell</a>]</span>"
+    },
     strategyName: 'REAIM Oversight Co-Lead (2024)',
     strategyDoc: 'Co-leads Oversight working group under Political Declaration on Responsible Military AI; introduced UN LAWS resolution 2023. <span class="sources">[<a href="https://breakingdefense.com/2024/03/us-joins-austria-bahrain-canada-portugal-to-co-lead-global-push-for-safer-military-ai/" target="_blank">Breaking Defense</a>]</span>'
   },
@@ -1517,7 +1523,7 @@ function cnTag(lab) {
   return '<span class="lab-tag lab-'+lab+'" data-lab="'+lab+'">'+(names[lab]||lab)+'</span>';
 }
 function defTag(co) {
-  const names = {palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
+  const names = {palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',rheinmetall:'Rheinmetall',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
   return '<span class="lab-tag lab-'+co+'" data-lab="'+co+'">'+(names[co]||co)+'</span>';
 }
 
@@ -1856,7 +1862,7 @@ render();
 
   const usNames = {openai:'OpenAI',anthropic:'Anthropic',deepmind:'DeepMind',mistral:'Mistral',xai:'xAI'};
   const cnNames = {huawei:'Huawei',sensetime:'SenseTime',alibaba:'Alibaba',zhipu:'Zhipu AI',baidu:'Baidu',deepseek:'DeepSeek',bytedance:'ByteDance',tencent:'Tencent',iflytek:'iFlytek'};
-  const defNames = {palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
+  const defNames = {palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',rheinmetall:'Rheinmetall',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
 
   function tagHTML(lab, nameMap, cssPrefix) {
     const name = nameMap[lab] || lab;
