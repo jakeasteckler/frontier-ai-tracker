@@ -568,7 +568,7 @@
   <p><strong>"AI Strategy / Policy"</strong> = an officially published government or military document, directive, formal statement, or institution that outlines or signals defense-relevant AI activity. Includes dedicated defense AI strategies, broader defense modernization plans mentioning AI/autonomy, national AI strategies with defense/security implications, and formal defense AI research hubs.</p>
   <p><strong>Frontier AI labs tracked:</strong> OpenAI, Anthropic, Google DeepMind (Gemini), Meta (Llama), Mistral, xAI, DeepSeek.</p>
   <p><strong>Inclusion criteria:</strong> Countries in or near the top 50 by military expenditure (latest SIPRI data) OR top 50 by active troop size, plus countries with documented defense-AI activity or policy relevance, excluding the US and China.</p>
-  <p><strong>Data sources:</strong> Defense budget figures use SIPRI Military Expenditure Database current US$ values, primarily 2025 where available; recent-unavailable cases retain estimates or the latest suitable public figure. Active troop data from IISS Military Balance &amp; Global Firepower Index (2024&ndash;2025). Deal information from official press releases, company announcements, defense journalism, and think tank research (2024&ndash;2026).</p>
+  <p><strong>Data sources:</strong> Defense budget figures use SIPRI Military Expenditure Database current US$ values, primarily 2025 where available; recent-unavailable cases retain estimates or the latest suitable public figure. Active troop figures use IISS Military Balance active-duty personnel as the primary baseline, with Global Firepower used where IISS is unavailable or a current conflict-state estimate is more suitable. Deal information from official press releases, company announcements, defense journalism, and think tank research (2024&ndash;2026).</p>
 </details>
 
 <div class="controls">
@@ -629,7 +629,7 @@
 const DATA = [
   {
     country: "United Kingdom", flag: "🇬🇧", region: "europe",
-    budget: "$89B", budgetNum: 89, troops: "148,000", troopsNum: 148000,
+    budget: "$89B", budgetNum: 89, troops: "141,100", troopsNum: 141100,
     gov: true, mil: true,
     milLabs: ["deepmind","meta","mistral"],
     usLabs: ["openai","anthropic","deepmind"], cnLabs: [],
@@ -652,7 +652,7 @@ const DATA = [
   },
   {
     country: "France", flag: "🇫🇷", region: "europe",
-    budget: "$68B", budgetNum: 68, troops: "203,000", troopsNum: 203000,
+    budget: "$68B", budgetNum: 68, troops: "203,900", troopsNum: 203900,
     gov: true, mil: true,
     milLabs: ["mistral","meta"],
     usLabs: ["mistral"], cnLabs: [],
@@ -670,7 +670,7 @@ const DATA = [
   },
   {
     country: "India", flag: "🇮🇳", region: "south-asia",
-    budget: "$92B", budgetNum: 92, troops: "1,450,000", troopsNum: 1450000,
+    budget: "$92B", budgetNum: 92, troops: "1,500,700", troopsNum: 1500700,
     gov: true, mil: false,
     usLabs: ["openai","anthropic","deepmind"], cnLabs: [],
     defAI: ["edge","anduril","shieldai","domestic"],
@@ -689,7 +689,7 @@ const DATA = [
   },
   {
     country: "Japan", flag: "🇯🇵", region: "east-asia",
-    budget: "$62B", budgetNum: 62, troops: "247,000", troopsNum: 247000,
+    budget: "$62B", budgetNum: 62, troops: "247,150", troopsNum: 247150,
     gov: true, mil: true,
     milLabs: ["meta"],
     usLabs: ["openai","anthropic"], cnLabs: [],
@@ -709,7 +709,7 @@ const DATA = [
   },
   {
     country: "South Korea", flag: "🇰🇷", region: "east-asia",
-    budget: "$48B", budgetNum: 48, troops: "500,000", troopsNum: 500000,
+    budget: "$48B", budgetNum: 48, troops: "450,000", troopsNum: 450000,
     gov: true, mil: true,
     milLabs: ["meta"],
     usLabs: ["openai","anthropic"], cnLabs: [],
@@ -729,7 +729,7 @@ const DATA = [
   },
   {
     country: "Germany", flag: "🇩🇪", region: "europe",
-    budget: "$114B", budgetNum: 114, troops: "183,000", troopsNum: 183000,
+    budget: "$114B", budgetNum: 114, troops: "179,850", troopsNum: 179850,
     gov: true, mil: true,
     milLabs: ["mistral","meta"],
     usLabs: ["openai"], cnLabs: [],
@@ -747,7 +747,7 @@ const DATA = [
   },
   {
     country: "Saudi Arabia", flag: "🇸🇦", region: "mena",
-    budget: "$83B", budgetNum: 83, troops: "227,000", troopsNum: 227000,
+    budget: "$83B", budgetNum: 83, troops: "257,000", troopsNum: 257000,
     gov: true, mil: false,
     usLabs: ["openai","deepmind"], cnLabs: ["sensetime","huawei","tencent","zhipu"],
     defAI: ["baykar","palantir","anduril"],
@@ -767,7 +767,7 @@ const DATA = [
   },
   {
     country: "Israel", flag: "🇮🇱", region: "mena",
-    budget: "$48B", budgetNum: 48, troops: "170,000", troopsNum: 170000,
+    budget: "$48B", budgetNum: 48, troops: "169,500", troopsNum: 169500,
     gov: true, mil: true,
     milLabs: [],
     usLabs: [], cnLabs: [],
@@ -785,7 +785,7 @@ const DATA = [
   },
   {
     country: "Australia", flag: "🇦🇺", region: "asia",
-    budget: "$35B", budgetNum: 35, troops: "59,000", troopsNum: 59000,
+    budget: "$35B", budgetNum: 35, troops: "58,540", troopsNum: 58540,
     gov: true, mil: true,
     milLabs: ["openai","meta"],
     usLabs: ["openai","anthropic"], cnLabs: [],
@@ -839,7 +839,7 @@ const DATA = [
   },
   {
     country: "Brazil", flag: "🇧🇷", region: "americas",
-    budget: "$24B", budgetNum: 24, troops: "367,000", troopsNum: 367000,
+    budget: "$24B", budgetNum: 24, troops: "374,500", troopsNum: 374500,
     gov: true, mil: false,
     usLabs: ["openai"], cnLabs: ["alibaba"],
     defAI: ["edge","domestic"],
@@ -875,7 +875,7 @@ const DATA = [
   },
   {
     country: "El Salvador", flag: "🇸🇻", region: "americas",
-    budget: "<$1B", budgetNum: 0.49, troops: "25,000", troopsNum: 25000,
+    budget: "<$1B", budgetNum: 0.49, troops: "2,600", troopsNum: 2600,
     gov: true, mil: false,
     usLabs: ["xai"], cnLabs: [],
     defAI: ["textron"],
@@ -886,7 +886,7 @@ const DATA = [
   },
   {
     country: "Sweden", flag: "🇸🇪", region: "europe",
-    budget: "$16B", budgetNum: 16, troops: "25,000", troopsNum: 25000,
+    budget: "$16B", budgetNum: 16, troops: "14,850", troopsNum: 14850,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["helsing","saab-def","domestic"],
     domesticAI: "FMV AI",
@@ -900,7 +900,7 @@ const DATA = [
   },
   {
     country: "Estonia", flag: "🇪🇪", region: "europe",
-    budget: "$1.6B", budgetNum: 1.6, troops: "7,000", troopsNum: 7000,
+    budget: "$1.6B", budgetNum: 1.6, troops: "7,100", troopsNum: 7100,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["helsing","anduril"],
     companyDetails: {
@@ -912,7 +912,7 @@ const DATA = [
   },
   {
     country: "Italy", flag: "🇮🇹", region: "europe",
-    budget: "$48B", budgetNum: 48, troops: "165,000", troopsNum: 165000,
+    budget: "$48B", budgetNum: 48, troops: "160,400", troopsNum: 160400,
     gov: false, mil: true,
     milLabs: ["meta"], usLabs: [], cnLabs: [],
     defAI: ["leonardo","aerovironment","domestic"],
@@ -928,7 +928,7 @@ const DATA = [
   },
   {
     country: "Poland", flag: "🇵🇱", region: "europe",
-    budget: "$47B", budgetNum: 47, troops: "188,000", troopsNum: 188000,
+    budget: "$47B", budgetNum: 47, troops: "173,000", troopsNum: 173000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["northrop","palantir","anduril","domestic"],
     domesticAI: "OSA",
@@ -943,7 +943,7 @@ const DATA = [
   },
   {
     country: "Netherlands", flag: "🇳🇱", region: "europe",
-    budget: "$29B", budgetNum: 29, troops: "68,000", troopsNum: 68000,
+    budget: "$29B", budgetNum: 29, troops: "33,650", troopsNum: 33650,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["anduril","shieldai","domestic"],
     domesticAI: "DefGPT",
@@ -957,7 +957,7 @@ const DATA = [
   },
   {
     country: "Romania", flag: "🇷🇴", region: "europe",
-    budget: "$9.7B", budgetNum: 9.7, troops: "73,000", troopsNum: 73000,
+    budget: "$9.7B", budgetNum: 9.7, troops: "69,900", troopsNum: 69900,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["shieldai"],
     companyDetails: {
@@ -968,7 +968,7 @@ const DATA = [
   },
   {
     country: "Morocco", flag: "🇲🇦", region: "mena",
-    budget: "$6.3B", budgetNum: 6.3, troops: "196,000", troopsNum: 196000,
+    budget: "$6.3B", budgetNum: 6.3, troops: "195,800", troopsNum: 195800,
     gov: true, mil: false,
     usLabs: ["mistral"], cnLabs: ["huawei"],
     defAI: ["baykar","iai","elbit"],
@@ -982,7 +982,7 @@ const DATA = [
   },
   {
     country: "Turkey", flag: "🇹🇷", region: "mena",
-    budget: "$30B", budgetNum: 30, troops: "461,000", troopsNum: 461000,
+    budget: "$30B", budgetNum: 30, troops: "355,200", troopsNum: 355200,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["baykar","havelsan","roketsan","domestic"],
     domesticAI: "ASELSAN",
@@ -997,7 +997,7 @@ const DATA = [
   },
   {
     country: "Russia", flag: "🇷🇺", region: "europe",
-    budget: "$190B", budgetNum: 190, troops: "1,150,000", troopsNum: 1150000,
+    budget: "$190B", budgetNum: 190, troops: "1,264,000", troopsNum: 1264000,
     gov: true, mil: false,
     usLabs: [], cnLabs: ["huawei"],
     defAI: ["domestic"],
@@ -1011,7 +1011,7 @@ const DATA = [
   },
   {
     country: "Pakistan", flag: "🇵🇰", region: "south-asia",
-    budget: "$12B", budgetNum: 12, troops: "654,000", troopsNum: 654000,
+    budget: "$12B", budgetNum: 12, troops: "660,000", troopsNum: 660000,
     gov: true, mil: false,
     usLabs: [], cnLabs: ["huawei"],
     defAI: ["domestic"],
@@ -1025,7 +1025,7 @@ const DATA = [
   },
   {
     country: "Egypt", flag: "🇪🇬", region: "mena",
-    budget: "$2.5B", budgetNum: 2.5, troops: "440,000", troopsNum: 440000,
+    budget: "$2.5B", budgetNum: 2.5, troops: "438,500", troopsNum: 438500,
     gov: true, mil: false,
     usLabs: [], cnLabs: ["huawei"],
     defAI: ["casic","norinco","domestic"],
@@ -1041,7 +1041,7 @@ const DATA = [
   },
   {
     country: "Algeria", flag: "🇩🇿", region: "mena",
-    budget: "$25B", budgetNum: 25, troops: "130,000", troopsNum: 130000,
+    budget: "$25B", budgetNum: 25, troops: "139,000", troopsNum: 139000,
     gov: true, mil: false,
     usLabs: [], cnLabs: ["huawei"],
     defAI: ["casc","casic","baykar","domestic"],
@@ -1058,7 +1058,7 @@ const DATA = [
   },
   {
     country: "Indonesia", flag: "🇮🇩", region: "asia",
-    budget: "$15B", budgetNum: 15, troops: "400,000", troopsNum: 400000,
+    budget: "$15B", budgetNum: 15, troops: "433,700", troopsNum: 433700,
     gov: true, mil: false,
     usLabs: ["openai"], cnLabs: ["huawei","deepseek"],
     defAI: ["baykar","thales"],
@@ -1074,7 +1074,7 @@ const DATA = [
   },
   {
     country: "Thailand", flag: "🇹🇭", region: "asia",
-    budget: "$6B", budgetNum: 6, troops: "360,000", troopsNum: 360000,
+    budget: "$6B", budgetNum: 6, troops: "360,850", troopsNum: 360850,
     gov: true, mil: false,
     usLabs: [], cnLabs: ["huawei"],
     defAI: ["saab-def"],
@@ -1085,7 +1085,7 @@ const DATA = [
   },
   {
     country: "Malaysia", flag: "🇲🇾", region: "asia",
-    budget: "$4.9B", budgetNum: 4.9, troops: "135,000", troopsNum: 135000,
+    budget: "$4.9B", budgetNum: 4.9, troops: "113,000", troopsNum: 113000,
     gov: true, mil: false,
     usLabs: [], cnLabs: ["deepseek","zhipu","huawei"],
     defAI: ["baykar","havelsan","domestic"],
@@ -1103,7 +1103,7 @@ const DATA = [
   },
   {
     country: "Myanmar", flag: "🇲🇲", region: "asia",
-    budget: "$5B", budgetNum: 5, troops: "406,000", troopsNum: 406000,
+    budget: "$5B", budgetNum: 5, troops: "134,000", troopsNum: 134000,
     gov: true, mil: false,
     usLabs: [], cnLabs: ["huawei"],
     defAI: ["domestic"],
@@ -1152,7 +1152,7 @@ const DATA = [
   },
   {
     country: "Canada", flag: "🇨🇦", region: "americas",
-    budget: "$37B", budgetNum: 37, troops: "68,000", troopsNum: 68000,
+    budget: "$37B", budgetNum: 37, troops: "62,300", troopsNum: 62300,
     gov: false, mil: true,
     milLabs: ["meta"], usLabs: [], cnLabs: [],
     defAI: ["saab-def","thales","domestic"],
@@ -1168,7 +1168,7 @@ const DATA = [
   },
   {
     country: "Colombia", flag: "🇨🇴", region: "americas",
-    budget: "$15B", budgetNum: 15, troops: "293,000", troopsNum: 293000,
+    budget: "$15B", budgetNum: 15, troops: "285,000", troopsNum: 285000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["saab-def","domestic"],
     domesticAI: "C-UAS Shield",
@@ -1181,7 +1181,7 @@ const DATA = [
   },
   {
     country: "Kuwait", flag: "🇰🇼", region: "mena",
-    budget: "$8.1B", budgetNum: 8.1, troops: "25,000", troopsNum: 25000,
+    budget: "$8.1B", budgetNum: 8.1, troops: "17,500", troopsNum: 17500,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["baykar"],
     companyDetails: {
@@ -1192,7 +1192,7 @@ const DATA = [
   },
   {
     country: "Ecuador", flag: "🇪🇨", region: "americas",
-    budget: "$2.7B", budgetNum: 2.7, troops: "40,000", troopsNum: 40000,
+    budget: "$2.7B", budgetNum: 2.7, troops: "39,600", troopsNum: 39600,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["edge"],
     companyDetails: {
@@ -1201,7 +1201,7 @@ const DATA = [
   },
   {
     country: "Taiwan", flag: "🇹🇼", region: "east-asia",
-    budget: "$18B", budgetNum: 18, troops: "170,000", troopsNum: 170000,
+    budget: "$18B", budgetNum: 18, troops: "170,600", troopsNum: 170600,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["anduril","shieldai","aerovironment","domestic"],
     domesticAI: "DIO",
@@ -1216,7 +1216,7 @@ const DATA = [
   },
   {
     country: "Greece", flag: "🇬🇷", region: "europe",
-    budget: "$8.4B", budgetNum: 8.4, troops: "107,000", troopsNum: 107000,
+    budget: "$8.4B", budgetNum: 8.4, troops: "131,650", troopsNum: 131650,
     gov: true, mil: false, usLabs: ["openai"], cnLabs: [],
     defAI: ["elbit","rafael"],
     companyDetails: {
@@ -1227,7 +1227,7 @@ const DATA = [
   },
   {
     country: "Norway", flag: "🇳🇴", region: "europe",
-    budget: "$17B", budgetNum: 17, troops: "26,000", troopsNum: 26000,
+    budget: "$17B", budgetNum: 17, troops: "25,400", troopsNum: 25400,
     gov: true, mil: false, usLabs: ["openai"], cnLabs: [],
     defAI: ["helsing","shieldai","domestic"],
     domesticAI: "Forsvaret AI",
@@ -1242,7 +1242,7 @@ const DATA = [
   },
   {
     country: "Spain", flag: "🇪🇸", region: "europe",
-    budget: "$40B", budgetNum: 40, troops: "121,000", troopsNum: 121000,
+    budget: "$40B", budgetNum: 40, troops: "122,200", troopsNum: 122200,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "GMV / INDRA",
@@ -1254,7 +1254,7 @@ const DATA = [
   },
   {
     country: "Qatar", flag: "🇶🇦", region: "mena",
-    budget: "$11B", budgetNum: 11, troops: "17,000", troopsNum: 17000,
+    budget: "$11B", budgetNum: 11, troops: "16,500", troopsNum: 16500,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["baykar"],
     companyDetails: {
@@ -1265,7 +1265,7 @@ const DATA = [
   },
   {
     country: "Belgium", flag: "🇧🇪", region: "europe",
-    budget: "$15B", budgetNum: 15, troops: "52,000", troopsNum: 52000,
+    budget: "$15B", budgetNum: 15, troops: "23,500", troopsNum: 23500,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["anduril"],
     companyDetails: {
@@ -1276,7 +1276,7 @@ const DATA = [
   },
   {
     country: "Mexico", flag: "🇲🇽", region: "americas",
-    budget: "$14B", budgetNum: 14, troops: "277,000", troopsNum: 277000,
+    budget: "$14B", budgetNum: 14, troops: "301,000", troopsNum: 301000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "SEDENA UAV",
@@ -1286,7 +1286,7 @@ const DATA = [
   },
   {
     country: "Chile", flag: "🇨🇱", region: "americas",
-    budget: "$5.3B", budgetNum: 5.3, troops: "80,000", troopsNum: 80000,
+    budget: "$5.3B", budgetNum: 5.3, troops: "68,500", troopsNum: 68500,
     gov: true, mil: false, usLabs: ["openai"], cnLabs: [],
     defAI: ["elbit"],
     companyDetails: {
@@ -1298,7 +1298,7 @@ const DATA = [
   },
   {
     country: "Denmark", flag: "🇩🇰", region: "europe",
-    budget: "$15B", budgetNum: 15, troops: "52,000", troopsNum: 52000,
+    budget: "$15B", budgetNum: 15, troops: "13,100", troopsNum: 13100,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["helsing"],
     companyDetails: {
@@ -1318,7 +1318,7 @@ const DATA = [
   },
   {
     country: "Vietnam", flag: "🇻🇳", region: "asia",
-    budget: "$10B", budgetNum: 10, troops: "482,000", troopsNum: 482000,
+    budget: "$10B", budgetNum: 10, troops: "450,000", troopsNum: 450000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "Viettel",
@@ -1330,7 +1330,7 @@ const DATA = [
   },
   {
     country: "Finland", flag: "🇫🇮", region: "europe",
-    budget: "$8.1B", budgetNum: 8.1, troops: "73,000", troopsNum: 73000,
+    budget: "$8.1B", budgetNum: 8.1, troops: "23,850", troopsNum: 23850,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "NATO DIANA",
@@ -1342,7 +1342,7 @@ const DATA = [
   },
   {
     country: "Czech Republic", flag: "🇨🇿", region: "europe",
-    budget: "$7.1B", budgetNum: 7.1, troops: "54,000", troopsNum: 54000,
+    budget: "$7.1B", budgetNum: 7.1, troops: "26,600", troopsNum: 26600,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "AgentFly / LPP",
@@ -1354,7 +1354,7 @@ const DATA = [
   },
   {
     country: "Philippines", flag: "🇵🇭", region: "asia",
-    budget: "$6.4B", budgetNum: 6.4, troops: "143,000", troopsNum: 143000,
+    budget: "$6.4B", budgetNum: 6.4, troops: "162,450", troopsNum: 162450,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["elbit","domestic"],
     domesticAI: "SRDP",
@@ -1365,7 +1365,7 @@ const DATA = [
   },
   {
     country: "Portugal", flag: "🇵🇹", region: "europe",
-    budget: "$5.9B", budgetNum: 5.9, troops: "28,000", troopsNum: 28000,
+    budget: "$5.9B", budgetNum: 5.9, troops: "26,050", troopsNum: 26050,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["thales","domestic"],
     domesticAI: "UAVision / REPMUS",
@@ -1378,7 +1378,7 @@ const DATA = [
   },
   {
     country: "Austria", flag: "🇦🇹", region: "europe",
-    budget: "$6.4B", budgetNum: 6.4, troops: "57,000", troopsNum: 57000,
+    budget: "$6.4B", budgetNum: 6.4, troops: "22,200", troopsNum: 22200,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["rheinmetall","domestic"],
     domesticAI: "Schiebel",
@@ -1391,7 +1391,7 @@ const DATA = [
   },
   {
     country: "Argentina", flag: "🇦🇷", region: "americas",
-    budget: "$3.9B", budgetNum: 3.9, troops: "75,000", troopsNum: 75000,
+    budget: "$3.9B", budgetNum: 3.9, troops: "83,000", troopsNum: 83000,
     gov: true, mil: false, usLabs: ["openai"], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "CITEDEF",
@@ -1404,7 +1404,7 @@ const DATA = [
   },
   {
     country: "New Zealand", flag: "🇳🇿", region: "asia",
-    budget: "$2.9B", budgetNum: 2.9, troops: "15,000", troopsNum: 15000,
+    budget: "$2.9B", budgetNum: 2.9, troops: "8,700", troopsNum: 8700,
     gov: false, mil: true,
     milLabs: ["meta"], usLabs: [], cnLabs: [],
     defAI: ["palantir","domestic"],
@@ -1431,7 +1431,7 @@ const DATA = [
   },
   {
     country: "Bangladesh", flag: "🇧🇩", region: "south-asia",
-    budget: "$3.8B", budgetNum: 3.8, troops: "163,000", troopsNum: 163000,
+    budget: "$3.8B", budgetNum: 3.8, troops: "171,250", troopsNum: 171250,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["baykar","cetc"],
     companyDetails: {
@@ -1441,7 +1441,7 @@ const DATA = [
   },
   {
     country: "Sri Lanka", flag: "🇱🇰", region: "south-asia",
-    budget: "$1.4B", budgetNum: 1.4, troops: "255,000", troopsNum: 255000,
+    budget: "$1.4B", budgetNum: 1.4, troops: "260,450", troopsNum: 260450,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "SLAF / Army AI",
@@ -1451,7 +1451,7 @@ const DATA = [
   },
   {
     country: "Peru", flag: "🇵🇪", region: "americas",
-    budget: "$2.6B", budgetNum: 2.6, troops: "95,000", troopsNum: 95000,
+    budget: "$2.6B", budgetNum: 2.6, troops: "81,000", troopsNum: 81000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["elbit","norinco"],
     companyDetails: {
@@ -1461,7 +1461,7 @@ const DATA = [
   },
   {
     country: "Jordan", flag: "🇯🇴", region: "mena",
-    budget: "$2.6B", budgetNum: 2.6, troops: "100,000", troopsNum: 100000,
+    budget: "$2.6B", budgetNum: 2.6, troops: "100,500", troopsNum: 100500,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "JODDB",
@@ -1482,14 +1482,14 @@ const DATA = [
   },
   {
     country: "Eritrea", flag: "🇪🇷", region: "africa",
-    budget: "<$1B", budgetNum: 0.5, troops: "200,000", troopsNum: 200000,
+    budget: "<$1B", budgetNum: 0.5, troops: "301,750", troopsNum: 301750,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: [],
     companyDetails: {}
   },
   {
     country: "Syria", flag: "🇸🇾", region: "mena",
-    budget: "$2B", budgetNum: 2, troops: "169,000", troopsNum: 169000,
+    budget: "$2B", budgetNum: 2, troops: "100,000", troopsNum: 100000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "Conflict actor drones",
@@ -1499,7 +1499,7 @@ const DATA = [
   },
   {
     country: "Yemen", flag: "🇾🇪", region: "mena",
-    budget: "<$1B", budgetNum: 0.5, troops: "67,000", troopsNum: 67000,
+    budget: "<$1B", budgetNum: 0.5, troops: "40,000", troopsNum: 40000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "Houthi UAVs",
@@ -1509,7 +1509,7 @@ const DATA = [
   },
   {
     country: "South Sudan", flag: "🇸🇸", region: "africa",
-    budget: "<$1B", budgetNum: 0.178, troops: "185,000", troopsNum: 185000,
+    budget: "<$1B", budgetNum: 0.178, troops: "90,000", troopsNum: 90000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "SSPDF UAVs",
@@ -1519,7 +1519,7 @@ const DATA = [
   },
   {
     country: "South Africa", flag: "🇿🇦", region: "africa",
-    budget: "$3.2B", budgetNum: 3.2, troops: "73,000", troopsNum: 73000,
+    budget: "$3.2B", budgetNum: 3.2, troops: "69,200", troopsNum: 69200,
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["domestic"],
     domesticAI: "DAIRU",
