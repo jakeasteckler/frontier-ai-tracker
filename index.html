@@ -31,6 +31,7 @@
     --tag-xai: #1d1d1f;
     --tag-meta: #0668E1;
     --tag-palantir: #101010;
+    --tag-googlecloud: #1a73e8;
 
     --tag-amazon: #ff9900;
     /* Chinese lab tags */
@@ -142,6 +143,7 @@
   .lab-xai { background: var(--tag-xai); border: 1px solid #888; }
   .lab-meta { background: var(--tag-meta); }
   .lab-palantir { background: var(--tag-palantir); border: 1px solid #666; }
+  .lab-googlecloud { background: var(--tag-googlecloud); }
 
   .lab-amazon { background: var(--tag-amazon); color: #1a1a1a; }
   .lab-huawei { background: var(--tag-huawei); }
@@ -506,19 +508,19 @@
 <header>
   <div class="header-inner">
     <h1>Global Military AI Tracker</h1>
-    <p class="subtitle">Tracking military AI contracts, frontier lab defense partnerships, and military AI strategies across 66 countries.</p>
+    <p class="subtitle">Tracking military AI contracts, defense-relevant AI infrastructure, frontier lab defense partnerships, and military AI strategies across 66 countries.</p>
     <div class="header-meta">
-      <span class="header-meta-item"><span class="dot" style="background:var(--yes)"></span> Last updated May 2026</span>
+      <span class="header-meta-item"><span class="dot" style="background:var(--yes)"></span> Last updated June 2026</span>
     </div>
   </div>
 </header>
 
 <div class="stats-bar">
-  <div class="stat"><span class="stat-num" id="statTotal">0</span><span class="stat-label">Countries Tracked</span></div>
+  <div class="stat"><span class="stat-num" id="statTotal">66</span><span class="stat-label">Countries Tracked</span></div>
   <div class="stat-divider"></div>
-  <div class="stat"><span class="stat-num" id="statDefAI">0</span><span class="stat-label">Countries with Military AI Contracts</span></div>
+  <div class="stat"><span class="stat-num" id="statDefAI">58</span><span class="stat-label">Countries with Documented Military AI Activity</span></div>
   <div class="stat-divider"></div>
-  <div class="stat"><span class="stat-num" id="statStrat">0</span><span class="stat-label">Countries with National Military AI Strategy</span></div>
+  <div class="stat"><span class="stat-num" id="statStrat">47</span><span class="stat-label">Countries with Military AI Strategy / Policy</span></div>
 </div>
 
 <div class="map-section">
@@ -545,10 +547,10 @@
     </div>
     <div class="map-tooltip" id="mapTooltip"></div>
     <div class="map-legend-bar">
-      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#8b2c2c"></span> Military AI Contract + National Strategy</div>
-      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#c46a32"></span> Military AI Contract</div>
-      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#4a7a5a"></span> National Military AI Strategy</div>
-      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#c8c0b4"></span> Tracked, No Known Deals</div>
+      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#8b2c2c"></span> Military AI Activity + Strategy / Policy</div>
+      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#c46a32"></span> Military AI Activity</div>
+      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#4a7a5a"></span> Strategy / Policy</div>
+      <div class="map-legend-item"><span class="map-legend-swatch" style="background:#c8c0b4"></span> Tracked, No Documented Activity</div>
       <div class="map-legend-item"><span class="map-legend-swatch" style="background:#e8e4dc"></span> Not Tracked</div>
     </div>
   </div>
@@ -556,23 +558,22 @@
 
 <details class="methodology">
   <summary>Methodology &amp; Definitions</summary>
-  <p><strong>"Frontier Lab Military Partnerships"</strong> = a frontier AI lab's technology is explicitly deployed to, contracted by, or formally made available for use by a nation's military, defense ministry, intelligence services, or defense contractors for national security purposes.</p>
-  <p><strong>"Foreign Military AI Partners"</strong> = a confirmed contract or partnership between an external defense technology company and a country's military for AI-specific capabilities &mdash; autonomous systems, AI-powered targeting, AI-enabled electronic warfare, AI surveillance, etc. General defense contracts without an explicit AI component are excluded.</p>
+  <p><strong>"Frontier Lab Military Partnerships"</strong> = a frontier AI lab's technology is explicitly deployed to, contracted by, formally made available for, or plausibly positioned for use by a nation's military, defense ministry, intelligence services, or defense contractors for national-security purposes. Details note whether evidence is a contract, MOU, infrastructure project, or reported outreach.</p>
+  <p><strong>"Foreign Military AI Partners"</strong> = a documented contract, MOU, partnership, deployment, demonstration, or reported defense-relevant engagement between an external AI/cloud/defense technology company and a country's military, defense ministry, intelligence services, or defense industry for AI-specific capabilities &mdash; autonomous systems, AI-powered targeting, AI-enabled electronic warfare, AI surveillance, AI/cloud infrastructure, etc. General defense contracts without an explicit AI component are excluded.</p>
   <p><strong>"Domestic Military AI"</strong> = the country has a publicly documented indigenous military AI program, research center, or domestically developed autonomous weapons system. These are tagged separately from external defense AI partnerships.</p>
-  <p><strong>"AI Strategy / Policy"</strong> = an officially published government or military document, directive, or formal statement outlining plans to develop or adopt AI for defense purposes. Includes national defense AI strategies, white papers mentioning military AI, and formal directives from heads of state or defense ministers.</p>
-  <p><strong>Frontier AI labs tracked:</strong> OpenAI, Anthropic, Google DeepMind (Gemini), Meta (Llama), Mistral, xAI, Huawei. Note: OpenAI and Anthropic are tracked but have no confirmed direct contracts with foreign militaries as of May 2026.</p>
-  <p><strong>Defense AI companies tracked:</strong> Palantir, Helsing, Anduril, Shield AI, Baykar, Thales, Leonardo, EDGE Group, Elbit Systems, Rafael, Saab, Northrop Grumman, BAE Systems, IAI, Havelsan, Roketsan, Rheinmetall, AeroVironment, MARSS Group, NORINCO, CASIC, CETC, CASC, Space42.</p>
+  <p><strong>"AI Strategy / Policy"</strong> = an officially published government or military document, directive, formal statement, or institution that outlines or signals defense-relevant AI activity. Includes dedicated defense AI strategies, broader defense modernization plans mentioning AI/autonomy, national AI strategies with defense/security implications, and formal defense AI research hubs.</p>
+  <p><strong>Frontier AI labs tracked:</strong> OpenAI, Anthropic, Google DeepMind (Gemini), Meta (Llama), Mistral, xAI, DeepSeek.</p>
   <p><strong>Inclusion criteria:</strong> Any country in the top 50 by military budget (SIPRI 2024) OR top 50 by active troop size, excluding the US and China.</p>
-  <p><strong>Data sources:</strong> Military budget data from SIPRI 2024. Active troop data from IISS Military Balance &amp; Global Firepower Index (2024&ndash;2025). Deal information from official press releases, company announcements, defense journalism, CSIS, and SIPRI (2024&ndash;2026).</p>
+  <p><strong>Data sources:</strong> Military budget data from SIPRI 2024. Active troop data from IISS Military Balance &amp; Global Firepower Index (2024&ndash;2025). Deal information from official press releases, company announcements, defense journalism, and think tank research (2024&ndash;2026).</p>
 </details>
 
 <div class="controls">
   <input type="text" class="search-box" id="searchBox" placeholder="Search country, lab, company, or keyword...">
   <select id="dealFilter">
     <option value="all">All Countries</option>
-    <option value="has-deal">Has Any Deal</option>
-<option value="def-ai">Has Defense AI Deal</option>
-    <option value="no-deal">No Known Deals</option>
+    <option value="has-deal">Has Any Military AI Activity</option>
+    <option value="def-ai">Has Defense AI Partner / Program</option>
+    <option value="no-deal">No Documented Activity</option>
   </select>
 
   <select id="regionFilter">
@@ -592,7 +593,7 @@
   <div class="legend-item"><span class="legend-dot" style="background:var(--tag-defense)"></span> Defense AI Company</div>
   <div class="legend-item"><span class="legend-dot" style="background:var(--tag-domestic)"></span> Domestic Military AI</div>
   <div class="legend-item"><span class="legend-dot" style="background:#3a5a4a"></span> AI Strategy / Policy</div>
-  <div class="legend-item"><span class="legend-dot" style="background:#bbb"></span> No confirmed deal</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#bbb"></span> No documented activity</div>
   <div class="legend-item" style="margin-left: auto; font-style: italic;">Click any company tag for deal details</div>
 </div>
 
@@ -633,13 +634,13 @@ const DATA = [
     companyDetails: {
       openai: "Strategic partnership (MOU); 2,500 civil servants on ChatGPT Enterprise; \"Stargate UK\" — up to 50,000 GPUs. <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-and-uk-government-partnership/\" target=\"_blank\">OpenAI</a>] [<a href=\"https://www.gov.uk/government/news/openai-to-expand-uk-office-and-work-with-government-departments-to-turbocharge-the-uks-ai-infrastructure-and-transform-public-services\" target=\"_blank\">GOV.UK</a>]</span>",
       anthropic: "MOU (Feb 2025) for AI-powered GOV.UK assistant. <span class=\"sources\">[<a href=\"https://www.anthropic.com/news/gov-UK-partnership\" target=\"_blank\">Anthropic</a>]</span>",
-      deepmind: "Partnership (Dec 2025) with UK government on national security and cyber resilience using Big Sleep and CodeMender; collaboration with UK AI Security Institute on safety research. <span class=\"sources\">[<a href=\"https://deepmind.google/blog/strengthening-our-partnership-with-the-uk-government-to-support-prosperity-and-security-in-the-ai-era/\" target=\"_blank\">DeepMind</a>]</span>",
+      deepmind: "Google DeepMind partnership with the UK government on national security, cyber resilience, and AI safety, including Big Sleep, CodeMender, and UK AI Security Institute collaboration; not clearly a military or MOD deployment at this time. <span class=\"sources\">[<a href=\"https://deepmind.google/blog/strengthening-our-partnership-with-the-uk-government-to-support-prosperity-and-security-in-the-ai-era/\" target=\"_blank\">DeepMind</a>] [<a href=\"https://www.gov.uk/government/publications/memorandum-of-understanding-between-the-uk-and-google-deepmind-on-ai-opportunities-and-security\" target=\"_blank\">GOV.UK</a>]</span>",
       meta: "Meta explicitly opened Llama to UK defence contractors and government agencies for national security applications (Nov 2024). <span class=\"sources\">[<a href=\"https://techcrunch.com/2024/11/04/meta-says-its-making-its-llama-models-available-for-us-national-security-applications/\" target=\"_blank\">TechCrunch</a>]</span>",
-      mistral: "Access to UK military via Faculty AI partnership for British defence representatives. <span class=\"sources\">[<a href=\"https://sifted.eu/articles/mistral-helsing-defence-ai-action-summit-paris\" target=\"_blank\">Sifted</a>]</span>",
+      mistral: "Mistral has reportedly courted UK defense contacts through partnerships around Faculty AI and Helsing; no confirmed UK MOD procurement found. <span class=\"sources\">[<a href=\"https://sifted.eu/articles/mistral-helsing-defence-ai-action-summit-paris\" target=\"_blank\">Sifted</a>]</span>",
       helsing: "£350M investment over 5 years; AI-enabled autonomous underwater gliders (SG-1 Fathom) for submarine detection; Plymouth manufacturing facility. <span class=\"sources\">[<a href=\"https://www.edrmagazine.eu/\" target=\"_blank\">EDR</a>]</span>",
       anduril: "Multiple MOD contracts including TALOS AI-powered base defense system (£3.8M Phase 1, £17M Phase 2). <span class=\"sources\">[<a href=\"https://www.gov.uk/government/news/mod-awards-38-million-contract-for-advanced-base-protection-system\" target=\"_blank\">UK MOD</a>]</span>",
-      palantir: "~$1B deal (Sept 2025) for military AI tools; largest international contract. <span class=\"sources\">[<a href=\"https://mlq.ai/news/palantir-set-for-1b-uk-military-deal-during-trump-visit/\" target=\"_blank\">MLQ</a>]</span>",
-      thales: "Royal Navy AI-powered mine countermeasures command centers (up to £100M). <span class=\"sources\">[<a href=\"https://oceannews.com/news/defense/\" target=\"_blank\">Ocean News</a>]</span>",
+      palantir: "GBP 240.6M MOD enterprise agreement for Palantir software and services; separate UK strategic partnership reporting discussed up to GBP 1.5B in investment. <span class=\"sources\">[<a href=\"https://www.find-tender.service.gov.uk/procurement/ocds-h6vhtk-05f7e9\" target=\"_blank\">Find a Tender</a>] [<a href=\"https://www.computing.co.uk/news/2025/ai/uk-signs-defence-ai-partnership-palantir\" target=\"_blank\">Computing</a>]</span>",
+      thales: "Royal Navy mine-countermeasures program using AI-powered remote command centres and autonomous systems. <span class=\"sources\">[<a href=\"https://www.thalesgroup.com/en/news-centre/press-releases/thales-secures-major-contract-transform-royal-navy-mine-countermeasures\" target=\"_blank\">Thales</a>] [<a href=\"https://www.royalnavy.mod.uk/news/2025/december/29/20251229-thales-mcm-contract\" target=\"_blank\">Royal Navy</a>]</span>",
       domestic: "Project ASGARD (2024): £1B+ program integrating AI across digital networks, artillery, missiles, aircraft, and uncrewed systems for extended-range targeting; reduces decision-making from hours to minutes. Deployed NATO Exercise Hedgehog (April 2025). <span class=\"sources\">[<a href=\"https://www.gov.uk/government/news/fundamental-lethality-shift-for-british-army-spearheaded-by-novel-targeting-tech-asgard\" target=\"_blank\">UK MOD</a>]</span>"
     },
     strategyName: 'Defence AI Strategy (2022)',
@@ -655,9 +656,9 @@ const DATA = [
     domesticAI: "AMIAD",
     companyDetails: {
       meta: "Meta expanded Llama access for defence and national security to France (Sept 2025). <span class=\"sources\">[<a href=\"https://about.fb.com/news/2025/09/strengthening-us-national-security-by-making-llama-available-to-key-allies/\" target=\"_blank\">Meta</a>]</span>",
-      mistral: "Framework agreement (Jan 2026) with Ministry of Armed Forces granting military access to Mistral's frontier models on French-controlled infrastructure. <span class=\"sources\">[<a href=\"https://www.leuropeista.it/en/french-defence-focuses-on-mistral-at-the-heart-of-national-military-strategy/\" target=\"_blank\">L'Europeista</a>]</span>",
+      mistral: "Framework agreement (Jan 2026) with Ministry of Armed Forces granting military access to Mistral's frontier models on French-controlled infrastructure. <span class=\"sources\">[<a href=\"https://www.defense.gouv.fr/sites/default/files/ministere-armees/Communiqu%C3%A9_A_le%20minist%C3%A8re%20des%20Arm%C3%A9es%20et%20des%20Anciens%20combattants%20notifie%20un%20accord-cadre%20%C3%A0%20Mistral%20AI%20pour%20renforcer%20la%20souverainet%C3%A9%20technologique%20de%20la%20d%C3%A9fense.pdf\" target=\"_blank\">Min. Armées</a>]</span>",
       helsing: "FCAS AI backbone contract (Aug 2023) for next-gen combat air system; CAESAR artillery AI upgrade (Jan 2024). <span class=\"sources\">[<a href=\"https://helsing.ai/newsroom/\" target=\"_blank\">Helsing</a>]</span>",
-      thales: "cortAIx AI accelerator; sovereign AI for French Armed Forces via Naval Group partnership. <span class=\"sources\">[<a href=\"https://defence-industry.eu/\" target=\"_blank\">DIE</a>]</span>",
+      thales: "cortAIx sovereign defense AI partnerships with Naval Group and Dassault Aviation for French military systems and aerospace applications. <span class=\"sources\">[<a href=\"https://www.thalesgroup.com/en/news-centre/press-releases/naval-group-and-thales-join-forces-sovereign-ai-france\" target=\"_blank\">Thales/Naval Group</a>] [<a href=\"https://www.thalesgroup.com/en/news-centre/press-releases/dassault-aviation-and-cortaix-sign-strategic-partnership-sovereign-ai\" target=\"_blank\">Thales/Dassault</a>]</span>",
       domestic: "AMIAD (Agence Ministérielle pour l'Intelligence Artificielle de Défense) created Jan 2024 with €130M annual budget; coordinates all French military AI projects; focus on autonomous systems, intelligence analysis, and cyber defense. <span class=\"sources\">[<a href=\"https://www.defense.gouv.fr/\" target=\"_blank\">Min. Armées</a>]</span>"
     },
     strategyName: 'Defence AI Strategy (2024)',
@@ -676,7 +677,7 @@ const DATA = [
       deepmind: "$15B investment (2026–2030); Karmayogi Bharat for 20M+ public servants. <span class=\"sources\">[<a href=\"https://blog.google/intl/en-in/company-news/our-first-ai-hub-in-india-powered-by-a-15-billion-investment/\" target=\"_blank\">Google</a>]</span>",
       edge: "Adani Defence partnership (June 2024) for missiles, unmanned systems, AI-enabled air defense. <span class=\"sources\">[<a href=\"https://edgegroup.ae/\" target=\"_blank\">EDGE</a>]</span>",
       anduril: "Partnership with Mahindra Defence for co-production of autonomous systems in India; focus on counter-drone and surveillance platforms. <span class=\"sources\">[<a href=\"https://www.anduril.com/news/\" target=\"_blank\">Anduril</a>]</span>",
-      shieldai: "V-BAT autonomous drones; $90M JSW Defence factory in India for licensed production of AI-powered UAVs. <span class=\"sources\">[<a href=\"https://shield.ai/\" target=\"_blank\">Shield AI</a>]</span>",
+      shieldai: "Indian Army selected Shield AI's V-BAT autonomous drones with Hivemind autonomy software; JSW Defence is also building licensed production capacity in India. <span class=\"sources\">[<a href=\"https://timesofindia.indiatimes.com/india/indian-army-to-procure-us-firms-autonomous-v-bat-drones/articleshow/127695476.cms\" target=\"_blank\">Times of India</a>]</span>",
       domestic: "Defence AI Project Agency (DAIPA) established 2019 with $12M annual allocation supporting 75 priority AI projects; demonstrated AI-enabled swarm of 75 drones during Dakshin Shakti exercise. <span class=\"sources\">[<a href=\"https://bisi.org.uk/reports/integrating-ai-in-indias-defence-sector\" target=\"_blank\">BISI</a>]</span>"
     },
     strategyName: 'DAIC / DAIPA (2019)',
@@ -716,7 +717,7 @@ const DATA = [
       anthropic: "SK Telecom invested $100M; joint multilingual LLM development. <span class=\"sources\">[<a href=\"https://www.anthropic.com/news/skt-partnership-announcement\" target=\"_blank\">Anthropic</a>]</span>",
       anduril: "Technical agreement with Korean Air for co-developed UAVs; licensed production and Asia-Pacific export rights; Arsenal South Korea production hub planned. <span class=\"sources\">[<a href=\"https://breakingdefense.com/2025/08/anduril-increases-indo-pacific-footprint-with-taiwan-south-korea-partnerships\" target=\"_blank\">Breaking Defense</a>]</span>",
       shieldai: "Korea Aerospace Industries using Hivemind Enterprise for aircraft autonomy (March 2025). <span class=\"sources\">[<a href=\"https://shield.ai/\" target=\"_blank\">Shield AI</a>]</span>",
-      palantir: "Strategic partnership with LG CNS (March 2026) for AI transformation across LG Group industries. <span class=\"sources\">[<a href=\"https://www.palantir.com/newsroom/\" target=\"_blank\">Palantir</a>]</span>",
+      palantir: "LIG D&A and Palantir demonstrated an AI-enabled command-and-control concept to military officials; defense-relevant demo/partnership rather than a confirmed procurement contract. <span class=\"sources\">[<a href=\"https://biz.chosun.com/en/en-industry/2026/06/01/ECWPOA5XTZHJXHZB4OODF5SUQA/?outputType=amp\" target=\"_blank\">ChosunBiz</a>]</span>",
       domestic: "Samsung SGR-A1 autonomous sentry robots along DMZ; K-CEV unmanned combat engineering vehicle with AI target detection deployed Feb 2026; Hanwha–General Atomics Gray Eagle co-production (Apr 2025); National Defense AI Center under Defense AX initiative. <span class=\"sources\">[<a href=\"https://militaryai.ai/south-korea-defense-ax/\" target=\"_blank\">MilitaryAI</a>]</span>"
     },
     strategyName: 'Defense Innovation 4.0 (2023)',
@@ -732,7 +733,7 @@ const DATA = [
     domesticAI: "Helsing / URANOS KI",
     companyDetails: {
       meta: "Meta expanded Llama access for defence and national security to Germany (Sept 2025). <span class=\"sources\">[<a href=\"https://about.fb.com/news/2025/09/strengthening-us-national-security-by-making-llama-available-to-key-allies/\" target=\"_blank\">Meta</a>]</span>",
-      mistral: "Strategic partnership with Helsing (Feb 2025) for vision-language-action defence AI models; deployed on Eurofighter EW systems and Ukrainian drone platforms. <span class=\"sources\">[<a href=\"https://sifted.eu/articles/mistral-helsing-defence-ai-action-summit-paris\" target=\"_blank\">Sifted</a>]</span>",
+      mistral: "Helsing and Mistral announced a strategic defense-AI partnership for vision-language-action models; defense-relevant company partnership, not a German government procurement contract. <span class=\"sources\">[<a href=\"https://helsing.ai/newsroom/helsing-and-mistral-announce-strategic-partnership-in-defence-ai\" target=\"_blank\">Helsing</a>]</span>",
       openai: "\"Sovereign OpenAI for Germany\" on SAP's Delos Cloud (Microsoft Azure); for gov't administrations. Data stays in Germany. <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-for-germany/\" target=\"_blank\">OpenAI</a>]</span>",
       anduril: "Strategic partnership with Rheinmetall (June 2025) for Barracuda/Fury autonomous drones for European market. <span class=\"sources\">[<a href=\"https://www.anduril.com/news/\" target=\"_blank\">Anduril</a>]</span>",
       domestic: "Helsing: €540M approved (Feb 2026) for HX-2 and Stark Defence loitering munitions (framework ceiling €2B); €258M Eurofighter EW upgrade with Saab; AI 'Cirra' software for Typhoon EK. URANOS KI classified program providing real-time 'Glass Battlefield' AI reconnaissance; integrates drone, radar, satellite data; deploying to Panzerbrigade 45 in Lithuania by mid-2027. <span class=\"sources\">[<a href=\"https://helsing.ai/newsroom/\" target=\"_blank\">Helsing</a>] [<a href=\"https://xpert.digital/en/artificial-intelligence-in-military/\" target=\"_blank\">Xpert</a>]</span>"
@@ -755,21 +756,21 @@ const DATA = [
       zhipu: "Sovereign AI infrastructure and LLM deployment for government organizations. <span class=\"sources\">[<a href=\"https://rockrose.xyz/the-rise-of-zhipu-ai/\" target=\"_blank\">Rockrose</a>]</span>",
       baykar: "$3B contract with Royal Saudi Air Force & Naval Forces for Akinci AI drones; joint production and tech transfer. <span class=\"sources\">[<a href=\"https://www.airforce-technology.com/news/baykar-secures-record-breaking-deal-with-saudi-arabia/\" target=\"_blank\">AFT</a>]</span>",
       palantir: "$2B pledge for AI infrastructure and defense analytics in Saudi Arabia. <span class=\"sources\">[<a href=\"https://www.palantir.com/newsroom/\" target=\"_blank\">Palantir</a>]</span>",
-      anduril: "SAMI-AEC (Saudi Arabian Military Industries / Advanced Electronics Company) partnership for autonomous defense systems. <span class=\"sources\">[<a href=\"https://www.anduril.com/news/\" target=\"_blank\">Anduril</a>]</span>"
+      anduril: "SAMI-AEC (Saudi Arabian Military Industries / Advanced Electronics Company) partnership for autonomous defense systems. <span class=\"sources\">[<a href=\"https://www.defaiya.com/news/Defense%20News/Asia/2026/02/11/sami-launches-land-autonomous-units-inaugurates-land-industrial-complex\" target=\"_blank\">Defaiya</a>]</span>"
     },
     strategyName: 'Vision 2030 / SAMI',
-    strategyDoc: 'No standalone defence AI strategy published. Defence AI direction embedded in Vision 2030 and Saudi Arabian Military Industries (SAMI). <span class="sources">[<a href="https://breakingdefense.com/2026/02/future-of-military-ai-in-saudi-arabia-ai-enhanced-or-ai-native/" target="_blank">Breaking Defense</a>]</span>'
+    strategyDoc: 'Defense-industrial AI/autonomy posture; no standalone public defense AI strategy found. Saudi officials have discussed whether future systems should be AI-enhanced or AI-native, while SAMI/GAMI are expanding autonomous and unmanned defense activity. <span class="sources">[<a href="https://breakingdefense.com/2026/02/future-of-military-ai-in-saudi-arabia-ai-enhanced-or-ai-native/" target="_blank">Breaking Defense</a>] [<a href="https://www.defaiya.com/news/Defense%20News/Asia/2026/02/11/sami-launches-land-autonomous-units-inaugurates-land-industrial-complex" target="_blank">Defaiya</a>]</span>'
   },
   {
     country: "Israel", flag: "🇮🇱", region: "mena",
     budget: "$28B", budgetNum: 28, troops: "170,000", troopsNum: 170000,
     gov: true, mil: true,
-    milLabs: ["deepmind"],
-    usLabs: ["deepmind"], cnLabs: [],
-    defAI: ["palantir","elbit","rafael","domestic"],
+    milLabs: [],
+    usLabs: [], cnLabs: [],
+    defAI: ["googlecloud","palantir","elbit","rafael","domestic"],
     domesticAI: "Unit 8200",
     companyDetails: {
-      deepmind: "$1.2B \"Project Nimbus\" contract (Google + Amazon Web Services) providing cloud + AI/ML tools — facial detection, object tracking — directly to Israeli gov't and military. <span class=\"sources\">[<a href=\"https://theintercept.com/2025/05/12/google-nimbus-israel-military-ai-human-rights/\" target=\"_blank\">The Intercept</a>] [<a href=\"https://www.aljazeera.com/news/2024/4/23/what-is-project-nimbus-and-why-are-google-workers-protesting-israel-deal\" target=\"_blank\">Al Jazeera</a>]</span>",
+      googlecloud: "$1.2B Project Nimbus provides Google Cloud and Amazon Web Services cloud and AI/ML services to Israeli government customers, reportedly including military users; this is Google Cloud/AWS, not Google DeepMind. <span class=\"sources\">[<a href=\"https://theintercept.com/2025/05/12/google-nimbus-israel-military-ai-human-rights/\" target=\"_blank\">The Intercept</a>] [<a href=\"https://www.aljazeera.com/news/2024/4/23/what-is-project-nimbus-and-why-are-google-workers-protesting-israel-deal\" target=\"_blank\">Al Jazeera</a>]</span>",
       palantir: "IDF uses Palantir's AI-powered targeting and intelligence platforms; deployed for battlefield data integration in Gaza operations. <span class=\"sources\">[<a href=\"https://theintercept.com/2024/12/20/palantir-israel-idf-military-ai/\" target=\"_blank\">The Intercept</a>]</span>",
       elbit: "AI-enhanced electro-optical sights, digital warfare systems with AI decision-making tools. Largest Israeli defense AI exporter. <span class=\"sources\">[<a href=\"https://www.elbitsystems.com/\" target=\"_blank\">Elbit</a>]</span>",
       rafael: "AI-powered SPICE 2000 with Automatic Target Acquisition; \"Rocks\" missile with AI targeting algorithm. <span class=\"sources\">[<a href=\"https://militaryembedded.com/ai/\" target=\"_blank\">MilEmbed</a>]</span>",
@@ -788,7 +789,7 @@ const DATA = [
     domesticAI: "Ghost Bat",
     companyDetails: {
       meta: "Meta opened Llama to Australian defence contractors and government agencies for national security applications (Nov 2024). <span class=\"sources\">[<a href=\"https://about.fb.com/news/2025/09/strengthening-us-national-security-by-making-llama-available-to-key-allies/\" target=\"_blank\">Meta</a>]</span>",
-      openai: "\"OpenAI for Australia\" sovereign AI infrastructure with NEXTDC; S7 hyperscale campus explicitly designed for defence and mission-critical workloads, aligned to SOCI framework. Australia recognized as Five Eyes nation. <span class=\"sources\">[<a href=\"https://www.nextdc.com/news/building-the-next-generation-of-sovereign-ai-infrastructure-in-australia\" target=\"_blank\">NEXTDC</a>]</span>",
+      openai: "\"OpenAI for Australia\" sovereign AI infrastructure with NEXTDC; NEXTDC says the S7 campus is designed for defence and mission-critical workloads and aligned to the SOCI framework. No public evidence of a direct military deployment or active ChatGPT military use. <span class=\"sources\">[<a href=\"https://www.nextdc.com/news/building-the-next-generation-of-sovereign-ai-infrastructure-in-australia\" target=\"_blank\">NEXTDC</a>]</span>",
       anthropic: "Sydney office; sovereign data residency; gov't enterprise customers. <span class=\"sources\">[<a href=\"https://www.anthropic.com/news/sydney-fourth-office-asia-pacific\" target=\"_blank\">Anthropic</a>]</span>",
       anduril: "A$1.7B Ghost Shark XL-AUV program for Royal Australian Navy; A$60M Sydney manufacturing facility. First vehicle delivered Jan 2026. <span class=\"sources\">[<a href=\"https://www.anduril.com/news/ghost-shark-factory-opens-in-sydney-first-vehicle-off-the-line-ahead-of-schedule-ready-for\" target=\"_blank\">Anduril</a>]</span>",
       palantir: "A$7.6M contract with ADF Cyber Warfare Division for AI-powered cyber threat analysis and intelligence fusion. <span class=\"sources\">[<a href=\"https://www.palantir.com/newsroom/\" target=\"_blank\">Palantir</a>]</span>",
@@ -852,15 +853,18 @@ const DATA = [
     country: "Singapore", flag: "🇸🇬", region: "asia",
     budget: "$12B", budgetNum: 12, troops: "51,000", troopsNum: 51000,
     gov: true, mil: false,
-    usLabs: ["deepmind"], cnLabs: ["alibaba","zhipu"],
-    defAI: ["thales","domestic"],
+    milLabs: ["mistral"],
+    usLabs: ["deepmind","mistral"], cnLabs: ["alibaba","zhipu"],
+    defAI: ["thales","anduril","domestic"],
     domesticAI: "Gaia / DSTA",
     companyDetails: {
       deepmind: "GovTech Singapore deployed Google agentic AI on air-gapped gov't cloud — first in Asia. <span class=\"sources\">[<a href=\"https://govinsider.asia/\" target=\"_blank\">GovInsider</a>]</span>",
       alibaba: "AI Singapore adopted Qwen for national Sea-Lion LLM program (SGD 70M national AI investment). <span class=\"sources\">[<a href=\"https://www.computerweekly.com/news/366634858/AI-Singapore-taps-Alibaba-Cloud-to-power-Sea-Lion-model\" target=\"_blank\">Computer Weekly</a>]</span>",
       zhipu: "Sovereign AI infrastructure provision to government organizations via Digital Silk Road initiative. <span class=\"sources\">[<a href=\"https://rockrose.xyz/the-rise-of-zhipu-ai/\" target=\"_blank\">Rockrose</a>]</span>",
-      thales: "AI mine countermeasures for Republic of Singapore Navy; DSTA AI Co-Lab (April 2025) for C-UAS and combat systems. <span class=\"sources\">[<a href=\"https://www.asianmilitaryreview.com/\" target=\"_blank\">AMR</a>]</span>",
-      domestic: "Gaia Generative AI Assistant (Sept 2024) for defense operations and mission planning; partnership with Mistral AI for sovereign military AI models on national infrastructure. <span class=\"sources\">[<a href=\"https://www.malaymail.com/news/singapore/2025/09/20/singapores-dsta-unveils-gaia-a-generative-ai-tool-to-revolutionise-defence-capabilities/191766\" target=\"_blank\">Malay Mail</a>]</span>"
+      mistral: "DSO National Laboratories partnered with Mistral to co-develop a mixture-of-experts LLM for sensitive defense environments with secure on-prem deployment. <span class=\"sources\">[<a href=\"https://mistral.ai/customers/dso/\" target=\"_blank\">Mistral</a>]</span>",
+      thales: "AI-powered autonomous mine-countermeasures system for the Republic of Singapore Navy under the Pathmaster program; DSTA AI Co-Lab also covers C-UAS and combat systems. <span class=\"sources\">[<a href=\"https://www.thalesgroup.com/en/news-centre/press-releases/thales-provide-cyber-secured-and-ai-powered-autonomous-mine\" target=\"_blank\">Thales</a>]</span>",
+      anduril: "RSAF/DSTA and Anduril established an autonomy and AI partnership at Singapore Defence Technology Summit 2025. <span class=\"sources\">[<a href=\"https://www.techsummit.sg/docs/default-source/techsummitdocuments/2025/sdts25---dsta-anduril-nr.pdf\" target=\"_blank\">DSTA</a>]</span>",
+      domestic: "Gaia Generative AI Assistant (Sept 2024) for defense operations and mission planning; DSTA/DSO are also pursuing sovereign military AI models on national infrastructure. <span class=\"sources\">[<a href=\"https://www.malaymail.com/news/singapore/2025/09/20/singapores-dsta-unveils-gaia-a-generative-ai-tool-to-revolutionise-defence-capabilities/191766\" target=\"_blank\">Malay Mail</a>] [<a href=\"https://mistral.ai/customers/dso/\" target=\"_blank\">Mistral</a>]</span>"
     },
     strategyName: 'MINDEF AI Principles (2021)',
     strategyDoc: 'Guiding principles for responsible AI in defence since 2021; endorsed REAIM Blueprint for Action Sept 2024. <span class="sources">[<a href="https://www.mindef.gov.sg/news-and-events/latest-releases/10sep24_speech2/" target="_blank">MINDEF</a>]</span>'
@@ -939,12 +943,12 @@ const DATA = [
     defAI: ["anduril","shieldai","domestic"],
     domesticAI: "DefGPT",
     companyDetails: {
-      anduril: "Counter-UAS contract with Dutch Ministry of Defence (2025) for integrated drone defense systems. <span class=\"sources\">[<a href=\"https://www.anduril.com/news/anduril-awarded-dutch-ministry-of-defence-cuas-contract/\" target=\"_blank\">Anduril</a>]</span>",
-      shieldai: "8 V-BAT autonomous drones procured for Dutch Navy and Marine Corps for maritime ISR. <span class=\"sources\">[<a href=\"https://tech-insider.org/\" target=\"_blank\">Tech Insider</a>]</span>",
+      anduril: "Dutch Ministry of Defence awarded Anduril a counter-UAS contract on May 7, 2026 for integrated drone defense systems. <span class=\"sources\">[<a href=\"https://www.anduril.com/news/anduril-awarded-dutch-ministry-of-defence-cuas-contract\" target=\"_blank\">Anduril</a>]</span>",
+      shieldai: "8 V-BAT autonomous drones procured for Dutch Navy and Marine Corps maritime ISR. <span class=\"sources\">[<a href=\"https://www.prnewswire.com/news-releases/shield-ai-v-bat-selected-by-netherlands-ministry-of-defence-to-equip-navy-and-marine-corps-302501443.html\" target=\"_blank\">Shield AI</a>]</span>",
       domestic: "DefGPT: secure sovereign AI platform developed by Dutch Ministry of Defence for classified intelligence analysis and military planning; air-gapped deployment. <span class=\"sources\">[<a href=\"https://www.defensie.nl/\" target=\"_blank\">Min. Defensie</a>]</span>"
     },
     strategyName: 'Defence AI Strategy 2023–2027',
-    strategyDoc: 'Data Science and AI Strategy (2023); Defence Vision 2035 frames AI as core capability; co-initiated REAIM. <span class="sources">[<a href="https://english.defensie.nl/downloads/policy-notes/2025/04/04/defence-strategy-for-industry-and-innovation-2025-2029" target="_blank">Min. Defensie</a>]</span>'
+    strategyDoc: 'Defence Data Science and AI Strategy 2023–2027; Defence Vision 2035 frames AI as a core capability; co-initiated REAIM. <span class="sources">[<a href="https://www.rijksoverheid.nl/documenten/kamerstukken/2023/06/08/kamerbrief-defensie-strategie-data-science-en-artificiele-intelligentie-2023-2027" target="_blank">Rijksoverheid</a>]</span>'
   },
   {
     country: "Romania", flag: "🇷🇴", region: "europe",
@@ -952,7 +956,7 @@ const DATA = [
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["shieldai"],
     companyDetails: {
-      shieldai: "~$30M contract; V-BAT systems for Romanian naval forces for maritime ISR. <span class=\"sources\">[<a href=\"https://tech-insider.org/\" target=\"_blank\">Tech Insider</a>]</span>"
+      shieldai: "~$30M contract; V-BAT systems for Romanian naval forces for maritime ISR. <span class=\"sources\">[<a href=\"https://thedefensepost.com/2025/02/28/romania-v-bat-drones/amp/\" target=\"_blank\">Defense Post</a>]</span>"
     },
     strategyName: 'Nat\'l Defence Strategy (2025)',
     strategyDoc: 'Strategy 2025–2030 approved Nov 2025; identifies AI as challenge and opportunity in military fields. <span class="sources">[<a href="https://www.mapn.ro/" target="_blank">MAPN</a>]</span>'
@@ -984,7 +988,7 @@ const DATA = [
       domestic: "ASELSAN Steel Dome AI-assisted layered air defense (unveiled Aug 2024); HAKİM AI command-and-control linking radars, launchers, and EW systems; $1.9B ASELSAN air defense deal (Sept 2025). <span class=\"sources\">[<a href=\"https://defencesecurityasia.com/en/turkey-steel-dome-ai-air-defense-system-rival-iron-dome/\" target=\"_blank\">DSA</a>]</span>"
     },
     strategyName: 'Nat\'l AI Strategy (2021)',
-    strategyDoc: 'National AI Strategy 2021–2025 covers defence applications; Defence Industry Sector Strategy 2023–2027. <span class="sources">[<a href="https://wp.oecd.ai/app/uploads/2021/12/Turkey_National_Artificial_Intelligence_Strategy_2021-2025.pdf" target="_blank">OECD</a>]</span>'
+    strategyDoc: 'National AI Strategy 2021–2025 with defense-industrial relevance; not a standalone military AI strategy. Turkey\'s defense-AI relevance is stronger through HAVELSAN, ASELSAN, Baykar, and the defence-industry strategic planning ecosystem. <span class="sources">[<a href="https://wp.oecd.ai/app/uploads/2021/12/Turkey_National_Artificial_Intelligence_Strategy_2021-2025.pdf" target="_blank">OECD</a>] [<a href="https://www.ssb.gov.tr/Images/Uploads/MyContents/V_20240610152530166118.pdf" target="_blank">SSB</a>]</span>'
   },
   {
     country: "Russia", flag: "🇷🇺", region: "europe",
@@ -1045,7 +1049,7 @@ const DATA = [
       domestic: "Indigenous drones Algeria 54 and Algeria 55 under development; not yet operational. <span class=\"sources\">[<a href=\"https://www.oryxspioenkop.com/2021/12/algiers-calling-assessing-algerias.html\" target=\"_blank\">Oryx</a>]</span>"
     },
     strategyName: 'Nat\'l AI Strategy (2024)',
-    strategyDoc: 'National AI Strategy 2024–2030 includes cybersecurity as pillar; defence applications referenced indirectly. <span class="sources">[<a href="https://digitalpolicyalert.org/" target="_blank">DPA</a>]</span>'
+    strategyDoc: 'National AI/digital-sovereignty strategy plus Ministry of National Defence cybersecurity strategy; no standalone public military AI strategy found. <span class="sources">[<a href="https://www.aps.dz/fr/algerie/actualite-nationale/mpl9oi57-la-strategie-nationale-d-intelligence-artificielle-a-l-ordre-du-jour" target="_blank">APS</a>] [<a href="https://www.mdn.dz/site_principal/sommaire/actualites/fr/2026/mars/nsiss03032026fr.php" target="_blank">MDN</a>]</span>'
   },
   {
     country: "Indonesia", flag: "🇮🇩", region: "asia",
@@ -1125,7 +1129,7 @@ const DATA = [
     companyDetails: {
       openai: "Signed pilot agreement (2025); $180M Stargate site outside Lagos expected early 2026. <span class=\"sources\">[<a href=\"https://openai.com/global-affairs/openai-for-countries/\" target=\"_blank\">OpenAI</a>]</span>",
       huawei: "$470M in AI surveillance spending (highest in Africa). <span class=\"sources\">[<a href=\"https://nairametrics.com/\" target=\"_blank\">Nairametrics</a>]</span>",
-      marss: "$190M C4I deal with MARSS Group for AI-powered command, control, communications, computers, and intelligence systems. <span class=\"sources\">[<a href=\"https://www.marss.com/\" target=\"_blank\">MARSS</a>]</span>"
+      marss: "$190M MOU/deal with MARSS Group for NiDAR AI-powered command, control, communications, computers, and intelligence systems. <span class=\"sources\">[<a href=\"https://www.military.africa/2026/04/nigeria-signs-190-million-ai-powered-c4i-deal-with-marss-group/\" target=\"_blank\">Military Africa</a>]</span>"
     }
   },
   {
@@ -1136,7 +1140,7 @@ const DATA = [
     defAI: ["space42"],
     companyDetails: {
       huawei: "$60M technology park; smart classroom deployment; partnerships with Unitel. <span class=\"sources\">[<a href=\"https://macaubusiness.com/\" target=\"_blank\">Macau Business</a>]</span>",
-      space42: "UAE Space42 military intelligence MOU with Angolan Ministry of Defence for AI-powered geospatial intelligence and surveillance. <span class=\"sources\">[<a href=\"https://space42.ai/\" target=\"_blank\">Space42</a>]</span>"
+      space42: "Five-year Space42 strategic MOU with Angola covering AI-powered geospatial intelligence, surveillance, and national-security capabilities; MOU/strategic partnership rather than final procurement. <span class=\"sources\">[<a href=\"https://www.space42.ai/en/press-release/2025/space42-signs-strategic-mou-with-angola/\" target=\"_blank\">Space42</a>]</span>"
     }
   },
   {
@@ -1148,8 +1152,8 @@ const DATA = [
     domesticAI: "DND AI Strategy",
     companyDetails: {
       meta: "Meta opened Llama to Canadian defence contractors and government agencies for national security applications (Nov 2024). <span class=\"sources\">[<a href=\"https://techcrunch.com/2024/11/04/meta-says-its-making-its-llama-models-available-for-us-national-security-applications/\" target=\"_blank\">TechCrunch</a>]</span>",
-      "saab-def": "Agreement with Cohere for AI-driven mission support on GlobalEye surveillance aircraft. <span class=\"sources\">[<a href=\"https://www.ctvnews.ca/\" target=\"_blank\">CTV</a>]</span>",
-      thales: "cortAIx AI hub for defense AI specialists in Canada. <span class=\"sources\">[<a href=\"https://www.thalesgroup.com/\" target=\"_blank\">Thales</a>]</span>",
+      "saab-def": "Canada entered negotiations for GlobalEye on May 27, 2026; Saab and Cohere signed an AI collaboration MOU tied to the Canada GlobalEye opportunity. Pending/watchlist until final contract award. <span class=\"sources\">[<a href=\"https://www.pm.gc.ca/en/news/news-releases/2026/05/27/prime-minister-carney-announces-major-new-defence-partnership-part\" target=\"_blank\">PM Canada</a>] [<a href=\"https://www.saab.com/newsroom/press-releases/2026/canada-engages-saab-as-preferred-supplier-of-future-aewc-capability\" target=\"_blank\">Saab</a>] [<a href=\"https://news.cision.com/saab/r/saab-and-cohere-sign-memorandum-of-understanding-on-advanced-ai-collaboration%2Cc4325524\" target=\"_blank\">Cision</a>]</span>",
+      thales: "cortAIx AI hub for defense AI specialists in Canada; Thales and Cohere also partnered to accelerate AI integration in naval service support. <span class=\"sources\">[<a href=\"https://www.thalesgroup.com/en/news-centre/press-releases/thales-and-cohere-partner-accelerate-ai-integration-naval-service\" target=\"_blank\">Thales</a>]</span>",
       domestic: "DND/CAF AI Strategy (March 2024): targets AI-enabled forces by 2030; focuses on autonomous systems, battlefield management, intelligence, cybersecurity, and logistics. <span class=\"sources\">[<a href=\"https://www.canada.ca/content/dam/dnd-mdn/documents/reports/ai-ia/dndcaf-ai-strategy.pdf\" target=\"_blank\">DND</a>]</span>"
     },
     strategyName: 'DND/CAF AI Strategy (2024)',
@@ -1177,7 +1181,7 @@ const DATA = [
       baykar: "$370M contract for armed Bayraktar TB2 AI drones. <span class=\"sources\">[<a href=\"https://baykartech.com/\" target=\"_blank\">Baykar</a>]</span>"
     },
     strategyName: 'Nat\'l AI Strategy 2025–2028',
-    strategyDoc: 'Draft National AI Strategy covers government sectors; National Guard signed AI database modernization contract 2024. <span class="sources">[<a href="https://dig.watch/resource/the-kuwait-national-ai-strategy-2025-2028-draft" target="_blank">DigWatch</a>]</span>'
+    strategyDoc: 'Draft National AI Strategy covers government sectors; Kuwait National Guard also signed an AI contract for military database modernization in 2024. <span class="sources">[<a href="https://cait.gov.kw/media/filer_public/3f/b4/3fb49a45-4a78-4489-8898-b68e2bd260ca/kuwait_national_strategy.pdf" target="_blank">CAIT</a>] [<a href="https://kuwaittimes.com/article/41819/kuwait/other-news/national-guard-signs-ai-deal-to-upgrade-military-databases" target="_blank">Kuwait Times</a>]</span>'
   },
   {
     country: "Ecuador", flag: "🇪🇨", region: "americas",
@@ -1185,7 +1189,7 @@ const DATA = [
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["edge"],
     companyDetails: {
-      edge: "LOI with Ministry of Defense for AI-enabled border protection and surveillance modernization systems. <span class=\"sources\">[<a href=\"https://breakingdefense.com/\" target=\"_blank\">Breaking Defense</a>]</span>"
+      edge: "Letter of intent with Ministry of Defense for AI-enabled border protection and surveillance modernization systems; watchlist unless finalized. <span class=\"sources\">[<a href=\"https://edgegroup.ae/share/pdf/news/1232\" target=\"_blank\">EDGE</a>]</span>"
     }
   },
   {
@@ -1258,10 +1262,10 @@ const DATA = [
     gov: false, mil: false, usLabs: [], cnLabs: [],
     defAI: ["anduril"],
     companyDetails: {
-      anduril: "Part of European counter-drone consortium (March 2026); AI-powered C-UAS systems for Belgian Armed Forces. <span class=\"sources\">[<a href=\"https://www.anduril.com/news/\" target=\"_blank\">Anduril</a>]</span>"
+      anduril: "COBBS, Anduril, and Nokia announced a Belgian counter-drone consortium; partnership/consortium rather than confirmed procurement contract. <span class=\"sources\">[<a href=\"https://www.anduril.com/news/cobbs-anduril-and-nokia-join-forces-to-accelerate-sovereign-counter-drone-capability-in-belgium\" target=\"_blank\">Anduril</a>]</span>"
     },
     strategyName: 'Strategic Vision 2025',
-    strategyDoc: 'Strategic Vision for Defence 2025 and STAR Plan list AI, robotics, autonomous systems among innovation drivers. <span class="sources">[<a href="https://www.mil.be/en/about-belgian-defence/strategic-vision-defence-2025/" target="_blank">Mil.be</a>]</span>'
+    strategyDoc: 'Strategic Vision for Defence 2025 explicitly includes AI, robotics, autonomous systems, battlefield data management, and legal work on advanced automation/LAWS. <span class="sources">[<a href="https://www.mil.be/media/ac5okcnp/strategic-vision-2025-extended.pdf" target="_blank">Mil.be</a>]</span>'
   },
   {
     country: "Mexico", flag: "🇲🇽", region: "americas",
@@ -1294,7 +1298,7 @@ const DATA = [
       helsing: "Partnership with Systematic (Sept 2025) for AI-powered battlefield management and C2 systems for Danish Armed Forces. <span class=\"sources\">[<a href=\"https://helsing.ai/newsroom/\" target=\"_blank\">Helsing</a>]</span>"
     },
     strategyName: 'Defence Agreement 2024–2033',
-    strategyDoc: 'Parliamentary agreement committing DKK 143B including AI, drones, quantum technology development. <span class="sources">[<a href="https://www.fmn.dk/globalassets/fmn/dokumenter/forlig/-danish-defence-agreement-2024-2033-.pdf" target="_blank">FMN</a>]</span>'
+    strategyDoc: 'Parliamentary agreement committing DKK 143B; the official agreement includes use of artificial intelligence among areas for a revised Danish defence industry strategy, alongside data processing, quantum/encryption, and surveillance. <span class="sources">[<a href="https://www.fmn.dk/globalassets/fmn/dokumenter/forlig/-danish-defence-agreement-2024-2033-.pdf" target="_blank">FMN</a>]</span>'
   },
   {
     country: "Iraq", flag: "🇮🇶", region: "mena",
@@ -1315,7 +1319,7 @@ const DATA = [
       domestic: "Viettel Group (military-owned telecom) developing AI drones, smart weapons, AI-powered radar systems, and Future Soldier system; largest defense-tech conglomerate in Southeast Asia. <span class=\"sources\">[<a href=\"https://www.viettel.com.vn/en\" target=\"_blank\">Viettel</a>]</span>"
     },
     strategyName: 'Resolution 57 (2024)',
-    strategyDoc: 'Politburo Resolution 57 (Dec 2024) on applying digital tech including AI to armed forces command-and-control. <span class="sources">[<a href="https://english.luatvietnam.vn/" target="_blank">LuatVietnam</a>]</span>'
+    strategyDoc: 'Politburo Resolution 57 makes AI a national strategic technology with defense/security implications; not a dedicated military AI strategy. <span class="sources">[<a href="https://mst.gov.vn/toan-van-nghi-quyet-57-nq-tw-ve-dot-pha-phat-trien-khoa-hoc-cong-nghe-doi-moi-sang-tao-va-chuyen-doi-so-quoc-gia-197250813164610621.htm" target="_blank">MOST</a>] [<a href="https://vietnamnet.vn/en/resolution-no-57-people-should-be-put-at-centre-of-ai-governance-2480019.html" target="_blank">VietnamNet</a>]</span>'
   },
   {
     country: "Finland", flag: "🇫🇮", region: "europe",
@@ -1375,8 +1379,8 @@ const DATA = [
       rheinmetall: "€532M Skynex air defense contract (Dec 2023) with AI-assisted targeting; Skyranger 30 counter-drone systems ordered (operational 2027); C-sUAS counter-small-drone system evaluated and lease extended after successful tests. <span class=\"sources\">[<a href=\"https://thedefensepost.com/2023/12/13/austria-air-defense-rheinmetall/\" target=\"_blank\">Defense Post</a>] [<a href=\"https://www.edrmagazine.eu/drone-defence-austrian-armed-forces-and-rheinmetall-successfully-test-anti-small-drone-system-c-suas-lease-contract-extended\" target=\"_blank\">EDR</a>]</span>",
       domestic: "Schiebel (Vienna) manufactures Camcopter S-100 VTOL drone used by 45+ militaries worldwide; unveiled armed S-101 and S-301 variants at UMEX 2026 with Thales laser-guided rockets. AARONIA ELDRO electronic warfare drone defense system deployed at Airpower22. Bundesheer 2032+ modernization plan includes counter-drone capabilities. <span class=\"sources\">[<a href=\"https://militaeraktuell.at/en/armed-schiebel-presents-new-camcopter-s-101-and-s-301/\" target=\"_blank\">Militär Aktuell</a>]</span>"
     },
-    strategyName: 'REAIM Oversight Co-Lead (2024)',
-    strategyDoc: 'Co-leads Oversight working group under Political Declaration on Responsible Military AI; introduced UN LAWS resolution 2023. <span class="sources">[<a href="https://breakingdefense.com/2024/03/us-joins-austria-bahrain-canada-portugal-to-co-lead-global-push-for-safer-military-ai/" target="_blank">Breaking Defense</a>]</span>'
+    strategyName: 'MoD AI Strategy / REAIM',
+    strategyDoc: 'Federal Ministry of Defence AI strategy ("AI in National Defence") plus responsible military-AI governance role through REAIM/LAWS work. <span class="sources">[<a href="https://verteidigungspolitik.at/documents/475963/0/2025%2B08%2B05%2BKI-Broschu_re%2BDigital%2BEN.pdf/4d0ac95d-a826-8ec8-8e03-553795c0c0e0?download=true&t=1754462062032" target="_blank">Austrian MoD</a>] [<a href="https://breakingdefense.com/2024/03/us-joins-austria-bahrain-canada-portugal-to-co-lead-global-push-for-safer-military-ai/" target="_blank">Breaking Defense</a>]</span>'
   },
   {
     country: "Argentina", flag: "🇦🇷", region: "americas",
@@ -1400,7 +1404,7 @@ const DATA = [
     domesticAI: "SYOS / DST",
     companyDetails: {
       meta: "Meta opened Llama to New Zealand defence contractors for national security applications (Nov 2024). <span class=\"sources\">[<a href=\"https://techcrunch.com/2024/11/04/meta-says-its-making-its-llama-models-available-for-us-national-security-applications/\" target=\"_blank\">TechCrunch</a>]</span>",
-      palantir: "Active contracts since 2012 with NZDF, Security Intelligence Service (SIS), and Government Communications Security Bureau (GCSB) for analytics and intelligence platforms. <span class=\"sources\">[<a href=\"https://www.rnz.co.nz/news/top/591822/no-plans-to-use-palantir-in-emerging-defence-tech-space-government-says\" target=\"_blank\">RNZ</a>]</span>",
+      palantir: "NZDF, SIS, and GCSB have used Palantir analytics/intelligence platforms since 2012; government says it has no current plan to use Palantir for emerging defense technologies. <span class=\"sources\">[<a href=\"https://www.rnz.co.nz/news/top/591822/no-plans-to-use-palantir-in-emerging-defence-tech-space-government-says\" target=\"_blank\">RNZ</a>]</span>",
       domestic: "SYOS Aerospace awarded NZDF contract (Feb 2026) for multi-domain autonomous platforms: SA2 ISR drone, SA7 kamikaze drone, SG400 UGV, SM300 USV. Defence Science & Technology (DST) unit of 68 scientists researching autonomous systems. NZ$100\u2013300M committed in Defence Capability Plan 2025 for uncrewed systems. <span class=\"sources\">[<a href=\"https://defsec.net.nz/2026/03/06/syos-aerospace-awarded-nzdf-autonomous-contract/\" target=\"_blank\">Defsec NZ</a>]</span>"
     },
     strategyName: 'NZDF AI Policy (2025)',
@@ -1455,7 +1459,7 @@ const DATA = [
       domestic: "Jordan Design & Development Bureau (JODDB) established Middle East\u2019s first UAS, counter-UAS, and EW test range (2024); AI Strategy 2023\u20132027 covering defense; hosts AIDTSEC defense AI conference; Armython international cyber competition for armed forces. <span class=\"sources\">[<a href=\"https://www.shephardmedia.com/news/digital-battlespace/jordan-establishes-middle-easts-first-drone-and-electronic-warfare-test-range/\" target=\"_blank\">Shephard</a>]</span>"
     },
     strategyName: 'Royal Directive (2026)',
-    strategyDoc: 'King Abdullah II ordered 3-year military transformation prioritizing cyber, AI, and drone technologies (Jan 2026). <span class="sources">[<a href="https://kingabdullah.jo/en/news/king-orders-restructuring-of-jordan-armed-forces-arab-army-1" target="_blank">Royal Hashemite Court</a>]</span>'
+    strategyDoc: 'King Abdullah II ordered a 3-year armed-forces transformation roadmap involving cyber, AI, unmanned systems, C2/C3 modernization, and defense industry. <span class="sources">[<a href="https://petra.gov.jo/en/news/armed-forces-begin-implementing-royal-directives-to-restructure-army" target="_blank">Petra</a>] [<a href="https://www.iiss.org/online-analysis/online-analysis/2026/05/understanding-jordans-armed-forces-reforms/" target="_blank">IISS</a>]</span>'
   },
   {
     country: "Cuba", flag: "🇨🇺", region: "americas",
@@ -1501,8 +1505,8 @@ const DATA = [
     companyDetails: {
       domestic: "Defence AI Research Unit (DAIRU) launched May 2024 at Military Academy (Saldanha Bay) — first military-focused AI hub in Africa; focus on cyber resilience, maritime/border security, drones, and targeting. <span class=\"sources\">[<a href=\"https://www.military.africa/2024/05/south-african-military-academy-launches-ai-research-unit/\" target=\"_blank\">Military Africa</a>]</span>"
     },
-    strategyName: 'DAIRU Launch (2024)',
-    strategyDoc: 'Defence AI Research Unit launched May 2024 at Military Academy — first military AI hub in Africa. <span class="sources">[<a href="https://www.dcdt.gov.za/" target="_blank">DCDT</a>]</span>'
+    strategyName: 'DAIRU Research Hub (2024)',
+    strategyDoc: 'Defence AI Research Unit launched May 2024 at the Military Academy; defense AI institution/research hub rather than a strategy document. <span class="sources">[<a href="https://www.dcdt.gov.za/media-statements-releases/500-minister-gungubele-launches-the-4-th-hub-of-aiisa-the-defence-artificial-intelligence-research-unit-dairu.html" target="_blank">DCDT</a>] [<a href="https://www.military.africa/2024/05/south-african-military-academy-launches-ai-research-unit/?amp=1" target="_blank">Military Africa</a>]</span>'
   }
 ];
 
@@ -1523,7 +1527,7 @@ function cnTag(lab) {
   return '<span class="lab-tag lab-'+lab+'" data-lab="'+lab+'">'+(names[lab]||lab)+'</span>';
 }
 function defTag(co) {
-  const names = {palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',rheinmetall:'Rheinmetall',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
+  const names = {googlecloud:'Google Cloud/AWS',palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',rheinmetall:'Rheinmetall',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
   return '<span class="lab-tag lab-'+co+'" data-lab="'+co+'">'+(names[co]||co)+'</span>';
 }
 
@@ -1558,7 +1562,7 @@ function showPopup(tag, countryData) {
   popup.innerHTML = `
     <button class="deal-popup-close" onclick="this.parentElement.remove(); activePopup=null;">✕</button>
     <div class="deal-popup-content">${detail}</div>
-    <div style="margin-top:6px;padding-top:4px;border-top:1px solid var(--border);font-size:0.6rem;color:#999;">Last verified: May 2026</div>
+    <div style="margin-top:6px;padding-top:4px;border-top:1px solid var(--border);font-size:0.6rem;color:#999;">Last verified: June 2026</div>
   `;
   document.body.appendChild(popup);
 
@@ -1671,9 +1675,9 @@ document.querySelectorAll('th[data-sort]').forEach(th => {
   });
 });
 
-searchBox.addEventListener('input', render);
-dealFilter.addEventListener('change', render);
-regionFilter.addEventListener('change', render);
+searchBox.addEventListener('input', () => { closePopup(); render(); });
+dealFilter.addEventListener('change', () => { closePopup(); render(); });
+regionFilter.addEventListener('change', () => { closePopup(); render(); });
 
 render();
 
@@ -1786,7 +1790,7 @@ render();
           if (hasDef) parts.push(d.defAI.filter(x=>x!=='domestic').length + ' Defense AI Partner' + (d.defAI.filter(x=>x!=='domestic').length !== 1 ? 's' : ''));
           if (d.domesticAI) parts.push('Domestic Program');
           if (d.strategyDoc) parts.push('Has AI Strategy');
-          if (!parts.length) parts.push('No Confirmed Deals');
+          if (!parts.length) parts.push('No Documented Activity');
           label += '<br><span class="map-tooltip-status">' + parts.join(' · ') + '</span>';
         }
         tooltip.innerHTML = label;
@@ -1862,7 +1866,7 @@ render();
 
   const usNames = {openai:'OpenAI',anthropic:'Anthropic',deepmind:'DeepMind',mistral:'Mistral',xai:'xAI'};
   const cnNames = {huawei:'Huawei',sensetime:'SenseTime',alibaba:'Alibaba',zhipu:'Zhipu AI',baidu:'Baidu',deepseek:'DeepSeek',bytedance:'ByteDance',tencent:'Tencent',iflytek:'iFlytek'};
-  const defNames = {palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',rheinmetall:'Rheinmetall',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
+  const defNames = {googlecloud:'Google Cloud/AWS',palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',rheinmetall:'Rheinmetall',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
 
   function tagHTML(lab, nameMap, cssPrefix) {
     const name = nameMap[lab] || lab;
@@ -1899,7 +1903,7 @@ render();
         }
       });
     } else {
-      html += '<div class="map-detail-nodeal">No confirmed deals</div>';
+      html += '<div class="map-detail-nodeal">No documented foreign AI partner</div>';
     }
     html += '</div>';
 
@@ -1916,7 +1920,7 @@ render();
     }
     html += '</div>';
 
-    html += '<div style="margin-top:0.5rem;padding-top:0.4rem;border-top:1px solid var(--border);font-size:0.6rem;color:#999;">Last verified: May 2026</div>';
+    html += '<div style="margin-top:0.5rem;padding-top:0.4rem;border-top:1px solid var(--border);font-size:0.6rem;color:#999;">Last verified: June 2026</div>';
 
     panelBody.innerHTML = html;
     panel.style.display = 'block';
