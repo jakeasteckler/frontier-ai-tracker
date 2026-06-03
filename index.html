@@ -68,6 +68,8 @@
     --tag-rheinmetall: #3a5a3a;
     --tag-cetc: #8b2252;
     --tag-casc: #4a3b2e;
+    --tag-textron: #5f3b1f;
+    --tag-russiairan: #60413f;
     --tag-domestic: #5a6e50;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -179,6 +181,8 @@
   .lab-rheinmetall { background: var(--tag-rheinmetall); }
   .lab-cetc { background: var(--tag-cetc); }
   .lab-casc { background: var(--tag-casc); }
+  .lab-textron { background: var(--tag-textron); }
+  .lab-russiairan { background: var(--tag-russiairan); }
 
   .badge { display: inline-block; padding: 2px 10px; border-radius: 3px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
   .badge-yes { background: rgba(46,125,50,0.12); color: var(--yes); border: 1px solid rgba(46,125,50,0.3); }
@@ -518,7 +522,7 @@
 <div class="stats-bar">
   <div class="stat"><span class="stat-num" id="statTotal">66</span><span class="stat-label">Countries Tracked</span></div>
   <div class="stat-divider"></div>
-  <div class="stat"><span class="stat-num" id="statDefAI">58</span><span class="stat-label">Countries with Documented Military AI Activity</span></div>
+  <div class="stat"><span class="stat-num" id="statDefAI">65</span><span class="stat-label">Countries with Documented Military AI Activity</span></div>
   <div class="stat-divider"></div>
   <div class="stat"><span class="stat-num" id="statStrat">47</span><span class="stat-label">Countries with Military AI Strategy / Policy</span></div>
 </div>
@@ -559,8 +563,8 @@
 <details class="methodology">
   <summary>Methodology &amp; Definitions</summary>
   <p><strong>"Frontier Lab Military Partnerships"</strong> = a frontier AI lab's technology is explicitly deployed to, contracted by, formally made available for, or plausibly positioned for use by a nation's military, defense ministry, intelligence services, or defense contractors for national-security purposes. Details note whether evidence is a contract, MOU, infrastructure project, or reported outreach.</p>
-  <p><strong>"Foreign Military AI Partners"</strong> = a documented contract, MOU, partnership, deployment, demonstration, or reported defense-relevant engagement between an external AI/cloud/defense technology company and a country's military, defense ministry, intelligence services, or defense industry for AI-specific capabilities &mdash; autonomous systems, AI-powered targeting, AI-enabled electronic warfare, AI surveillance, AI/cloud infrastructure, etc. General defense contracts without an explicit AI component are excluded.</p>
-  <p><strong>"Domestic Military AI"</strong> = the country has a publicly documented indigenous military AI program, research center, or domestically developed autonomous weapons system. These are tagged separately from external defense AI partnerships.</p>
+  <p><strong>"Foreign Military AI Partners"</strong> = a documented contract, MOU, partnership, deployment, demonstration, or reported defense-relevant engagement between an external AI/cloud/defense technology company, defense supplier, or state-linked technology provider and a country's military, defense ministry, intelligence services, or defense industry for AI-specific or autonomy-adjacent capabilities &mdash; autonomous systems, AI-powered targeting, AI-enabled electronic warfare, AI surveillance, AI/cloud infrastructure, etc. General defense contracts without an explicit AI/autonomy component are excluded.</p>
+  <p><strong>"Domestic Military AI"</strong> = the country, military, or locally based force has a publicly documented indigenous military AI program, research center, domestically developed autonomous weapons system, or defense-relevant drone/autonomy activity where no external AI partner is identified. Drone-only cases are hedged in the details and should not be read as confirmed AI procurement unless the source says so.</p>
   <p><strong>"AI Strategy / Policy"</strong> = an officially published government or military document, directive, formal statement, or institution that outlines or signals defense-relevant AI activity. Includes dedicated defense AI strategies, broader defense modernization plans mentioning AI/autonomy, national AI strategies with defense/security implications, and formal defense AI research hubs.</p>
   <p><strong>Frontier AI labs tracked:</strong> OpenAI, Anthropic, Google DeepMind (Gemini), Meta (Llama), Mistral, xAI, DeepSeek.</p>
   <p><strong>Inclusion criteria:</strong> Countries in or near the top 50 by military expenditure (latest SIPRI data) OR top 50 by active troop size, plus countries with documented defense-AI activity or policy relevance, excluding the US and China.</p>
@@ -874,9 +878,10 @@ const DATA = [
     budget: "<$1B", budgetNum: 0.49, troops: "25,000", troopsNum: 25000,
     gov: true, mil: false,
     usLabs: ["xai"], cnLabs: [],
-    defAI: [],
+    defAI: ["textron"],
     companyDetails: {
-      xai: "Partnership (Dec 2025) deploying Grok across 5,000+ schools for 1M+ students. Only confirmed xAI foreign gov't deal. <span class=\"sources\">[<a href=\"https://x.ai/news/el-salvador-partnership\" target=\"_blank\">xAI</a>]</span>"
+      xai: "Partnership (Dec 2025) deploying Grok across 5,000+ schools for 1M+ students. Only confirmed xAI foreign gov't deal. <span class=\"sources\">[<a href=\"https://x.ai/news/el-salvador-partnership\" target=\"_blank\">xAI</a>]</span>",
+      textron: "Textron Systems demonstrated the autonomous TSUNAMI unmanned surface vehicle during the FLEX25 Hybrid Fleet Campaign Event in El Salvador, operating with U.S. Southern Command and regional partners including the Salvadoran Navy. This was a demonstration/operational scenario, not a confirmed Salvadoran procurement. <span class=\"sources\">[<a href=\"https://www.defenseadvancement.com/news/textron-systems-showcased-tsunami-usv-at-flex25-in-el-salvador/\" target=\"_blank\">Defense Advancement</a>]</span>"
     }
   },
   {
@@ -1101,9 +1106,11 @@ const DATA = [
     budget: "$5B", budgetNum: 5, troops: "406,000", troopsNum: 406000,
     gov: true, mil: false,
     usLabs: [], cnLabs: ["huawei"],
-    defAI: [],
+    defAI: ["domestic"],
+    domesticAI: "Junta drones / AI surveillance",
     companyDetails: {
-      huawei: "Cloud services and 3-year ICT Talent Development Program. Chinese tech is primary foreign AI source under Western sanctions. <span class=\"sources\">[<a href=\"https://www.irrawaddy.com/\" target=\"_blank\">Irrawaddy</a>]</span>"
+      huawei: "Cloud services and 3-year ICT Talent Development Program. Chinese tech is primary foreign AI source under Western sanctions. <span class=\"sources\">[<a href=\"https://www.irrawaddy.com/\" target=\"_blank\">Irrawaddy</a>]</span>",
+      domestic: "Myanmar's military has documented defense-relevant AI and autonomy activity: rights researchers describe AI-powered surveillance/counterterrorism systems, while Reuters/ACLED reporting says the junta has built up suicide and scouting drones and increasingly uses reconnaissance and surveillance drones to guide airstrikes. <span class=\"sources\">[<a href=\"https://humanrightsmyanmar.org/myanmars-repressive-use-of-ai-to-counter-terrorism/\" target=\"_blank\">Human Rights Myanmar</a>] [<a href=\"https://www.investing.com/news/world-news/humanwave-attacks-and-drones-how-myanmars-junta-is-fighting-back-4409609\" target=\"_blank\">Reuters</a>]</span>"
     }
   },
   {
@@ -1436,8 +1443,11 @@ const DATA = [
     country: "Sri Lanka", flag: "🇱🇰", region: "south-asia",
     budget: "$1.4B", budgetNum: 1.4, troops: "255,000", troopsNum: 255000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["domestic"],
+    domesticAI: "SLAF / Army AI",
+    companyDetails: {
+      domestic: "Sri Lanka should not be treated as a pure zero: the Air Force showcased AI-based predictive maintenance systems and locally assembled reconnaissance UAVs in 2025, and the Army Signal Corps held a cyber/electronic-warfare symposium focused on digital-frontline threats. This is defense-relevant domestic AI/autonomy activity, not a major procurement program. <span class=\"sources\">[<a href=\"https://www.airforce.lk/news.php?news=7629\" target=\"_blank\">Sri Lanka Air Force</a>] [<a href=\"https://www.army.lk/index.php/news/slsc-conducts-cyber-security-and-electronic-warfare-symposium-2025\" target=\"_blank\">Sri Lanka Army</a>]</span>"
+    }
   },
   {
     country: "Peru", flag: "🇵🇪", region: "americas",
@@ -1465,8 +1475,10 @@ const DATA = [
     country: "Cuba", flag: "🇨🇺", region: "americas",
     budget: "<$1B", budgetNum: 0.5, troops: "49,000", troopsNum: 49000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["russiairan"],
+    companyDetails: {
+      russiairan: "Axios reported in May 2026 that U.S. intelligence assessed Cuba had acquired more than 300 military attack drones from Russia and Iran and had discussed possible drone-warfare plans. The reporting does not establish AI-enabled drones, so this is best treated as a drone/autonomy watchlist item rather than confirmed AI procurement. <span class=\"sources\">[<a href=\"https://www.axios.com/2026/05/17/us-military-drones-cuba\" target=\"_blank\">Axios</a>]</span>"
+    }
   },
   {
     country: "Eritrea", flag: "🇪🇷", region: "africa",
@@ -1479,22 +1491,31 @@ const DATA = [
     country: "Syria", flag: "🇸🇾", region: "mena",
     budget: "$2B", budgetNum: 2, troops: "169,000", troopsNum: 169000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["domestic"],
+    domesticAI: "Conflict actor drones",
+    companyDetails: {
+      domestic: "Syria should not be treated as a pure zero for drone/autonomy activity: EUAA's 2025 Syria country report says HTS-led opposition forces used drones developed by HTS's own drone unit, Assad government forces escalated suicide-drone attacks in late 2024, and post-Assad security operations also involved drones. AI-specific use or procurement is not clearly documented. <span class=\"sources\">[<a href=\"https://www.euaa.europa.eu/coi/syria/2025/country-focus/45-impact-violence-civilian-population/452-tactics-and-weapons-used\" target=\"_blank\">EUAA</a>]</span>"
+    }
   },
   {
     country: "Yemen", flag: "🇾🇪", region: "mena",
     budget: "<$1B", budgetNum: 0.5, troops: "67,000", troopsNum: 67000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["domestic"],
+    domesticAI: "Houthi UAVs",
+    companyDetails: {
+      domestic: "Houthi-controlled Yemen has defense-relevant drone/autonomy activity: IISS documents the Houthis' use of UAVs and USVs in Red Sea attacks, while the Sana'a Center reported seized equipment suggesting efforts to integrate newer technologies such as jet engines and FPV systems into Houthi drones. AI-specific use is not clearly confirmed, so this is best read as autonomy/drone activity rather than a confirmed AI procurement. <span class=\"sources\">[<a href=\"https://www.iiss.org/globalassets/media-library---content--migration/files/research-papers/2024/12/navigating-troubled-waters.pdf\" target=\"_blank\">IISS</a>] [<a href=\"https://sanaacenter.org/the-yemen-review/jan-mar-2025/24604\" target=\"_blank\">Sana'a Center</a>]</span>"
+    }
   },
   {
     country: "South Sudan", flag: "🇸🇸", region: "africa",
     budget: "<$1B", budgetNum: 0.178, troops: "185,000", troopsNum: 185000,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["domestic"],
+    domesticAI: "SSPDF UAVs",
+    companyDetails: {
+      domestic: "South Sudan should be a hedged drone/autonomy entry rather than a pure zero: a 2025 UN Panel of Experts report includes an annex on use of a UAV as part of a military operation in South Sudan, citing SSGTV video of a quadcopter-style unmanned aerial system deployment. This is not evidence of AI-enabled procurement. <span class=\"sources\">[<a href=\"https://digitallibrary.un.org/record/4094953\" target=\"_blank\">UN Digital Library</a>]</span>"
+    }
   },
   {
     country: "South Africa", flag: "🇿🇦", region: "africa",
@@ -1527,7 +1548,7 @@ function cnTag(lab) {
   return '<span class="lab-tag lab-'+lab+'" data-lab="'+lab+'">'+(names[lab]||lab)+'</span>';
 }
 function defTag(co) {
-  const names = {googlecloud:'Google Cloud/AWS',palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',rheinmetall:'Rheinmetall',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
+  const names = {googlecloud:'Google Cloud/AWS',palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',rheinmetall:'Rheinmetall',cetc:'CETC',casc:'CASC',textron:'Textron',russiairan:'Russia/Iran',domestic:'Domestic'};
   return '<span class="lab-tag lab-'+co+'" data-lab="'+co+'">'+(names[co]||co)+'</span>';
 }
 
@@ -1866,7 +1887,7 @@ render();
 
   const usNames = {openai:'OpenAI',anthropic:'Anthropic',deepmind:'DeepMind',mistral:'Mistral',xai:'xAI'};
   const cnNames = {huawei:'Huawei',sensetime:'SenseTime',alibaba:'Alibaba',zhipu:'Zhipu AI',baidu:'Baidu',deepseek:'DeepSeek',bytedance:'ByteDance',tencent:'Tencent',iflytek:'iFlytek'};
-  const defNames = {googlecloud:'Google Cloud/AWS',palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',rheinmetall:'Rheinmetall',cetc:'CETC',casc:'CASC',domestic:'Domestic'};
+  const defNames = {googlecloud:'Google Cloud/AWS',palantir:'Palantir',helsing:'Helsing',anduril:'Anduril',shieldai:'Shield AI',baykar:'Baykar',thales:'Thales',leonardo:'Leonardo',edge:'EDGE Group',elbit:'Elbit',rafael:'Rafael','saab-def':'Saab',northrop:'Northrop',bae:'BAE Systems',aerovironment:'AeroVironment',iai:'IAI',havelsan:'Havelsan',roketsan:'Roketsan',marss:'MARSS',norinco:'NORINCO',casic:'CASIC',space42:'Space42',rheinmetall:'Rheinmetall',cetc:'CETC',casc:'CASC',textron:'Textron',russiairan:'Russia/Iran',domestic:'Domestic'};
 
   function tagHTML(lab, nameMap, cssPrefix) {
     const name = nameMap[lab] || lab;
