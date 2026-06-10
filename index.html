@@ -532,7 +532,7 @@
 <div class="stats-bar">
   <div class="stat"><span class="stat-num" id="statTotal">73</span><span class="stat-label">Countries Tracked</span></div>
   <div class="stat-divider"></div>
-  <div class="stat"><span class="stat-num" id="statDefAI">72</span><span class="stat-label">Countries with Documented Military AI Activity</span></div>
+  <div class="stat"><span class="stat-num" id="statDefAI">73</span><span class="stat-label">Countries with Documented Military AI Activity</span></div>
   <div class="stat-divider"></div>
   <div class="stat"><span class="stat-num" id="statStrat">54</span><span class="stat-label">Countries with Military AI Strategy / Policy</span></div>
 </div>
@@ -1499,8 +1499,12 @@ const DATA = [
     country: "Eritrea", flag: "🇪🇷", region: "africa",
     budget: "<$1B", budgetNum: 0.5, troops: "301,750", troopsNum: 301750,
     gov: false, mil: false, usLabs: [], cnLabs: [],
-    defAI: [],
-    companyDetails: {}
+    defAI: ["russiairan","domestic"],
+    domesticAI: "Drone jammers*",
+    companyDetails: {
+      russiairan: 'Hedged drone/autonomy entry: eight Russian Zala KYB loitering munitions were reportedly delivered in May 2022, in reporting linked to discussions of a Russian naval presence at Massawa; open-source analysis (Nov 2025) traced Iranian-network freighter flights into Massawa suggesting further drone deliveries. Reported, not officially confirmed. <span class="sources">[<a href="https://eaglepubs.erau.edu/dronesacrosstheworld/chapter/eritrea/" target="_blank">ERAU</a>] [<a href="https://hornreview.org/2025/11/12/irans-drone-supply-network-to-eritrea-and-ethiopias-national-security-imperative/" target="_blank">Horn Review</a>]</span>',
+      domestic: 'State-linked media report deployment of stationary and handheld counter-drone jammers across the country (2025); claim is from Eritrean state-adjacent sources and is not independently verified. Historically, the UAE operated armed Wing Loong drones from its Assab base on Eritrean territory during the Yemen campaign (2015&ndash;2021) &mdash; foreign military drone activity, not an Eritrean capability. *Not confirmed AI procurement. <span class="sources">[<a href="https://hornreview.org/2025/11/12/irans-drone-supply-network-to-eritrea-and-ethiopias-national-security-imperative/" target="_blank">Horn Review</a>] [<a href="https://ecfr.eu/publication/deadly-skies-drone-warfare-in-ethiopia-and-the-future-of-conflict-in-africa/" target="_blank">ECFR</a>]</span>'
+    }
   },
   {
     country: "Syria", flag: "🇸🇾", region: "mena",
