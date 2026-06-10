@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Global Military AI Tracker</title>
-<meta name="description" content="Interactive tracker of military AI contracts, frontier AI lab defense partnerships, defense AI companies, and national military AI strategies across 66 countries.">
+<meta name="description" content="Interactive tracker of military AI contracts, foundation-model defense partnerships, narrow military AI suppliers, and national military AI strategies across 66 countries.">
 <meta property="og:title" content="Global Military AI Tracker">
-<meta property="og:description" content="Military AI contracts, frontier-lab defense partnerships, and national military AI strategies across 66 countries.">
+<meta property="og:description" content="Military AI contracts, foundation-model defense partnerships, and national military AI strategies across 66 countries.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://frontier-ai-military-tracker.vercel.app/">
 <meta name="twitter:card" content="summary">
@@ -522,7 +522,7 @@
 <header>
   <div class="header-inner">
     <h1>Global Military AI Tracker</h1>
-    <p class="subtitle">Tracking military AI contracts, defense-relevant AI infrastructure, frontier lab defense partnerships, and military AI strategies across 66 countries.</p>
+    <p class="subtitle">Tracking military AI contracts, defense-relevant AI infrastructure, foundation-model defense partnerships, narrow military AI suppliers, and military AI strategies across 66 countries.</p>
     <div class="header-meta">
       <span class="header-meta-item"><span class="dot" style="background:var(--yes)"></span> Last updated June 9, 2026</span>
     </div>
@@ -572,11 +572,10 @@
 
 <details class="methodology">
   <summary>Methodology &amp; Definitions</summary>
-  <p><strong>"Frontier Lab Military Partnerships"</strong> = a frontier AI lab's technology is explicitly deployed to, contracted by, formally made available for, or plausibly positioned for use by a nation's military, defense ministry, intelligence services, or defense contractors for national-security purposes. Details note whether evidence is a contract, MOU, infrastructure project, or reported outreach.</p>
-  <p><strong>"Foreign Military AI Partners"</strong> = a documented contract, MOU, partnership, deployment, demonstration, or reported defense-relevant engagement between an external AI/cloud/defense technology company, defense supplier, or state-linked technology provider and a country's military, defense ministry, intelligence services, or defense industry for AI-specific or autonomy-adjacent capabilities &mdash; autonomous systems, AI-powered targeting, AI-enabled electronic warfare, AI surveillance, AI/cloud infrastructure, etc. General defense contracts without an explicit AI/autonomy component are excluded.</p>
-  <p><strong>"Domestic Military AI"</strong> = the country, military, or locally based force has a publicly documented indigenous military AI program, research center, domestically developed autonomous weapons system, or defense-relevant drone/autonomy activity where no external AI partner is identified. Drone-only cases are hedged in the details and should not be read as confirmed AI procurement unless the source says so.</p>
+  <p><strong>"Foundation Model Military Partnerships"</strong> = a foundation-model developer's technology &mdash; large general-purpose AI models (LLMs and multimodal models) trained on broad data and adaptable to many downstream tasks &mdash; is explicitly deployed to, contracted by, formally made available for, or plausibly positioned for use by a nation's military, defense ministry, intelligence services, or defense contractors for national-security purposes. Details note whether evidence is a contract, MOU, infrastructure project, or reported outreach.</p>
+  <p><strong>"Narrow Military AI Partners"</strong> = a documented contract, MOU, partnership, deployment, demonstration, or reported defense-relevant engagement with an external company supplying task-specific military AI &mdash; autonomous systems and drones, AI-powered targeting, counter-UAS, AI-enabled electronic warfare, ISR analytics, AI surveillance &mdash; plus enabling platforms and infrastructure (e.g., data/AI platforms and defense cloud). Unlike foundation models, these systems are purpose-built for defined military functions. General defense contracts without an explicit AI/autonomy component are excluded.</p>
+  <p><strong>"Domestic Military AI"</strong> = the country, military, or locally based force has a publicly documented indigenous military AI program &mdash; whether foundation-model-based (sovereign defense LLMs such as DefGPT or Gaia) or narrow (domestic drones, targeting, and C2 systems) &mdash; research center, domestically developed autonomous weapons system, or defense-relevant drone/autonomy activity where no external AI partner is identified. Drone-only cases are hedged in the details and should not be read as confirmed AI procurement unless the source says so.</p>
   <p><strong>"AI Strategy / Policy"</strong> = an officially published government or military document, directive, formal statement, or institution that outlines or signals defense-relevant AI activity. Includes dedicated defense AI strategies, broader defense modernization plans mentioning AI/autonomy, national AI strategies with defense/security implications, and formal defense AI research hubs.</p>
-  <p><strong>Frontier AI labs tracked:</strong> OpenAI, Anthropic, Google DeepMind (Gemini), Meta (Llama), Mistral, xAI, DeepSeek.</p>
   <p><strong>Inclusion criteria:</strong> Countries in or near the top 50 by military expenditure (latest SIPRI data) OR top 50 by active troop size, plus countries with documented defense-AI activity or policy relevance, excluding the US and China.</p>
   <p><strong>Data sources:</strong> Defense budget figures use SIPRI Military Expenditure Database current US$ values, primarily 2025 where available; recent-unavailable cases retain estimates or the latest suitable public figure. Active troop figures use IISS Military Balance active-duty personnel as the primary baseline, with Global Firepower used where IISS is unavailable. Deal information from official press releases, company announcements, defense journalism, and think tank research (2024&ndash;2026). *UAE: SIPRI&rsquo;s 2025 release publishes no UAE estimate; the figure shown is a prior-year estimate.</p>
 </details>
@@ -603,8 +602,8 @@
 </div>
 
 <div class="legend">
-  <div class="legend-item"><span class="legend-dot" style="background:#333"></span> Frontier Lab (Military)</div>
-  <div class="legend-item"><span class="legend-dot" style="background:var(--tag-defense)"></span> Defense AI Company</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#333"></span> Foundation Model (Military)</div>
+  <div class="legend-item"><span class="legend-dot" style="background:var(--tag-defense)"></span> Narrow Military AI Company</div>
   <div class="legend-item"><span class="legend-dot" style="background:var(--tag-domestic)"></span> Domestic Military AI</div>
   <div class="legend-item"><span class="legend-dot" style="background:#3a5a4a"></span> AI Strategy / Policy</div>
   <div class="legend-item"><span class="legend-dot" style="background:#bbb"></span> No documented activity</div>
@@ -620,8 +619,8 @@
   <th data-sort="country">Country <span class="sort-arrow"></span></th>
   <th data-sort="budget">Def. Budget <span class="sort-arrow">&#9660;</span></th>
   <th data-sort="troops">Active Troops <span class="sort-arrow"></span></th>
-  <th class="mil-lab-col">Frontier Lab Military Partnerships</th>
-  <th class="def-col">Foreign Military AI Partners</th>
+  <th class="mil-lab-col">Foundation Model Military Partnerships</th>
+  <th class="def-col">Narrow Military AI Partners</th>
   <th class="dom-col">Domestic Military AI</th>
   <th class="strat-col">AI Strategy / Policy</th>
 </tr>
@@ -1171,12 +1170,12 @@ const DATA = [
     gov: false, mil: true,
     milLabs: ["meta"], usLabs: [], cnLabs: [],
     defAI: ["saab-def","thales","domestic"],
-    domesticAI: "DND AI Strategy",
+    domesticAI: "DND AI / Cohere",
     companyDetails: {
       meta: "Meta opened Llama to Canadian defence contractors and government agencies for national security applications (Nov 2024). <span class=\"sources\">[<a href=\"https://techcrunch.com/2024/11/04/meta-says-its-making-its-llama-models-available-for-us-national-security-applications/\" target=\"_blank\">TechCrunch</a>]</span>",
       "saab-def": "Canada selected Saab as preferred supplier for six GlobalEye AEW&amp;C aircraft (~C$5B) and entered negotiations (May 2026); Saab and Cohere signed an AI collaboration MOU (March 2026) tied to the bid. Pending final contract award. <span class=\"sources\">[<a href=\"https://www.canada.ca/en/defence-investment-agency/news/2026/05/the-government-of-canada-selects-preferred-supplier-for-airborne-early-warning-and-control-discussions.html\" target=\"_blank\">Canada DIA</a>] [<a href=\"https://breakingdefense.com/2026/05/canada-enters-talks-with-saab-for-globaleye-purchase/\" target=\"_blank\">Breaking Defense</a>]</span>",
       thales: "cortAIx AI hub for defense AI specialists in Canada; Thales and Cohere also partnered to accelerate AI integration in naval service support. <span class=\"sources\">[<a href=\"https://www.thalesgroup.com/en/news-centre/press-releases/thales-and-cohere-partner-accelerate-ai-integration-naval-service\" target=\"_blank\">Thales</a>]</span>",
-      domestic: "DND/CAF AI Strategy (March 2024): targets AI-enabled forces by 2030; focuses on autonomous systems, battlefield management, intelligence, cybersecurity, and logistics. <span class=\"sources\">[<a href=\"https://www.canada.ca/content/dam/dnd-mdn/documents/reports/ai-ia/dndcaf-ai-strategy.pdf\" target=\"_blank\">DND</a>]</span>"
+      domestic: "DND/CAF AI Strategy (March 2024): targets AI-enabled forces by 2030; focuses on autonomous systems, battlefield management, intelligence, cybersecurity, and logistics. Cohere &mdash; Canada&rsquo;s own foundation-model developer &mdash; is moving into defense: exploratory partnership with Calian (June 2026) for sovereign AI in military decision-making, training, and operational readiness; AI collaboration MOU with Saab (March 2026) tied to the GlobalEye bid; partnership with Thales cortAIx for Royal Canadian Navy in-service support. <span class=\"sources\">[<a href=\"https://www.calian.com/resources/news-media/calian-and-cohere-partner-to-bring-sovereign-ai-to-defence-industry/\" target=\"_blank\">Calian</a>] [<a href=\"https://thedefensepost.com/2026/06/03/calian-cohere-sovereign-defense-ai/\" target=\"_blank\">Defense Post</a>]</span>"
     },
     strategyName: 'DND/CAF AI Strategy (2024)',
     strategyDoc: 'AI Strategy commits Defence Team to become "AI-enabled by 2030" (March 2024); 32-page strategy document. <span class="sources">[<a href="https://www.canada.ca/en/department-national-defence/corporate/reports-publications/dnd-caf-artificial-intelligence-strategy.html" target="_blank">DND</a>]</span>'
@@ -1832,7 +1831,7 @@ render();
           const hasUS = d.usLabs && d.usLabs.length > 0;
           const hasCN = d.cnLabs && d.cnLabs.length > 0;
           const parts = [];
-          if (hasDef) parts.push(d.defAI.filter(x=>x!=='domestic').length + ' Defense AI Partner' + (d.defAI.filter(x=>x!=='domestic').length !== 1 ? 's' : ''));
+          if (hasDef) parts.push(d.defAI.filter(x=>x!=='domestic').length + ' Narrow AI Partner' + (d.defAI.filter(x=>x!=='domestic').length !== 1 ? 's' : ''));
           if (d.domesticAI) parts.push('Domestic Program');
           if (d.strategyDoc) parts.push('Has AI Strategy');
           if (!parts.length) parts.push('No Documented Activity');
@@ -1966,10 +1965,27 @@ render();
     }
     html += '</div>';
 
-    // Foreign Military AI Partners
+    // Foundation Model Military Partnerships
+    const fmLabs = d.milLabs || [];
+    const fmNames = {openai:'OpenAI',anthropic:'Anthropic',deepmind:'DeepMind',mistral:'Mistral',xai:'xAI',meta:'Meta/Llama'};
+    html += '<div class="map-detail-section">';
+    html += '<div class="map-detail-section-title">Foundation Model Military Partnerships</div>';
+    if (fmLabs.length) {
+      html += '<div class="map-detail-tags">' + fmLabs.map(l => tagHTML(l, fmNames)).join('') + '</div>';
+      fmLabs.forEach(co => {
+        if (d.companyDetails[co]) {
+          html += '<div class="map-detail-deal"><strong>' + (fmNames[co] || co) + ':</strong> ' + d.companyDetails[co] + '</div>';
+        }
+      });
+    } else {
+      html += '<div class="map-detail-nodeal">No documented foundation-model military partnership</div>';
+    }
+    html += '</div>';
+
+    // Narrow Military AI Partners
     const foreignDef = d.defAI.filter(x => x !== 'domestic');
     html += '<div class="map-detail-section">';
-    html += '<div class="map-detail-section-title">Foreign Military AI Partners</div>';
+    html += '<div class="map-detail-section-title">Narrow Military AI Partners</div>';
     if (foreignDef.length) {
       html += '<div class="map-detail-tags">' + foreignDef.map(l => tagHTML(l, defNames)).join('') + '</div>';
       foreignDef.forEach(co => {
@@ -1992,6 +2008,23 @@ render();
       }
     } else {
       html += '<div class="map-detail-nodeal">No confirmed program</div>';
+    }
+    html += '</div>';
+
+    // Government & Civil AI Engagement (non-military foundation-model / tech engagement)
+    const civil = [...(d.usLabs || []), ...(d.cnLabs || [])].filter(l => !(d.milLabs || []).includes(l));
+    const civilNames = Object.assign({}, usNames, cnNames, {meta:'Meta/Llama'});
+    html += '<div class="map-detail-section">';
+    html += '<div class="map-detail-section-title">Government &amp; Civil AI Engagement</div>';
+    if (civil.length) {
+      html += '<div class="map-detail-tags">' + civil.map(l => tagHTML(l, civilNames)).join('') + '</div>';
+      civil.forEach(co => {
+        if (d.companyDetails[co]) {
+          html += '<div class="map-detail-deal"><strong>' + (civilNames[co] || co) + ':</strong> ' + d.companyDetails[co] + '</div>';
+        }
+      });
+    } else {
+      html += '<div class="map-detail-nodeal">No documented civil/government AI engagement</div>';
     }
     html += '</div>';
 
