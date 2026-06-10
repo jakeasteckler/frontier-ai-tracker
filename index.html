@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Global Military AI Tracker</title>
-<meta name="description" content="Interactive tracker of military AI contracts, foundation-model defense partnerships, narrow military AI suppliers, and national military AI strategies across 66 countries.">
+<meta name="description" content="Interactive tracker of military AI contracts, foundation-model defense partnerships, narrow military AI suppliers, and national military AI strategies across 73 countries.">
 <meta property="og:title" content="Global Military AI Tracker">
-<meta property="og:description" content="Military AI contracts, foundation-model defense partnerships, and national military AI strategies across 66 countries.">
+<meta property="og:description" content="Military AI contracts, foundation-model defense partnerships, and national military AI strategies across 73 countries.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://frontier-ai-military-tracker.vercel.app/">
 <meta name="twitter:card" content="summary">
@@ -522,7 +522,7 @@
 <header>
   <div class="header-inner">
     <h1>Global Military AI Tracker</h1>
-    <p class="subtitle">Tracking military AI contracts, defense-relevant AI infrastructure, foundation-model defense partnerships, narrow military AI suppliers, and military AI strategies across 66 countries.</p>
+    <p class="subtitle">Tracking military AI contracts, defense-relevant AI infrastructure, foundation-model defense partnerships, narrow military AI suppliers, and military AI strategies across 73 countries.</p>
     <div class="header-meta">
       <span class="header-meta-item"><span class="dot" style="background:var(--yes)"></span> Last updated June 9, 2026</span>
     </div>
@@ -530,11 +530,11 @@
 </header>
 
 <div class="stats-bar">
-  <div class="stat"><span class="stat-num" id="statTotal">66</span><span class="stat-label">Countries Tracked</span></div>
+  <div class="stat"><span class="stat-num" id="statTotal">73</span><span class="stat-label">Countries Tracked</span></div>
   <div class="stat-divider"></div>
-  <div class="stat"><span class="stat-num" id="statDefAI">65</span><span class="stat-label">Countries with Documented Military AI Activity</span></div>
+  <div class="stat"><span class="stat-num" id="statDefAI">72</span><span class="stat-label">Countries with Documented Military AI Activity</span></div>
   <div class="stat-divider"></div>
-  <div class="stat"><span class="stat-num" id="statStrat">47</span><span class="stat-label">Countries with Military AI Strategy / Policy</span></div>
+  <div class="stat"><span class="stat-num" id="statStrat">54</span><span class="stat-label">Countries with Military AI Strategy / Policy</span></div>
 </div>
 
 <div class="map-section">
@@ -572,12 +572,12 @@
 
 <details class="methodology">
   <summary>Methodology &amp; Definitions</summary>
-  <p><strong>"Foundation Model Military Partnerships"</strong> = a foundation-model developer's technology &mdash; large general-purpose AI models (LLMs and multimodal models) trained on broad data and adaptable to many downstream tasks &mdash; is explicitly deployed to, contracted by, formally made available for, or plausibly positioned for use by a nation's military, defense ministry, intelligence services, or defense contractors for national-security purposes. Details note whether evidence is a contract, MOU, infrastructure project, or reported outreach.</p>
-  <p><strong>"Narrow Military AI Partners"</strong> = a documented contract, MOU, partnership, deployment, demonstration, or reported defense-relevant engagement with an external company supplying task-specific military AI &mdash; autonomous systems and drones, AI-powered targeting, counter-UAS, AI-enabled electronic warfare, ISR analytics, AI surveillance &mdash; plus enabling platforms and infrastructure (e.g., data/AI platforms and defense cloud). Unlike foundation models, these systems are purpose-built for defined military functions. General defense contracts without an explicit AI/autonomy component are excluded.</p>
-  <p><strong>"Domestic Military AI"</strong> = the country, military, or locally based force has a publicly documented indigenous military AI program &mdash; whether foundation-model-based (sovereign defense LLMs such as DefGPT or Gaia) or narrow (domestic drones, targeting, and C2 systems) &mdash; research center, domestically developed autonomous weapons system, or defense-relevant drone/autonomy activity where no external AI partner is identified. Drone-only cases are hedged in the details and should not be read as confirmed AI procurement unless the source says so.</p>
-  <p><strong>"AI Strategy / Policy"</strong> = an officially published government or military document, directive, formal statement, or institution that outlines or signals defense-relevant AI activity. Includes dedicated defense AI strategies, broader defense modernization plans mentioning AI/autonomy, national AI strategies with defense/security implications, and formal defense AI research hubs.</p>
-  <p><strong>Inclusion criteria:</strong> Countries in or near the top 50 by military expenditure (latest SIPRI data) OR top 50 by active troop size, plus countries with documented defense-AI activity or policy relevance, excluding the US and China.</p>
-  <p><strong>Data sources:</strong> Defense budget figures use SIPRI Military Expenditure Database current US$ values, primarily 2025 where available; recent-unavailable cases retain estimates or the latest suitable public figure. Active troop figures use IISS Military Balance active-duty personnel as the primary baseline, with Global Firepower used where IISS is unavailable. Deal information from official press releases, company announcements, defense journalism, and think tank research (2024&ndash;2026). *UAE: SIPRI&rsquo;s 2025 release publishes no UAE estimate; the figure shown is a prior-year estimate.</p>
+  <p><strong>"Foundation Model Military Partnerships"</strong> = a developer of foundation models (large general-purpose AI models, such as LLMs, adaptable to many tasks) has its technology deployed to, contracted by, or credibly positioned for use by a country's military, defense ministry, intelligence services, or defense contractors.</p>
+  <p><strong>"Narrow Military AI Partners"</strong> = external companies supplying task-specific military AI &mdash; autonomous systems, AI targeting, counter-UAS, electronic warfare, ISR &mdash; plus enabling platforms and infrastructure. Defense deals without an AI/autonomy component are excluded.</p>
+  <p><strong>"Domestic Military AI"</strong> = a publicly documented indigenous military AI program or defense-relevant drone/autonomy activity, whether foundation-model-based or narrow. Drone-only cases are hedged in the details.</p>
+  <p><strong>"AI Strategy / Policy"</strong> = an official government or military document, directive, or institution signaling defense-relevant AI activity, from dedicated defense AI strategies to national AI strategies with security implications.</p>
+  <p><strong>Inclusion criteria:</strong> countries in or near the top 50 by military expenditure or active troop size, all countries identified as middle powers in the academic literature, and any other country with documented defense-AI activity. The US and China are excluded.</p>
+  <p><strong>Data sources:</strong> SIPRI Military Expenditure Database (2025, current US$) for budgets; IISS Military Balance for troops (Global Firepower where unavailable); deals from official press releases, government announcements, defense journalism, and think-tank research (2024&ndash;2026). *UAE: SIPRI&rsquo;s 2025 release publishes no UAE estimate; the figure shown is a prior-year estimate.</p>
 </details>
 
 <div class="controls">
@@ -1543,6 +1543,112 @@ const DATA = [
     },
     strategyName: 'DAIRU Research Hub (2024)',
     strategyDoc: 'Defence AI Research Unit launched May 2024 at the Military Academy; defense AI institution/research hub rather than a strategy document. <span class="sources">[<a href="https://www.dcdt.gov.za/media-statements-releases/500-minister-gungubele-launches-the-4-th-hub-of-aiisa-the-defence-artificial-intelligence-research-unit-dairu.html" target="_blank">DCDT</a>] [<a href="https://www.military.africa/2024/05/south-african-military-academy-launches-ai-research-unit/?amp=1" target="_blank">Military Africa</a>]</span>'
+  },
+  {
+    country: "Switzerland", flag: "🇨🇭", region: "europe",
+    budget: "$7.6B", budgetNum: 7.6, troops: "19,600", troopsNum: 19600,
+    gov: false, mil: false,
+    usLabs: [], cnLabs: [],
+    defAI: ["elbit","rheinmetall","domestic"],
+    domesticAI: "armasuisse AISI",
+    companyDetails: {
+      elbit: 'Six Hermes 900 HFE reconnaissance drones (ADS 15 program, ~CHF 250M). Heavily delayed; Switzerland formally dropped the autonomous detect-and-avoid capability in Sept 2025, narrowing the AI component; all six due by end-2026. <span class="sources">[<a href="https://www.vtg.admin.ch/en/nsb?id=103815" target="_blank">Swiss Armed Forces</a>] [<a href="https://militarnyi.com/en/news/switzerland-decides-to-ease-requirements-for-israeli-drones-instead-of-abandoning-them/" target="_blank">Militarnyi</a>]</span>',
+      rheinmetall: 'Planned: Armed Forces Dispatch 2026 requests CHF 800M for eight Skyranger 30 counter-drone air-defense systems (deliveries ~2028&ndash;2030); not yet under contract. <span class="sources">[<a href="https://www.nzz.ch/schweiz/armeebotschaft-2026-der-bundesrat-will-moegliche-angriffe-aus-der-luft-mit-einem-schweizer-drohnenabwehrsystem-bekaempfen-ld.1930274" target="_blank">NZZ</a>]</span>',
+      domestic: 'armasuisse Competence Centre AI and Simulation (AISI) and the Cyber-Defence Campus (est. 2019) anchor defense AI research, including the NJ&Ouml;RD AI tool; the Swiss Drone and Robotics Centre runs autonomy programs; ~CHF 108M in counter&ndash;mini-drone framework agreements signed Oct 2025; the publicly funded sovereign LLM Apertus (ETH Zurich/EPFL, Sept 2025) underpins Swiss AI sovereignty. <span class="sources">[<a href="https://www.ar.admin.ch/en/armasuisse-science-and-technology" target="_blank">armasuisse</a>] [<a href="https://www.swissinfo.ch/eng/swiss-ai/switzerland-launches-transparent-chatgpt-alternative/89929269" target="_blank">SWI</a>]</span>'
+    },
+    strategyName: 'Armed Forces Strategy (2023)',
+    strategyDoc: 'Zielbild und Strategie (Aug 2023) names digitalisation, robotics, and AI as core capability levers; armasuisse launched a dedicated Taskforce Drones in 2025. <span class="sources">[<a href="https://www.vtg.admin.ch/de/zielbild-und-strategie-fur-die-armee-der-zukunft" target="_blank">Swiss Armed Forces</a>] [<a href="https://www.ar.admin.ch/en/taskforce-drones" target="_blank">armasuisse</a>]</span>'
+  },
+  {
+    country: "Ireland", flag: "🇮🇪", region: "europe",
+    budget: "$1.6B", budgetNum: 1.6, troops: "7,750", troopsNum: 7750,
+    gov: true, mil: false,
+    usLabs: ["openai"], cnLabs: [],
+    defAI: ["thales","domestic"],
+    domesticAI: "GUARD / C-UAS",
+    companyDetails: {
+      openai: 'OpenAI for Ireland (Nov 2025): partnership with the Irish Government, Dogpatch Labs and Patch; SME Booster with the Department of Enterprise from 2026. Civil-government engagement, not defense. <span class="sources">[<a href="https://openai.com/index/openai-for-ireland/" target="_blank">OpenAI</a>]</span>',
+      thales: 'Ireland is negotiating a ~&euro;500M government-to-government Military Radar Programme with France including counter-drone capability, with Thales widely expected as prime; preliminary business case approved Dec 2025, full delivery target 2028. Negotiation, not a signed contract. <span class="sources">[<a href="https://www.irishtimes.com/ireland/2025/12/16/ireland-to-buy-500m-military-radar-system-from-france/" target="_blank">Irish Times</a>] [<a href="https://thedefensepost.com/2025/12/18/ireland-radar-system-france/" target="_blank">Defense Post</a>]</span>',
+      domestic: 'GUARD project (Tyndall National Institute, &euro;7.6M): semi-autonomous long-endurance maritime drones with AI-based video analysis for EEZ surveillance, funded by the Defence Forces (reported May 2026). A &euro;19M counter-UAS battery was in final negotiations Dec 2025 (vendor undisclosed) for fielding by mid-2026. Ireland simultaneously campaigns for a binding treaty on lethal autonomous weapons. <span class="sources">[<a href="https://www.irishtimes.com/ireland/2026/05/16/robots-in-the-military-how-the-defence-forces-is-using-ai-to-cover-shortfalls-in-resources-and-personnel/" target="_blank">Irish Times</a>] [<a href="https://www.irishtimes.com/ireland/2025/12/10/new-19m-anti-drone-capability-to-be-available-to-defence-forces-for-eu-presidency/" target="_blank">Irish Times</a>]</span>'
+    },
+    strategyName: 'Defence Policy / LOA2 (2022)',
+    strategyDoc: 'Report of the Commission on the Defence Forces (2022) drives modernization to Level of Ambition 2 by 2028, with a record &euro;1.5B Budget 2026; the refreshed National AI Strategy (2024) covers public-sector AI. <span class="sources">[<a href="https://www.gov.ie/en/department-of-defence/news/budget-2026-record-15-billion-for-defence/" target="_blank">Gov.ie</a>]</span>'
+  },
+  {
+    country: "Hungary", flag: "🇭🇺", region: "europe",
+    budget: "$5.0B", budgetNum: 5, troops: "27,800", troopsNum: 27800,
+    gov: false, mil: false,
+    usLabs: [], cnLabs: [],
+    defAI: ["rheinmetall","edge","northrop","domestic"],
+    domesticAI: "VIKI / 4iG",
+    companyDetails: {
+      rheinmetall: 'Lynx KF41 production at Zalaegerszeg (&gt;&euro;2B, 218 vehicles; first Hungarian-built Lynx Dec 2023); the Rheinmetall&ndash;4iG&ndash;HM EI joint venture (2022) digitalises the Hungarian Defence Forces &mdash; C4ISTAR, digital combat systems, simulation &mdash; with AI and robotics flagged for future work. <span class="sources">[<a href="https://www.rheinmetall.com/en/media/news-watch/news/2022/2022-05-16_rheinmetall-4ig-and-hm-ei-to-set-up-a-joint-venture-in-hungary" target="_blank">Rheinmetall</a>]</span>',
+      edge: 'EDGE Group MoUs with 4iG Space &amp; Defence Technologies (2025) covering UAS, counter-UAS, space observation, and localisation of defense systems for European and African markets. <span class="sources">[<a href="https://edgegroupuae.com/news/edge-and-4ig-space-defence-technologies-strengthen-strategic-ties-autonomous-systems-and-space" target="_blank">EDGE</a>]</span>',
+      northrop: 'Agreement with 4iG (Dec 2025) to deepen counter-UAS, space, and advanced-weapons collaboration. <span class="sources">[<a href="https://news.northropgrumman.com/partnerships/Northrop-Grumman-and-4iG-Space-and-Technologies-to-Deepen-C-UAS,-Space-and-Advanced-Weapons-Collaboration" target="_blank">Northrop Grumman</a>]</span>',
+      domestic: 'VIKI Defence Innovation Research Institute (est. 2023) researches AI, autonomous systems, and XR for defense; state holding N7 consolidates the defense industry; 4iG SDT signed a strategic agreement with Israel&rsquo;s Aeronautics (Dec 2025), positioning Hungary as a European hub for UAS and loitering munitions. <span class="sources">[<a href="https://defenseinnovation.hu/en/homepage/" target="_blank">VIKI</a>] [<a href="https://www.4ig.hu/the-strategic-cooperation-agreement-with-aeronautics-opens-opportunities-for-the-defence-division-of-4ig-group" target="_blank">4iG</a>]</span>'
+    },
+    strategyName: 'Nat&rsquo;l AI Strategy (2020)',
+    strategyDoc: 'National AI Strategy 2020&ndash;2030; the Zr&iacute;nyi defense modernization programme increasingly emphasizes digital C2 and drone integration. <span class="sources">[<a href="https://ai-watch.ec.europa.eu/countries/hungary/hungary-ai-strategy-report_en" target="_blank">EC AI Watch</a>]</span>'
+  },
+  {
+    country: "Bulgaria", flag: "🇧🇬", region: "europe",
+    budget: "$2.6B", budgetNum: 2.6, troops: "30,000", troopsNum: 30000,
+    gov: true, mil: false,
+    usLabs: ["deepmind"], cnLabs: [],
+    defAI: ["domestic"],
+    domesticAI: "Samel-90 SAMJET",
+    companyDetails: {
+      deepmind: 'INSAIT (Sofia), backed by ~$100M in state funding, partners with Google/DeepMind and released BgGPT &mdash; the first national LLM in Central/Eastern Europe, built on Gemma 2 with DeepMind support. Civil-government engagement. <span class="sources">[<a href="https://deepmind.google/models/gemma/gemmaverse/insait/" target="_blank">DeepMind</a>] [<a href="https://www.bta.bg/en/news/economy/996427-google-provides-fresh-usd-1-mln-to-insait-institute" target="_blank">BTA</a>]</span>',
+      domestic: 'Samel-90 began serial production of the SAMJET loitering munition (~100 km range) in Aug 2024 and exports anti-drone jammers; the MoD is fielding drone simulators across army units (Nov 2025). Bulgaria plans to acquire 100+ Greek Centauros soft-kill counter-drone systems under the EU SAFE framework (announced Feb 2026, no contract yet) and opened UAV/counter-UAS co-production talks with Ukraine (Apr 2026). <span class="sources">[<a href="https://armyrecognition.com/news/army-news/army-news-2024/bulgarian-defense-company-samel-90-launches-full-production-of-its-samjet-kamikaze-drone" target="_blank">Army Recognition</a>] [<a href="https://thedefensepost.com/2026/02/17/bulgaria-greek-centauros-counter-drone/" target="_blank">Defense Post</a>]</span>'
+    },
+    strategyName: 'AI Concept 2030 / SAFE Plan',
+    strategyDoc: 'Concept for the Development of AI in Bulgaria until 2030 (2020); national SAFE defence plan adopted Nov 2025 (&euro;3.2B across nine projects including 3D radars and ground-based air defence). <span class="sources">[<a href="https://www.bta.bg/en/news/bulgaria/1139654-defence-minister-safe-plan-to-boost-bulgaria-s-military-industrial-capacity" target="_blank">BTA</a>]</span>'
+  },
+  {
+    country: "Kazakhstan", flag: "🇰🇿", region: "asia",
+    budget: "$1.3B", budgetNum: 1.3, troops: "39,000", troopsNum: 39000,
+    gov: true, mil: false,
+    usLabs: ["openai"], cnLabs: [],
+    defAI: ["baykar","casc","domestic"],
+    domesticAI: "Shagala-M / FPV",
+    companyDetails: {
+      openai: 'OpenAI Education for Countries memorandum (Nov 2025): 165,000 ChatGPT Edu licenses with Freedom Holding and Bilim Group; first Central Asian country in the program. Civil. <span class="sources">[<a href="https://astanatimes.com/2026/01/kazakhstan-joins-first-global-cohort-of-openai-edu-initiative/" target="_blank">Astana Times</a>]</span>',
+      baykar: 'Turkish Aerospace (TUSAS) Anka UAV assembly in Kazakhstan: 2022 MoU with Kazakhstan Engineering created the first Anka production line outside Turkey with technology transfer; a joint venture for production, maintenance, and operational support was signed May 2026. <span class="sources">[<a href="https://www.shephardmedia.com/news/air-warfare/kazakhstan-to-begin-assembly-of-turkish-anka-drones-in-2024/" target="_blank">Shephard</a>] [<a href="https://nordicmonitor.com/2026/05/turkey-expands-drone-footprint-in-central-asia-with-joint-production-deal/" target="_blank">Nordic Monitor</a>]</span>',
+      casc: 'Two Wing Loong I armed UAVs acquired from China (2017); current operational status unclear. <span class="sources">[<a href="https://thediplomat.com/2026/04/kazakhstan-is-slowly-integrating-uavs-into-its-armed-forces/" target="_blank">The Diplomat</a>]</span>',
+      domestic: 'Indigenous Shagala-M UAV passed final tests in 2023; domestic FPV drone manufacturing and repair capability by late 2025, with airborne-forces FPV training from Jan 2026; the 2024 rearmament plan prioritizes drones and air defense. <span class="sources">[<a href="https://thediplomat.com/2026/04/kazakhstan-is-slowly-integrating-uavs-into-its-armed-forces/" target="_blank">The Diplomat</a>]</span>'
+    },
+    strategyName: 'AI Law &amp; Ministry (2025)',
+    strategyDoc: 'Concept for AI Development 2024&ndash;2029 (July 2024); Ministry of Artificial Intelligence and Digital Development created Sept 2025; comprehensive Law on AI signed Nov 2025 (in force Jan 2026). National-level with security relevance; no defense-specific AI strategy. <span class="sources">[<a href="https://primeminister.kz/en/news/concept-for-artificial-intelligence-development-for-2024-2029-adopted-by-government-28786" target="_blank">PM of Kazakhstan</a>] [<a href="https://en.tengrinews.kz/news_overview/tokayev-signs-law-on-artificial-intelligence-270147/" target="_blank">Tengrinews</a>]</span>'
+  },
+  {
+    country: "Ethiopia", flag: "🇪🇹", region: "africa",
+    budget: "<$1B", budgetNum: 0.6, troops: "503,000", troopsNum: 503000,
+    gov: false, mil: false,
+    usLabs: [], cnLabs: [],
+    defAI: ["baykar","casc","domestic"],
+    domesticAI: "SkyWin / EAII",
+    companyDetails: {
+      baykar: 'Six Bayraktar TB2s delivered 2021 and used decisively in the Tigray war; the more autonomous Akinci was confirmed delivered in early 2024. <span class="sources">[<a href="https://turdef.com/article/ethiopia-s-akinci-ucav-was-spotted" target="_blank">TurDef</a>] [<a href="https://www.overtdefense.com/2024/05/28/a-bayraktar-tb2-belonging-to-the-ethiopian-air-force-crashes-or-was-shot-down-in-oromia/" target="_blank">Overt Defense</a>]</span>',
+      casc: 'At least three Chinese Wing Loong I armed UAVs delivered 2021 (imagery-confirmed); two Iranian Mohajer-6 delivered 2021 were reportedly later grounded. <span class="sources">[<a href="https://paxforpeace.nl/news/ethiopia-now-confirmed-to-fly-chinese-armed-drones/" target="_blank">PAX</a>] [<a href="https://ecfr.eu/publication/deadly-skies-drone-warfare-in-ethiopia-and-the-future-of-conflict-in-africa/" target="_blank">ECFR</a>]</span>',
+      domestic: 'State-owned SkyWin Aeronautics drone plant inaugurated March 2025, producing surveillance and strike drones with claimed AI integration plus counter-drone systems; a 2025 MoU links SkyWin, the Air Force, Defense Engineering Industry Group, and the Ethiopian AI Institute (EAII, est. 2020) for drone R&amp;D. Troop figure is the Global Firepower 2026 estimate. <span class="sources">[<a href="https://www.military.africa/2025/03/ethiopias-sky-wing-begins-large-scale-drone-manufacturing/" target="_blank">Military Africa</a>] [<a href="https://www.fanamc.com/english/leading-national-institutions-join-forces-to-advance-ethiopias-homegrown-drone-technology/" target="_blank">Fana</a>]</span>'
+    },
+    strategyName: 'Nat&rsquo;l AI Policy (2024)',
+    strategyDoc: 'National AI Policy approved by the Council of Ministers June 2024 (developed by EAII), explicitly citing national security; no separate defense AI strategy. <span class="sources">[<a href="https://ethiopianmonitor.com/2024/06/28/council-approves-ethiopias-first-artificial-intelligence-policy/" target="_blank">Ethiopian Monitor</a>]</span>'
+  },
+  {
+    country: "Kenya", flag: "🇰🇪", region: "africa",
+    budget: "$1.5B", budgetNum: 1.5, troops: "24,000", troopsNum: 24000,
+    gov: false, mil: false,
+    usLabs: [], cnLabs: ["huawei"],
+    defAI: ["baykar","domestic"],
+    domesticAI: "UAV production",
+    companyDetails: {
+      huawei: 'Nairobi Safe City with Safaricom: 1,800 HD cameras and AI-enabled urban surveillance serving 9,000+ police; Hikvision facial recognition also deployed in Nairobi CBD. Policing/security rather than military. <span class="sources">[<a href="https://www.codastory.com/authoritarian-tech/africa-surveillance-china-magnum/" target="_blank">Coda</a>] [<a href="https://epic.org/the-rise-of-chinese-surveillance-technology-in-africa-part-4-of-6/" target="_blank">EPIC</a>]</span>',
+      baykar: 'Six Bayraktar TB2s delivered Dec 2024 for counter&ndash;al-Shabaab ISR and strike; operators trained at Baykar&rsquo;s Ke&scedil;an center. <span class="sources">[<a href="https://www.military.africa/2024/12/kenya-receives-bayraktar-tb2-drones-from-turkey/" target="_blank">Military Africa</a>]</span>',
+      domestic: 'Kenya is among Africa&rsquo;s local military-drone producers, reportedly reverse-engineering the Israeli Aerostar UAV; Dutch experts ran a military data-analysis and AI applications course for Kenya Defence Forces officers (Nov 2025). <span class="sources">[<a href="https://mg.co.za/africa/2024-05-08-arms-race-made-in-africa-military-drones-on-the-rise/" target="_blank">Mail &amp; Guardian</a>] [<a href="https://thedefensepost.com/2025/11/20/ai-kenya-netherlands-course/" target="_blank">Defense Post</a>]</span>'
+    },
+    strategyName: 'Nat&rsquo;l AI Strategy 2025&ndash;2030',
+    strategyDoc: 'Kenya National AI Strategy 2025&ndash;2030 (March 2025, Ministry of ICT) names security among priority sectors; no defense-specific AI strategy. <span class="sources">[<a href="https://ict.go.ke/sites/default/files/2025-03/Kenya%20AI%20Strategy%202025%20-%202030.pdf" target="_blank">Gov. of Kenya</a>]</span>'
   }
 ];
 
